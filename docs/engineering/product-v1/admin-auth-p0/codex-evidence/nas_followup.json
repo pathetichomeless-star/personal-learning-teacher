@@ -1,0 +1,61 @@
+{
+  "container": "295eb64dc48c364de65cc4a5d163a60ec9aa1d936cf2909fafe53e2937b4c4bd",
+  "image": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+  "started": "2026-10-09T06:36:55.857693136Z",
+  "health": "healthy",
+  "restart_count": 0,
+  "/shared.js": {
+    "status": 404
+  },
+  "/app.js": {
+    "status": 200,
+    "content_type": "application/javascript; charset=utf-8"
+  },
+  "/styles.css": {
+    "status": 200,
+    "content_type": "text/css; charset=utf-8"
+  },
+  "pre_adminv2_files": [
+    "running_image_id.txt",
+    "docker-compose.yml",
+    ".env",
+    "policy_v20.json"
+  ],
+  "container_file_metadata": [
+    {
+      "path": "/app/config/config.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 299
+    },
+    {
+      "path": "/app/data",
+      "uid": 10001,
+      "gid": 10001,
+      "mode": "0o700",
+      "size": 4096
+    },
+    {
+      "path": "/app/data/policy.json",
+      "uid": 10001,
+      "gid": 0,
+      "mode": "0o600",
+      "size": 111759
+    },
+    {
+      "path": "/app/data/memory.json",
+      "uid": 10001,
+      "gid": 0,
+      "mode": "0o600",
+      "size": 67
+    },
+    {
+      "path": "/app/data/knowledge.json",
+      "uid": 10001,
+      "gid": 0,
+      "mode": "0o600",
+      "size": 67
+    }
+  ]
+}

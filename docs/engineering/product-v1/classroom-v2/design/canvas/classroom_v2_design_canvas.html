@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小智 AI 学生课堂 V2 — 画布设计稿 REV1B (Canvas Design Spec)</title>
+<style>
+/* ============================================================
+   设计令牌 (Design Tokens) —— 与 CLASSROOM_V2_UI_DESIGN.md 一一对应
+   浅色为默认主题；[data-theme="dark"] 为深色对照
+   REV1A 修复：.screen 显式设 color，杜绝深色下文字继承 body 的浅色主题 --text
+   ============================================================ */
+:root{
+  --bg:#F2F5FC; --surface:#FFFFFF; --surface-alt:#EEF2FB;
+  --border:#DCE3F2; --border-strong:#C4CFE6;
+  --text:#16203A; --text-2:#5A6B8C; --text-3:#93A1BD;
+  --primary:#2F6BFF; --primary-deep:#1E3FBF; --glow:#4EA8FF;
+  --accent:#6D5EF8; --success:#17A673; --warn:#D98317; --danger:#E5484D; --info:#3D7EFF;
+  --grad:linear-gradient(135deg,#2F6BFF,#6D5EF8);
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:22px;
+  --e1:0 1px 2px rgba(16,24,64,.05),0 1px 1px rgba(16,24,64,.04);
+  --e2:0 4px 12px rgba(16,24,64,.08);
+  --e3:0 12px 32px rgba(16,24,64,.16);
+  --font:-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+  --mono:"SF Mono",ui-monospace,monospace;
+}
+[data-theme="dark"]{
+  --bg:#0B1020; --surface:#121A2E; --surface-alt:#18223A;
+  --border:#26314E; --border-strong:#35446A;
+  --text:#EAF0FF; --text-2:#A8B6D6; --text-3:#6C7BA0;
+  --primary:#5B8CFF; --primary-deep:#3E6FE0; --glow:#6FB4FF; --accent:#8B7BFF;
+  --e1:none; --e2:none; --e3:0 12px 32px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E7ECF7;color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;padding:28px}
+h1{font-size:24px;font-weight:700;letter-spacing:-.02em}
+h2{font-size:16px;font-weight:600;margin:30px 0 12px}
+h3{font-size:13.5px;font-weight:650;margin:0 0 8px}
+.sub{color:#5A6B8C;font-size:13px;margin-top:6px}
+.wrap{max-width:1500px;margin:0 auto}
+.rev{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;
+  background:#16203A;color:#EAF0FF;border-radius:999px;padding:2px 9px;vertical-align:3px;margin-left:8px}
+
+/* 色板 */
+.tokens{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border:1px solid #D5DDEE;border-radius:10px;overflow:hidden;background:#fff}
+.sw .chip{height:46px}
+.sw .lbl{padding:7px 9px;font-size:11px;color:#3C4A66;font-family:var(--mono)}
+
+/* 画板 */
+.boards{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.board{background:#fff;border:1px solid #D5DDEE;border-radius:14px;box-shadow:0 6px 24px rgba(16,24,64,.10);overflow:hidden}
+.board>.cap{background:#F7F9FE;border-bottom:1px solid #E3E9F5;padding:9px 14px;font-size:12px;font-weight:600;color:#2B3A5C;display:flex;justify-content:space-between;gap:12px}
+.board>.cap span{color:#7E8CA8;font-weight:400;font-family:var(--mono);text-align:right}
+.screen{width:1360px;height:850px;background:var(--bg);color:var(--text);display:flex;flex-direction:column;overflow:hidden}
+.screen.compact{width:620px;height:620px}   /* tier1 · compact · 620–859 */
+.screen.mid{width:1000px;height:740px}
+
+/* 顶栏 */
+.topbar{height:62px;flex:0 0 62px;display:flex;align-items:center;gap:14px;padding:0 18px;
+  background:linear-gradient(135deg,#EEF3FF,#F6F3FF);border-bottom:1px solid var(--border)}
+.brand{font-weight:700;font-size:16px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px;color:var(--text)}
+.logo{width:26px;height:26px;border-radius:8px;background:var(--grad);box-shadow:0 2px 8px rgba(47,107,255,.35)}
+.pill{height:24px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:999px;font-size:12px;
+  background:rgba(23,166,115,.12);color:#0F7A54;border:1px solid rgba(23,166,115,.25)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--success)}
+.seg{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:3px;gap:2px}
+.seg b{font-weight:500;font-size:12.5px;padding:5px 13px;border-radius:6px;color:var(--text-2);cursor:pointer}
+.seg b.on{background:#E6EEFF;color:var(--primary);font-weight:600}
+.spacer{flex:1}
+.iconbtn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;color:var(--text-2);font-size:14px}
+
+/* 主体三栏 */
+.body{flex:1;display:flex;gap:12px;padding:12px;min-height:0}
+.col{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--e1);display:flex;flex-direction:column;overflow:hidden}
+.colhead{padding:12px 14px;border-bottom:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--text-2);
+  display:flex;align-items:center;justify-content:space-between;gap:8px}
+.colbody{padding:14px;overflow:hidden;flex:1}
+.teacher{width:260px;flex:0 0 260px}
+.course{flex:1;min-width:320px}
+.panel{width:340px;flex:0 0 340px}
+
+/* 老师卡片 */
+.tavatar{height:150px;border-radius:var(--r-lg);background:linear-gradient(160deg,#1B2450,#2A1B54);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.tavatar .glow{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(78,168,255,.55),transparent 70%)}
+.tavatar .face{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#4EA8FF,#8B7BFF);
+  display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;z-index:1;box-shadow:0 0 0 6px rgba(78,168,255,.18)}
+.tname{margin-top:11px;font-weight:600;font-size:14.5px;color:var(--text)}
+.tmeta{font-size:12px;color:var(--text-2);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 8px;border-radius:999px;margin-top:8px}
+.badge.speak{background:rgba(47,107,255,.12);color:#2450C8}
+
+/* 按钮 */
+.btn{height:36px;border-radius:var(--r-md);border:1px solid transparent;font-size:13px;font-weight:600;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
+.btn.pri{background:var(--grad);color:#fff;box-shadow:0 3px 12px rgba(47,107,255,.32)}
+.btn.sec{background:var(--surface);border-color:var(--border-strong);color:var(--text)}
+.btn.ghost{background:transparent;color:var(--text-2)}
+.btn.dis{opacity:.4;cursor:not-allowed;box-shadow:none}
+.btnrow{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.btnrow .btn{flex:1;min-width:0}
+
+/* 课件 */
+.slide{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--r-md);padding:20px}
+.kicker{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);font-weight:700}
+.word{font-size:40px;font-weight:700;letter-spacing:-.02em;margin-top:8px;color:var(--text)}
+.ipa{font-family:var(--mono);font-size:19px;color:var(--accent);margin-top:4px}
+.mean{font-size:15px;color:var(--text-2);margin-top:6px}
+.ex{margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-strong)}
+.ex .en{font-size:16px;font-weight:500;color:var(--text)}
+.ex .cn{font-size:13.5px;color:var(--text-2);margin-top:4px}
+.opts{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.opt{padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);
+  display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text)}
+.opt.ok{border-color:var(--success);background:rgba(23,166,115,.08)}
+.opt.ok .mk{color:var(--success);font-weight:700}
+.opt.no{border-color:var(--danger);background:rgba(229,72,77,.07)}
+.opt.no .mk{color:var(--danger);font-weight:700}
+.opt .mk{width:16px}
+
+/* 字幕/词表/笔记 */
+.tabs{display:flex;gap:4px;padding:8px 10px 0}
+.tabs b{font-size:12.5px;font-weight:500;color:var(--text-2);padding:6px 11px;border-radius:8px;cursor:pointer}
+.tabs b.on{background:#E6EEFF;color:var(--primary);font-weight:600}
+.line{padding:9px 0;border-bottom:1px dashed var(--border);font-size:13px;color:var(--text)}
+.line .who{font-size:11px;font-weight:700;letter-spacing:.04em}
+.line.t .who{color:var(--primary)} .line.s .who{color:var(--accent)}
+.bar{height:3px;border-radius:2px;background:var(--grad);margin:10px 14px 0}
+.vocabrow{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--border)}
+.vocabrow .w{font-weight:600} .vocabrow .p{font-family:var(--mono);font-size:12px;color:var(--accent)}
+
+/* 底栏 */
+.bottom{flex:0 0 76px;display:flex;align-items:center;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:var(--surface)}
+.mic{width:52px;height:52px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:20px;box-shadow:0 4px 14px rgba(47,107,255,.4)}
+.input{flex:1;height:40px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);
+  display:flex;align-items:center;padding:0 13px;color:var(--text-3);font-size:13px}
+
+/* 书库 */
+.toolbar{display:flex;gap:10px;align-items:center;padding:12px;border-bottom:1px solid var(--border)}
+.search{width:280px;height:36px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);
+  display:flex;align-items:center;padding:0 12px;color:var(--text-3);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding:16px;overflow:hidden}
+.book{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);box-shadow:var(--e1)}
+.cover{aspect-ratio:3/4;background:linear-gradient(150deg,#CFE0FF,#EBE7FF);display:flex;align-items:center;justify-content:center;font-size:30px}
+.book .t{padding:9px 10px;font-size:12.5px;font-weight:600;line-height:1.35;color:var(--text)}
+.book .m{padding:0 10px 10px;font-size:11px;color:var(--text-3)}
+.st{font-size:10px;padding:2px 7px;border-radius:999px;margin:0 10px 10px;display:inline-block}
+.st.done{background:rgba(23,166,115,.12);color:#0F7A54}
+.st.run{background:rgba(47,107,255,.12);color:#2450C8}
+.st.wait{background:rgba(217,131,23,.14);color:#9A5A0C}
+.st.kb{background:rgba(109,94,248,.12);color:#4B3FC4}
+
+/* 时间线 */
+.tl{padding:20px}
+.step{display:flex;gap:14px;padding:11px 0}
+.node{width:24px;height:24px;border-radius:50%;flex:0 0 24px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.node.ok{background:var(--success);color:#fff}
+.node.cur{background:var(--primary);color:#fff;box-shadow:0 0 0 5px rgba(47,107,255,.18)}
+.node.todo{border:2px solid var(--border-strong);color:var(--text-3)}
+.step .tx{font-size:13px;color:var(--text)} .step .tx small{display:block;color:var(--text-3);font-size:11.5px}
+
+/* 校对双栏 */
+.split{display:flex;gap:0;height:100%}
+.page{flex:1;padding:18px;border-right:1px solid var(--border);background:var(--surface-alt);overflow:hidden}
+.edit{width:420px;flex:0 0 420px;padding:18px;overflow:hidden}
+.diff{padding:7px 10px;border-radius:8px;font-size:12.5px;margin-bottom:7px;display:flex;gap:7px;align-items:flex-start;color:var(--text)}
+.diff.add{background:rgba(23,166,115,.10);border-left:3px solid var(--success)}
+.diff.mod{background:rgba(61,126,255,.10);border-left:3px solid var(--info)}
+.diff.miss{background:rgba(229,72,77,.09);border-left:3px solid var(--danger)}
+
+/* 向导 */
+.wiz{display:flex;gap:10px;padding:16px;border-bottom:1px solid var(--border)}
+.wstep{flex:1;height:4px;border-radius:2px;background:var(--border)}
+.wstep.on{background:var(--grad)}
+.form{padding:20px;display:flex;flex-direction:column;gap:14px}
+.field label{font-size:12px;font-weight:600;color:var(--text-2);display:block;margin-bottom:6px}
+.field input{width:100%;height:38px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);padding:0 12px;color:var(--text);font-size:13px}
+
+/* 六态 */
+.states{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:16px}
+.states.six{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);box-shadow:var(--e1);padding:16px;min-height:150px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+.card .ic{font-size:30px}
+.card .ti{font-size:14px;font-weight:600;color:var(--text)}
+.card .de{font-size:12px;color:var(--text-2);max-width:230px}
+.skel{width:100%;height:12px;border-radius:6px;background:linear-gradient(90deg,#E8EDF8 25%,#F3F6FD 37%,#E8EDF8 63%);background-size:400% 100%;animation:sh 1.4s ease infinite}
+@keyframes sh{0%{background-position:100% 0}100%{background-position:0 0}}
+
+/* 窄屏 */
+.narrowbody{flex:1;display:flex;flex-direction:column;gap:10px;padding:10px;min-height:0}
+.strip{display:flex;gap:8px;overflow:hidden}
+.tchip{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:12px;color:var(--text)}
+
+/* ===== REV1A 新增组件规范 ===== */
+/* 设计样例标记（指令 ⑥） */
+.mock{border-bottom:1px dashed rgba(109,94,248,.75);background:rgba(109,94,248,.08);border-radius:3px;padding:0 2px}
+.mchip{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:#4B3FC4;
+  background:rgba(109,94,248,.14);border:1px solid rgba(109,94,248,.35);border-radius:999px;padding:0 6px;margin-left:5px;vertical-align:2px}
+.mchip.warn{color:#9A5A0C;background:rgba(217,131,23,.14);border-color:rgba(217,131,23,.4)}
+
+/* 门禁横幅（指令 ①） */
+.gate{display:flex;gap:10px;align-items:flex-start;border-radius:var(--r-md);padding:11px 13px;font-size:12.5px;margin-top:12px}
+.gate.blk{background:rgba(229,72,77,.08);border:1px solid rgba(229,72,77,.35);color:#8E2327}
+.gate.ok{background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.32);color:#0F7A54}
+.gate.warn{background:rgba(217,131,23,.10);border:1px solid rgba(217,131,23,.35);color:#7A4A0B}
+.gate .gi{font-size:15px;line-height:1.2}
+
+/* 一般性风险提醒（指令 ⑧：不得声称已自动检测） */
+.risk{background:rgba(217,131,23,.10);border:1px solid rgba(217,131,23,.38);border-radius:var(--r-md);
+  padding:11px 13px;font-size:12.5px;color:#7A4A0B;display:flex;gap:10px;align-items:flex-start}
+
+/* 来源 / 数据链标注（指令 ⑦） */
+.prov{font-family:var(--mono);font-size:10.5px;color:var(--text-3);line-height:1.7;
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+.prov b{color:var(--text-2);font-weight:600}
+.prov .un{color:#9A5A0C;font-weight:700}
+
+/* 双链路关系图（指令 ②） */
+.chain{display:flex;gap:18px;padding:18px;align-items:stretch}
+.lane{flex:1;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);overflow:hidden;display:flex;flex-direction:column}
+.lane>.lh{padding:10px 14px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.lane.a>.lh{background:rgba(109,94,248,.10);color:#4B3FC4}
+.lane.b>.lh{background:rgba(47,107,255,.10);color:#2450C8}
+.lane>.lb{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.flowstep{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--text)}
+.flowstep .fn{flex:0 0 20px;height:20px;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;
+  background:var(--surface-alt);border:1px solid var(--border-strong);color:var(--text-2);font-weight:700}
+.arrow{text-align:center;color:var(--text-3);font-size:14px;line-height:1}
+.lane .art{margin-top:auto;font-size:11.5px;color:var(--text-2);background:var(--surface-alt);border:1px dashed var(--border-strong);
+  border-radius:8px;padding:9px 11px}
+.lane .art b{color:var(--text)}
+
+/* 深色画板 */
+[data-theme="dark"] .board{background:var(--bg);border-color:#26314E}
+[data-theme="dark"] .board>.cap{background:#0F1730;border-color:#26314E;color:#A8B6D6}
+[data-theme="dark"] .board>.cap span{color:#8E9DC0}
+[data-theme="dark"] .screen{background:var(--bg);color:var(--text)}
+[data-theme="dark"] .topbar{background:linear-gradient(135deg,#0B1020,#141033);border-color:var(--border)}
+[data-theme="dark"] .seg,[data-theme="dark"] .iconbtn,[data-theme="dark"] .col,[data-theme="dark"] .slide,
+[data-theme="dark"] .opt,[data-theme="dark"] .book,[data-theme="dark"] .card,[data-theme="dark"] .tchip,
+[data-theme="dark"] .bottom,[data-theme="dark"] .input,[data-theme="dark"] .search,[data-theme="dark"] .field input,
+[data-theme="dark"] .lane,[data-theme="dark"] .prov{
+  background:var(--surface);border-color:var(--border);color:var(--text)}
+[data-theme="dark"] .slide,[data-theme="dark"] .input,[data-theme="dark"] .search,[data-theme="dark"] .field input,
+[data-theme="dark"] .flowstep .fn,[data-theme="dark"] .lane .art{background:var(--surface-alt)}
+[data-theme="dark"] .seg b.on,[data-theme="dark"] .tabs b.on{background:rgba(91,140,255,.18);color:var(--primary)}
+[data-theme="dark"] .pill{background:rgba(53,196,139,.14);color:#35C48B;border-color:rgba(53,196,139,.3)}
+[data-theme="dark"] .bar{background:var(--grad)}
+[data-theme="dark"] .skel{background:linear-gradient(90deg,#1C2740 25%,#243050 37%,#1C2740 63%)}
+[data-theme="dark"] .cover{background:linear-gradient(150deg,#26356B,#332A63)}
+[data-theme="dark"] .gate.blk{background:rgba(229,72,77,.16);border-color:rgba(229,72,77,.5);color:#FFB3B5}
+[data-theme="dark"] .gate.ok{background:rgba(53,196,139,.14);border-color:rgba(53,196,139,.45);color:#7DE0B8}
+[data-theme="dark"] .gate.warn,[data-theme="dark"] .risk{background:rgba(240,169,59,.14);border-color:rgba(240,169,59,.45);color:#F3C77E}
+[data-theme="dark"] .diff{background:var(--surface-alt)}
+[data-theme="dark"] .mock{background:rgba(139,123,255,.16);border-color:rgba(139,123,255,.7)}
+[data-theme="dark"] .mchip{color:#B7AAFF;background:rgba(139,123,255,.2);border-color:rgba(139,123,255,.5)}
+[data-theme="dark"] .mchip.warn{color:#F3C77E;background:rgba(240,169,59,.18);border-color:rgba(240,169,59,.5)}
+[data-theme="dark"] .prov{color:#8E9DC0}
+
+.legend{font-size:12px;color:#5A6B8C;margin:8px 0 0}
+.note{background:#FFFBEF;border:1px solid #F0E0B0;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#6B5A26;margin-top:10px}
+.note.crit{background:#FFF5F5;border-color:#F2C4C6;color:#7E2126}
+.note b{font-weight:700}
+.spec{font-family:var(--mono);font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>小智 AI 学生课堂 V2 · 画布设计稿<span class="rev">REV1B</span></h1>
+  <p class="sub">Phase 1 视觉设计成果（<b>REV1B 修订版</b> · 含 CONTRACT_FIX_01A 文案/契约映射同步）· 浅色为默认主题 · 全部尺寸/色值可直接映射到 PySide6/QML 令牌 · 对应规范：<code>CLASSROOM_V2_UI_DESIGN.md</code> · 差异清单：<code>CLASSROOM_V2_REV1A_DIFF.md</code> / <code>CLASSROOM_V2_REV1B_DIFF.md</code> / <code>CLASSROOM_V2_CONTRACT_FIX_01A.md</code></p>
+
+  <div class="note">
+    <b>本画布为设计稿（mockup），非生产代码。</b> 目的：在设计阶段即锁定视觉系统、布局与状态，供产品负责人审定。
+    最终落地为 <code>client/src/classroom/qml/**</code> 的真实 QML 组件。演示课程按「本地演示样本」标注，用户自有教材为第一优先级。
+  </div>
+
+  <div class="note crit">
+    <b>REV1A/REV1B 两条硬规则（产品负责人裁定，全体强制性）：</b><br>
+    <b>① 设计样例 ≠ 真实状态。</b> 画布中所有人物、音色、字幕、连接/语音状态均为<b>视觉占位</b>，已用
+    <span class="mock">紫色虚线底</span> + <span class="mchip">设计样例</span> 显式标注。
+    正式 UI 中这些字段<b>必须</b>来自真实数据源（老师列表接口 / 语音会话事件 / 字幕事件），
+    <b>严禁</b>以硬编码假数据替代「老师在线 / 正在讲解 / 正在聆听」等真实连接状态。
+    <br>
+    <b>② 能力必须如实标注。</b> 导入页的支持格式列表<b>以 <code>GET /admin/knowledge/parsers</code> 的真实返回为准</b>。
+    <b>EPUB（文字型）已实现</b>（D2 完成：<code>.epub</code> 返回 <code>available=true</code>，<b>文字型，不含图片 OCR</b>）；
+    <b>书页图片 OCR 仍未实现</b>（<code>D3 = OCR_DEFERRED</code>）—— 未实现的<b>一律显示为"暂不支持"</b>，不得显示为已可用。
+    <b>若接口未返回或返回 <code>false</code>，界面必须显示"暂不支持"</b>（以接口为准，不以画布文案为准）。
+  </div>
+
+  <h2>1 · 设计系统令牌（Design Tokens）</h2>
+  <div class="tokens">
+    <div class="sw"><div class="chip" style="background:#F2F5FC"></div><div class="lbl">bg #F2F5FC</div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF"></div><div class="lbl">surface #FFFFFF</div></div>
+    <div class="sw"><div class="chip" style="background:#16203A"></div><div class="lbl">text #16203A</div></div>
+    <div class="sw"><div class="chip" style="background:#2F6BFF"></div><div class="lbl">primary #2F6BFF</div></div>
+    <div class="sw"><div class="chip" style="background:#6D5EF8"></div><div class="lbl">accent #6D5EF8</div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#2F6BFF,#6D5EF8)"></div><div class="lbl">brand gradient</div></div>
+    <div class="sw"><div class="chip" style="background:#17A673"></div><div class="lbl">success #17A673</div></div>
+    <div class="sw"><div class="chip" style="background:#D98317"></div><div class="lbl">warn #D98317</div></div>
+    <div class="sw"><div class="chip" style="background:#E5484D"></div><div class="lbl">danger #E5484D</div></div>
+    <div class="sw"><div class="chip" style="background:#0B1020"></div><div class="lbl">dark bg #0B1020</div></div>
+    <div class="sw"><div class="chip" style="background:#121A2E"></div><div class="lbl">dark surface #121A2E</div></div>
+    <div class="sw"><div class="chip" style="background:#5B8CFF"></div><div class="lbl">dark primary #5B8CFF</div></div>
+  </div>
+  <p class="legend">字号 Caption 12 / BodySm 13 / Body 15 / Title 19 / Headline 26 / Display 32 / Hero 40 ｜ 间距 8 网格：4·8·12·16·24·32·48 ｜ 圆角 6·10·16·22·999 ｜ 动效 100/150/220/320ms ｜ 深色用 tonal elevation（边框+内高光），不用阴影堆叠。</p>
+
+  <div class="note">
+    <b>REV1A 对比度修复（指令 ④）</b>：REV1 中深色画板的顶部标题「小智 AI 学生课堂」使用<b>继承色</b>，
+    而继承源是文档根上的浅色主题 <code>--text:#16203A</code>（深蓝黑），压在深色顶栏
+    <code>linear-gradient(#0B1020,#141033)</code> 上 → 实测对比度约 <b>1.1:1</b>，几乎不可读。<br>
+    <b>修复</b>：① <code>.screen</code> 显式声明 <code>color:var(--text)</code>，使主题变量在主题作用域内解析；
+    ② <code>.brand{color:var(--text)}</code> 与 <code>.word{color:var(--text)}</code> 显式设色，不再依赖继承；
+    ③ 深色顶栏标题实测对比度 <b>≥ 15:1</b>（#EAF0FF on #0B1020）。<b>QML 落地要求</b>：任何文本控件不得依赖父级隐式继承，
+    必须显式绑定 <code>theme.darkMode ? theme.textDark : theme.text</code>。
+  </div>
+
+  <h2>2 · 画板 A：学生课堂主界面（1360×850 · tier4 wide · 浅色）</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">课堂主界面 · tier4 wide 1360×850 <span>三栏：AI 老师 / 课件 / 字幕·词汇·笔记</span></div>
+      <div class="screen" data-theme="light">
+        <div class="topbar">
+          <div class="brand"><span class="logo"></span>小智 AI 学生课堂</div>
+          <span class="pill" title="设计样例"><span class="dot"></span>老师在线<span class="mchip">样例</span></span>
+          <div class="seg"><b class="on">课堂</b><b>我的书库</b><b>学习记录</b></div>
+          <div class="spacer"></div>
+          <div class="iconbtn">☾</div><div class="iconbtn">⛶</div><div class="iconbtn">⋯</div>
+        </div>
+        <div class="body">
+          <!-- 左：AI 老师 -->
+          <div class="col teacher">
+            <div class="colhead">AI 老师 <span style="font-weight:400;color:#7E8CA8;font-size:11px">来自老师列表接口</span></div>
+            <div class="colbody">
+              <div class="tavatar"><div class="glow"></div><div class="face">👩‍🏫</div></div>
+              <div class="tname"><span class="mock">Lily · 英语老师</span><span class="mchip">样例</span></div>
+              <div class="tmeta">教学语言 <span class="mock">English</span> · 音色 <span class="mock">Cherry</span></div>
+              <span class="badge speak"><span class="dot" style="background:#2F6BFF"></span><span class="mock">正在讲解</span><span class="mchip">样例</span></span>
+              <div class="btnrow"><div class="btn sec">更换老师</div></div>
+              <div class="btnrow"><div class="btn ghost" style="font-size:12px">隐藏数字人 ⤢</div></div>
+            </div>
+          </div>
+          <!-- 中：课件 -->
+          <div class="col course">
+            <div class="colhead">课件 · 第 1 课 办理入住 <span style="font-weight:400;color:#7E8CA8;font-size:11px">2 / 5</span></div>
+            <div class="colbody">
+              <div class="slide">
+                <div class="kicker">Vocabulary</div>
+                <div class="word">reservation</div>
+                <div class="ipa">/ˌrezəˈveɪʃn/</div>
+                <div class="mean">n. 预订</div>
+                <div class="ex"><div class="en">I have a reservation under the name Li.</div><div class="cn">我有一个以李为名的预订。</div></div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊 朗读</div><div class="btn sec">跟读</div><div class="btn pri">下一页 →</div></div>
+            </div>
+          </div>
+          <!-- 右：字幕/词汇/笔记 -->
+          <div class="col panel">
+            <div class="tabs"><b class="on">实时字幕</b><b>重点词汇</b><b>课堂笔记</b></div>
+            <div class="bar"></div>
+            <div class="colbody">
+              <div class="line t"><div class="who">老师</div>我们一起看这个词：reservation，表示"预订"。<span class="mchip">样例</span></div>
+              <div class="line s"><div class="who">学生</div>reservation… 是 re-ser-va-tion 吗？<span class="mchip">样例</span></div>
+              <div class="line t"><div class="who">老师</div>对！重音在第三个音节，/ˌrezəˈveɪʃn/。<span class="mchip">样例</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="mic">🎤</div>
+          <div class="input">按住说话，或直接输入文字…</div>
+          <div class="btn sec">结束学习</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 画板 G：老师选择 + 语音状态 -->
+    <div class="board">
+      <div class="cap">AI 老师选择 / 语音状态 <span>学生不接触 Token / URL / JSON · 状态须真实</span></div>
+      <div class="screen mid" data-theme="light">
+        <div class="topbar"><div class="brand"><span class="logo"></span>选择 AI 老师</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="col"><div class="colhead">老师 1<span class="mchip">样例</span></div><div class="colbody">
+            <div class="tavatar" style="height:120px"><div class="face">👩‍🏫</div></div>
+            <div class="tmeta"><span class="mock">音色 Cherry · en-GB</span></div>
+            <div class="btnrow"><div class="btn pri">✓ 已选择</div></div></div></div>
+          <div class="col"><div class="colhead">老师 2<span class="mchip">样例</span></div><div class="colbody">
+            <div class="tavatar" style="height:120px;background:linear-gradient(160deg,#123A33,#1B4A54)"><div class="face" style="background:linear-gradient(135deg,#35C48B,#4EA8FF)">👨‍🏫</div></div>
+            <div class="tmeta"><span class="mock">音色 Ethan · en-US</span></div>
+            <div class="btnrow"><div class="btn sec">选择</div></div></div></div>
+          <div class="col" style="grid-column:1/-1"><div class="colhead">语音状态 <span style="font-weight:400;font-size:11px;color:#7E8CA8">全部来自真实会话事件</span></div>
+            <div class="colbody" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <span class="pill"><span class="dot"></span>麦克风已授权<span class="mchip">样例</span></span>
+              <span class="badge speak">🎙 <span class="mock">正在聆听</span><span class="mchip">样例</span></span>
+              <span class="badge" style="background:rgba(217,131,23,.14);color:#9A5A0C">本地模拟（Mock）</span>
+              <span class="badge" style="background:rgba(229,72,77,.10);color:#B32B2F">真实在线：未授权</span>
+            </div>
+            <div class="gate warn" style="margin-top:10px">
+              <span class="gi">⚠️</span>
+              <div><b>实现约束：</b>上述四态必须由真实事件驱动。当连接未建立时，<b>不得</b>显示「老师在线」；
+              当 TTS 无音频时，<b>不得</b>显示「正在讲解」；当未取得麦克风权限时，<b>不得</b>显示「正在聆听」。
+              无数据时统一显示「状态未知」而不是沿用上一次的样例值。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>3 · 画板 A2（REV1A 新增）：两条链路的显式分离 · 导入知识库 ≠ 发布可学习课程</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">链路分离 · 产品负责人裁定（REV1A 指令 ②）<span>两个产物、两套状态机、两套失败恢复</span></div>
+    <div class="chain" data-theme="light">
+      <div class="lane a">
+        <div class="lh">链路 A · 导入教材 → 提交知识库 <span class="mchip">已实现 · 对接既有 API</span></div>
+        <div class="lb">
+          <div class="flowstep"><span class="fn">1</span><div>选择文件（PDF / DOCX / PPTX / TXT / MD / EPUB）</div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">2</span><div>上传 → <code class="spec">POST /admin/knowledge/import</code></div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">3</span><div>解析 + 预览 → <code class="spec">GET …/import/{job_id}</code></div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">4</span><div>人工确认 → <code class="spec">POST …/{job_id}/commit</code>（必须带 confirm）</div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">5</span><div>服务端回读磁盘 → <code class="spec">readback_ok=true</code> 才算成功</div></div>
+          <div class="art"><b>产物：</b>知识库文档（<code>doc_id</code> 形如 <code>doc_&lt;12hex&gt;</code> + 分块 + <b>内容哈希 <code>content_hash</code></b>）——<b>可检索的原文</b>，<b>尚不可学习</b>。<br>
+          <span class="un">实测：<code>content_hash</code> 为<b>裸 64 位 hex</b>（无 <code>sha256:</code> 前缀）—— 契约已按此放宽哈希正则（CONTRACT_FIX_01A 一.4）。</span><br>
+          <b>状态机：</b>uploaded → parsed → preview_ready → committed ／ cancelled ／ expired ／ failed<br>
+          <b>失败恢复：</b>cancel / retry；预览 TTL 30min 过期 → <code>job_expired</code>；内容重复 → <code>duplicate_content</code>（带 <code>existing_doc_id</code>）<br>
+          <b>幂等：</b><code>Idempotency-Key</code> 头，防重复提交产生重复文档</div>
+        </div>
+      </div>
+      <div class="lane b">
+        <div class="lh">链路 B · 生成课程草稿 → 人工校对 → 发布可学习课程 <span class="mchip warn">V2 新增</span></div>
+        <div class="lb">
+          <div class="flowstep"><span class="fn">1</span><div>结构锚点识别（章节 / 页 → outline）</div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">2</span><div>语义切分：course → lesson → slide（契约 v1 闭枚举）</div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">3</span><div><b>人工校对</b>（逐项确认 / 修正 / 标记待确认）· <b>本页无发布动作</b></div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">4</span><div><b>发布门禁校验</b>：<code class="spec">critical_unresolved_count == 0</code> 且来源文档有效<br><span class="un">关键项无豁免分支</span></div></div>
+          <div class="arrow">↓</div>
+          <div class="flowstep"><span class="fn">5</span><div><b>独立发布流程</b>（发布可学习课程页）→ 学生端可见「开始学习」</div></div>
+          <div class="art"><b>产物：</b>可学习课程（<b>正式 Schema：<code>classroom.course.bundle</code> v1</b>，权威 <code>course_schema.v1.json</code>）。<br>
+          信封级 <code>schema</code>/<code>version</code>；课程级 <code>course_id</code> / <code>revision</code> / <code>source</code> / <code>source_doc_id</code> / <code>source_doc_hash</code> / <code>source_file_sha256</code> / <code>lessons[]</code> ——<b>可上课</b>。<br>
+          <span class="un">来源字段唯一层级：<code>source</code> 与来源绑定<b>只在课程级</b>（文档级出现 = 违规）；<code>course_id</code> 取代历史 <code>id</code>。</span><br>
+          <b>依赖（REV1B R2）：</b>必须绑定链路 A 的 <code>source_doc_id</code> + 课程 <code>revision</code>；来源丢失/失效 → <b>禁止新发布</b>（已发布课程保持可读）。<br>
+          <b>状态机：</b>draft → proofreading → ready → published（<b>＋ 门禁态 blocked</b>）<br>
+          <b>失败恢复：</b>重新生成草稿（不覆盖已发布版本）/ 回滚到上一已发布 revision / 保留未发布草稿<br>
+          <b>幂等：</b><code>course_id + revision</code>；重复发布同一 revision 不产生副本</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:0 18px 18px">
+      <div class="gate blk">
+        <span class="gi">⛔</span>
+        <div><b>关键约束（指令 ① · REV1B R1/R2）：</b>链路 A 成功 <b>≠</b> 链路 B 可发布。
+        <b>只要校对页仍存在未解决的关键待确认项，就不得允许最终发布</b>——且<b>校对页本身不提供发布按钮</b>，只有「进入发布流程」导航（门禁不通过时该导航禁用并说明原因）。
+        <b>关键项不得通过简单勾选豁免</b>；门禁由<b>服务端</b>强制（绕过 UI 直接调用发布 API 同样被拒）。<br>
+        两条链路各自的失败<b>不得</b>互相吞掉：知识库提交失败不使课程草稿失效，反亦然；
+        但链路 B 的发布<b>依赖</b>链路 A 的 <code>source_doc_id</code> 仍在有效期——来源失效即禁止新发布。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>4 · 画板 B：我的书库（默认首页 · LIBRARY_DEFAULT_HOME = YES）</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">我的书库 · 空状态 <span>USER_TEXTBOOK_FIRST · 不自动指定内置课程</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>我的书库</div><div class="spacer"></div><div class="iconbtn">⋯</div></div>
+        <div class="toolbar"><div class="search">🔍 搜索书名 / 章节…</div><div class="spacer"></div><div class="btn pri" style="padding:0 16px">＋ 导入教材</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+          <div style="font-size:48px">📚</div>
+          <div style="font-size:15px;font-weight:600">书架还空着</div>
+          <div style="font-size:12.5px;color:#5A6B8C">导入你的第一本教材，AI 老师将围绕它开展教学</div>
+          <div class="btn pri" style="padding:0 18px;margin-top:6px">导入教材</div>
+          <div style="font-size:11.5px;color:#93A1BD;margin-top:4px">支持格式以解析能力接口实时返回为准</div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">我的书库 · 有内容 <span>两套徽章：知识库态（A）／课程态（B）</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>我的书库</div><div class="spacer"></div><div class="iconbtn">⋯</div></div>
+        <div class="toolbar"><div class="search">🔍 搜索书名 / 章节…</div><div class="spacer"></div><div class="btn pri" style="padding:0 16px">＋ 导入教材</div></div>
+        <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="book"><div class="cover">📘</div><div class="t">教材甲</div><div class="m">120 页 · 36 章</div>
+            <div style="padding:0 10px 10px;display:flex;gap:5px;flex-wrap:wrap">
+              <span class="st kb" style="margin:0">知识库：已提交</span><span class="st done" style="margin:0">课程：已发布</span></div></div>
+          <div class="book"><div class="cover">📗</div><div class="t">教材乙</div><div class="m">解析中 3/12 章</div>
+            <div style="padding:0 10px 10px;display:flex;gap:5px;flex-wrap:wrap">
+              <span class="st run" style="margin:0">知识库：解析中</span><span class="st wait" style="margin:0">课程：草稿</span></div></div>
+          <div class="book"><div class="cover">📙</div><div class="t">教材丙</div><div class="m">待人工确认 4 项</div>
+            <div style="padding:0 10px 10px;display:flex;gap:5px;flex-wrap:wrap">
+              <span class="st kb" style="margin:0">知识库：已提交</span><span class="st wait" style="margin:0">课程：待校对</span></div></div>
+          <div class="book"><div class="cover">📕</div><div class="t">教材丁</div><div class="m">未开始解析</div>
+            <div style="padding:0 10px 10px;display:flex;gap:5px;flex-wrap:wrap">
+              <span class="st wait" style="margin:0">知识库：待解析</span><span class="st wait" style="margin:0">课程：未创建</span></div></div>
+        </div>
+        <div style="padding:0 16px 14px">
+          <div class="gate warn"><span class="gi">ℹ️</span><div><b>两套状态必须分开显示。</b>「知识库已提交」只代表原文可检索，<b>不代表</b>已有可学习课程；
+          课程徽章未创建时，卡片主操作是「生成课程草稿」而非「开始学习」。书名为设计占位，正式 UI 取真实文件名/元数据。</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>5 · 画板 C：导入教材（支持格式以接口真实返回为准）</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">导入教材 · 步骤 1 选择文件 <span>格式清单 = GET /admin/knowledge/parsers 实时结果</span></div>
+      <div class="screen mid" data-theme="light" style="height:600px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>导入教材（提交知识库）</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="wiz"><span class="wstep on"></span><span class="wstep"></span><span class="wstep"></span></div>
+        <div class="body" style="display:block;padding:16px">
+          <div style="height:150px;border:2px dashed var(--border-strong);border-radius:var(--r-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--surface-alt)">
+            <div style="font-size:32px">⬆️</div>
+            <div style="font-weight:600;font-size:14px">把教材拖到这里，或点击选择文件</div>
+            <div style="font-size:12px;color:#5A6B8C">单文件 ≤ 20 MB · 可随时取消</div>
+          </div>
+
+          <h3 style="margin-top:16px">本机解析能力（实时读取 · 未就绪的能力如实标注）</h3>
+          <div class="prov">
+            <b>数据源：</b>GET /admin/knowledge/parsers → <code>{ext, source_type, parser, available, reason}</code><br>
+            <b>渲染规则：</b><code>available=true</code> → 可选中；<code>available=false</code> → 灰显并显示 <code>reason</code>；<b>未在返回列表中的格式一律视为不支持</b>。
+          </div>
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:7px">
+            <span class="st kb" style="margin:0">.txt ✓ 可用</span>
+            <span class="st kb" style="margin:0">.md ✓ 可用</span>
+            <span class="st kb" style="margin:0">.pdf ✓ 可用</span>
+            <span class="st kb" style="margin:0">.docx ✓ 可用</span>
+            <span class="st kb" style="margin:0">.pptx ✓ 可用</span>
+            <span class="st kb" style="margin:0">.epub ✓ 文字型（D2 已实现 · 41 项安全测试<b>开发自验</b>通过 · <b>独立 QA 待完成</b>）</span>
+            <span class="st wait" style="margin:0;opacity:.75">书页图片 / 扫描件 OCR ✗ 暂不支持（P1）</span>
+          </div>
+          <div class="gate warn" style="margin-top:10px">
+            <span class="gi">⚠️</span>
+            <div><b>渲染规则（不因 D2 完成而改变）：</b>格式清单<b>始终</b>以接口返回为准——<code>available=true</code> 才可选。
+            D2 已完成，故 EPUB 现在会由接口返回 <code>available=true</code>；<b>若接口未返回或返回 false，界面必须显示"暂不支持"</b>。
+            书页图片与扫描件 PDF 的 OCR 排在 P1，P0 阶段<b>不得</b>显示为已可用，也不得承诺"上传图片即可识别"。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">导入教材 · 步骤 2 队列与解析路径 <span>本机环回网关解析 · 不出本机</span></div>
+      <div class="screen mid" data-theme="light" style="height:600px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>导入教材（提交知识库）</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="wiz"><span class="wstep on"></span><span class="wstep on"></span><span class="wstep"></span></div>
+        <div class="body" style="display:block;padding:16px">
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface)">
+              <span>📄</span><span style="flex:1;font-size:13px"><span class="mock">textbook-a.pdf</span></span>
+              <span style="font-size:11.5px;color:#5A6B8C">12.4 MB</span><span class="st kb" style="margin:0">本机环回解析</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface)">
+              <span>📘</span><span style="flex:1;font-size:13px"><span class="mock">textbook-b.epub</span></span>
+              <span style="font-size:11.5px;color:#5A6B8C">3.1 MB</span><span class="st kb" style="margin:0">本机环回解析</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);opacity:.6">
+              <span>🖼️</span><span style="flex:1;font-size:13px">scan-chapter2.png（扫描页）</span>
+              <span class="st wait" style="margin:0">暂不支持 · 已跳过</span>
+            </div>
+          </div>
+          <div class="gate warn" style="margin-top:14px">
+            <span class="gi">🔒</span>
+            <div><b>解析位置（D1 = MAC_LOOPBACK_ISOLATED）：</b>解析由<b>本机环回网关</b>执行，
+            绑定 <code>127.0.0.1</code>，<b>教材内容不出本机</b>。<br>
+            <b>上云通道默认关闭</b>；若未来启用，必须二次确认 + 隐私说明 + 单独授权，且界面上明确标注"需上传云端"。</div>
+          </div>
+          <div class="btnrow"><div class="btn sec">取消</div><div class="btn pri">开始解析 →</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>6 · 画板 D：解析进度（A 段与 B 段显式分段）</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">解析进度 · 两段分离 <span>A 段 = 导入知识库（后端已实现）／ B 段 = 生成课程草稿（V2 新增）</span></div>
+    <div class="boards" style="padding:16px;gap:20px">
+      <div style="flex:1;min-width:420px">
+        <h3>片段 A · 导入知识库</h3>
+        <div class="screen mid" data-theme="light" style="height:470px;width:100%">
+          <div class="topbar"><div class="brand"><span class="logo"></span>A 段 · 提交知识库</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+          <div class="bar" style="margin:14px 18px 0"></div>
+          <div class="tl">
+            <div class="step"><div class="node ok">✓</div><div class="tx">上传文件<small>12.4 MB · Idempotency-Key 已生成本机</small></div></div>
+            <div class="step"><div class="node ok">✓</div><div class="tx">文本抽取<small>本机环回网关 · pdfminer.six · 118 页</small></div></div>
+            <div class="step"><div class="node cur">3</div><div class="tx">生成预览<small>预览有效期 30 分钟 · 过期需重传</small></div></div>
+            <div class="step"><div class="node todo">4</div><div class="tx">提交知识库（commit）<small>需人工确认 · 提交后服务端回读磁盘校验</small></div></div>
+          </div>
+          <div style="padding:0 20px 16px">
+            <div class="gate ok"><span class="gi">✓</span><div><b>产物：</b>知识库文档（可检索原文）。完成后卡片显示<b>「知识库：已提交」</b>，并解锁 B 段。</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:420px">
+        <h3>片段 B · 生成课程草稿</h3>
+        <div class="screen mid" data-theme="light" style="height:470px;width:100%">
+          <div class="topbar"><div class="brand"><span class="logo"></span>B 段 · 课程草稿</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+          <div class="bar" style="margin:14px 18px 0"></div>
+          <div class="tl">
+            <div class="step"><div class="node ok">✓</div><div class="tx">结构锚点识别<small>章节 / 页 → outline · 精度见校对页标注</small></div></div>
+            <div class="step"><div class="node cur">2</div><div class="tx">语义切分 course → lesson → slide<small>已切分 8 / 36 章</small></div></div>
+            <div class="step"><div class="node todo">3</div><div class="tx">词条 / 音标 / 例句抽取<small>规则抽取 · 未使用 AI 生成时标注「本地规则草稿」</small></div></div>
+            <div class="step"><div class="node todo">4</div><div class="tx">就绪 · 待人工校对<small>未校对前<b>不可发布</b></small></div></div>
+          </div>
+          <div style="padding:0 20px 16px">
+            <div class="gate warn"><span class="gi">⚠️</span><div><b>诚实标注：</b>课程草稿由<b>本地规则</b>产出时标注「本地规则草稿」；无真实生成能力时
+            标注「人工待确认」，<b>不得</b>伪装为 AI 已生成。</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>7 · 画板 E：教材校对（REV1B：无发布动作 · 只有校对操作 + 进入独立发布流程的导航）</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">教材校对 · 原页对照 <span>REV1B R7：来源/页码/章节/置信度<b>均为设计样例</b>；无法可靠映射时必须显示「待确认」 · REV1B R1：本页<b>不提供发布按钮</b></span></div>
+    <div class="screen mid" data-theme="light" style="height:620px;width:100%">
+      <div class="topbar">
+        <div class="brand"><span class="logo"></span>校对教材 · 第 3 章</div><div class="spacer"></div>
+        <span class="pill" style="background:rgba(217,131,23,.14);color:#9A5A0C;border-color:rgba(217,131,23,.3)"><span class="dot" style="background:#D98317"></span>4 项待确认</span>
+      </div>
+      <div class="split" style="height:calc(100% - 62px)">
+        <div class="page">
+          <!-- 真实数据链标注（指令 ⑦ · REV1B R7：以下全部为**设计样例**，非真实数据） -->
+          <div class="prov" style="margin-bottom:10px;position:relative;padding-top:14px">
+            <span class="mchip" style="position:absolute;top:4px;right:6px">设计样例</span>
+            <b>来源文件：</b>textbook-a.pdf · 12.4 MB <span class="mchip">设计样例</span><br>
+            <b>原文件 SHA-256（<code>source_file_sha256</code>）：</b><code>a1b2c3d4e5f6…</code>　<span class="un">← 上传原文件字节的哈希</span> <span class="mchip">设计样例</span><br>
+            <b>知识库内容哈希（<code>content_hash</code>）：</b><code>9c1f8a7b…</code>　<span class="un">← 对<b>抽取文本</b>的 SHA-256（裸 hex）</span> <span class="mchip">设计样例</span><br>
+            <b>知识库文档：</b><code>doc_7f3a91c2</code>（链路 A 产物 · 已提交） <span class="mchip">设计样例</span><br>
+            <span class="un">两个哈希<b>分栏、分别标注、不可互换</b>；无真实原文件哈希时必须显示「原文件哈希待确认」，<b>严禁用 <code>content_hash</code> 冒充</b>。</span><br>
+            <b>页码映射：</b><span class="mock">原书第 28 页 ← 抽取器页序 #28</span> <span class="mchip">设计样例</span><br>
+            <b>抽取器索引：</b><span class="mock">pdfminer 页索引 27（0-based）</span> <span class="mchip">设计样例</span><br>
+            <b>章节映射：</b><span class="mock">Unit 3 ← 结构锚点 <code>h1</code> 命中</span> <span class="mchip">设计样例</span><br>
+            <b>置信度：</b><span class="mock">中（未做字符级锚点）</span> <span class="mchip">设计样例</span><br>
+            <b>锚点方式：</b><span class="un">页级（未做逐页内容哈希 → 页内字符级锚点不可用）</span>
+          </div>
+
+          <!-- REV1B R7 对照：无可靠映射时的**正确**表现（正式数据链必须如此，不得用推断数字冒充） -->
+          <div class="prov" style="margin-bottom:12px;border-style:dashed">
+            <b>对照 · 正式数据链无可靠页码映射时的正确表现（REV1B R7）：</b><br>
+            <b>页码映射：</b><span class="un">页码待确认</span>（抽取器未提供可校验的页序依据）<br>
+            <b>章节映射：</b><span class="un">章节归属待确认</span>（无结构锚点命中）<br>
+            <b>置信度：</b><span class="un">不可评估</span><br>
+            <span class="un">规则：不具备可靠映射时一律显示「待确认」，禁止用推断数字（如"约第 28 页"）冒充精确来源。</span>
+          </div>
+          <div style="font-size:11px;color:#93A1BD;margin-bottom:8px">原书第 28 页 <span class="mchip">设计样例</span> · 预览为抽取文本回显（非扫描原图）</div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;font-size:13px;line-height:1.9;color:#16203A">
+            <b>Unit 3 · At the Restaurant</b><br>
+            — Good evening. A table for two, please.<br>
+            — Certainly. This way, please.<br>
+            <span style="background:rgba(47,107,255,.12)">reservation /ˌrezəˈveɪʃn/</span>
+          </div>
+          <!-- 指令 ⑧：不得声称自动检测 -->
+          <div class="risk" style="margin-top:12px">
+            <span style="font-size:15px">⚠️</span>
+            <div><b>一般性版面风险提醒</b>（非自动检测结果）：当教材为<b>多栏排版</b>时，文字抽取顺序可能与阅读顺序不一致，
+            词条边界可能不准确，请重点核对。<br>
+            <span class="un">说明：本提示为固定文案，当前<b>不具备</b>自动栏检测能力；
+            仅当后端返回真实检测信号时才允许显示针对性提示（如"检测到第 12 页为双栏"）。</span></div>
+          </div>
+        </div>
+        <div class="edit">
+          <div class="diff add"><b>＋</b><div>新增词汇：<b>certainly</b> /ˈsɜːtnli/ 当然</div></div>
+          <div class="diff mod"><b>~</b><div>修正音标：<b>reservation</b> /ˌrezəˈveɪʃn/（UK）</div></div>
+          <div class="diff miss"><b>!</b><div>第 29 页练习 <b>答案缺失</b> → 标记「需人工确认」<span class="mchip warn">关键</span></div></div>
+          <div class="diff miss"><b>!</b><div>章节映射置信度中 → 阈值待确认 <span class="mchip warn">关键</span></div></div>
+          <div class="btnrow"><div class="btn sec">重新解析</div><div class="btn pri">确认本页校对</div></div>
+
+          <!-- 指令 ① · REV1B R1：本页**无任何发布动作**，只有校对操作 + 进入独立发布流程的导航 -->
+          <div class="gate blk">
+            <span class="gi">⛔</span>
+            <div><b>进入发布流程的门禁：已阻断</b><br>
+              仍有 <b>2 项关键待确认</b>（第 29 页答案缺失、章节映射置信度中）。<br>
+              <b>本页不提供「发布」动作</b>——「进入发布流程」导航进入禁用态并给出原因。
+              <b>关键项不可勾选豁免</b>，必须逐项解决（可接受的非关键缺失另见画板 F）。</div>
+          </div>
+          <div class="btnrow"><div class="btn dis" style="flex:1">进入发布流程 →</div></div>
+          <div style="font-size:11px;color:#93A1BD;margin-top:6px">导航禁用原因：有 2 项关键待确认项未解决（<b>不可勾选豁免</b>）</div>
+
+          <div class="gate warn" style="margin-top:12px">
+            <span class="gi">ℹ️</span>
+            <div><b>校对 ≠ 发布（REV1B R1）。</b>本页只产出「校对完成」结论（链路 B 的 <code>proofreading → ready</code>）
+            与<b>导航到独立发布流程</b>；<b>发布动作本身不在本页</b>，在「发布可学习课程」页完成（见画板 F）。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>8 · 画板 F：发布可学习课程（独立链路 B 终点 · 绑定来源 doc_id + revision）</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">发布可学习课程 · 4 步向导 <span>链路 B 终点 · 与「提交知识库」完全分离 · REV1B R2：发布必须绑定 <code>source_doc_id</code> + <code>revision</code></span></div>
+      <div class="screen mid" data-theme="light" style="height:600px;position:relative">
+        <span class="mchip" style="position:absolute;top:8px;right:44px;z-index:3">设计样例</span>
+        <div class="topbar"><div class="brand"><span class="logo"></span>发布可学习课程</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="wiz"><span class="wstep on"></span><span class="wstep on"></span><span class="wstep on"></span><span class="wstep on"></span></div>
+        <div class="form">
+          <div class="field"><label>课程名称</label><input value="教材甲 · Unit 1–36"></div>
+          <div class="field"><label>学科</label><input value="英语 English"></div>
+          <div class="field"><label>来源文档（只读 · 依赖校验）</label><input value="知识库文档 doc_7f3a91c2 · 内容哈希 9c1f8a7b…（裸hex）· 原文件 SHA-256 a1b2c3d4… · textbook-a.pdf · 第 1–36 章" readonly></div>
+          <div style="display:flex;gap:12px;align-items:center;background:var(--surface-alt);border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="width:56px;height:74px;border-radius:8px;background:linear-gradient(150deg,#CFE0FF,#EBE7FF);display:flex;align-items:center;justify-content:center;font-size:22px">📘</div>
+            <div style="font-size:12.5px;color:#5A6B8C">封面 · 可选 · 未提供时使用来源徽章占位（不伪造封面）</div>
+          </div>
+          <div class="gate ok"><span class="gi">✓</span><div><b>门禁已通过：</b>关键待确认项 0 项；来源文档 <code>doc_7f3a91c2</code> <b>存在且 content_hash 一致</b>（未删除、内容未漂移）；知识库回读校验通过。</div></div>
+          <div class="btnrow"><div class="btn sec">上一步</div><div class="btn pri">发布并开始学习</div></div>
+          <div style="font-size:11px;color:#93A1BD;margin-top:6px">发布幂等键：<code class="spec">course_id + revision</code> · 重复发布同一 revision 不产生副本</div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">发布门禁 · 三种状态的对照 <span>REV1A 指令 ① + REV1B R1/R2（全部为设计样例）</span></div>
+      <div class="screen mid" data-theme="light" style="height:600px;position:relative">
+        <span class="mchip" style="position:absolute;top:8px;right:10px;z-index:3">设计样例</span>
+        <div class="topbar"><div class="brand"><span class="logo"></span>发布门禁状态</div><div class="spacer"></div></div>
+        <div style="padding:18px;display:flex;flex-direction:column;gap:16px;overflow:auto;height:calc(100% - 56px)">
+          <div>
+            <h3>状态 1 · 存在未解决关键项 → 阻断</h3>
+            <div class="gate blk"><span class="gi">⛔</span><div>
+              仍有 <b>2 项关键待确认</b>：<br>· 第 29 页练习答案缺失<br>· 章节映射置信度中（低于阈值）<br><br>
+              <b>主按钮：</b><span class="spec">禁用态（opacity .4 + 原因提示）</span><br>
+              <b>关键项无豁免入口</b>：只能「返回校对」逐项解决；次操作：「导出仅含已确认部分的草稿（<b>不发布</b>）」
+            </div></div>
+            <div class="btnrow"><div class="btn dis">发布可学习课程</div><div class="btn sec">返回校对</div></div>
+            <div style="font-size:11px;color:#93A1BD;margin-top:6px">禁用原因提示：有 2 项关键待确认项未解决（<b>不可勾选豁免</b>）</div>
+          </div>
+          <div>
+            <h3>状态 2 · 关键项全部解决 → 放行</h3>
+            <div class="gate ok"><span class="gi">✓</span><div>
+              关键待确认项 <b>0</b> 项；已确认 <b>36/36</b> 章；来源文档 <code>doc_7f3a91c2</code> 存在且 <code>content_hash</code> 一致；知识库回读校验通过。<br>
+              <b>主按钮：</b><span class="spec">启用</span>
+            </div></div>
+            <div class="btnrow"><div class="btn pri">发布并开始学习</div></div>
+          </div>
+          <div>
+            <h3>状态 3 · 来源文档已失效（REV1B R2）→ 禁止<b>新发布</b></h3>
+            <div class="gate blk"><span class="gi">⛔</span><div>
+              来源知识库文档 <code>doc_7f3a91c2</code> <b>已被删除 / 回读失败 / content_hash 与发布时冻结值不一致</b>。<br>
+              <b>禁止发起新的发布</b>；已发布课程<b>保持可读</b>（不删除、不下架既有内容）。<br>
+              引导：「重新导入来源教材」或「选择其他有效来源」。
+            </div></div>
+            <div class="btnrow"><div class="btn dis">发布可学习课程</div><div class="btn sec">重新导入来源</div></div>
+            <div style="font-size:11px;color:#93A1BD;margin-top:6px">来源依赖校验：<code class="spec">source_doc_id</code> 必须存在且 <code>content_hash == source_doc_hash</code>；悬空/漂移 → 服务端 <code>source_doc_missing</code> / <code>source_content_drift</code> 拒绝</div>
+          </div>
+          <div class="risk">
+            <span style="font-size:15px">⚠️</span>
+            <div><b>豁免边界（REV1B R1）：</b><b>关键未解决项不得通过简单勾选豁免</b>——必须回到校对页逐项解决。
+            门禁公式 <code class="spec">publish_allowed == (critical_unresolved_count == 0)</code> <b>不含</b>「接受即通过」分支；
+            校验在<b>服务端</b>执行，绕过 UI 直接调用发布 API 同样被拒（见 §8.3）。<br>
+            <b>仅「可接受的非关键缺失」</b>允许带缺失发布，且须<b>逐项记录</b>：<b>原因</b>（为何可接受）、
+            <b>范围</b>（影响哪些课时/页）、<b>历史</b>（谁在何时判定，可追溯），并在课程内对应位置<b>持续显示</b>「已知缺失」标记。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>9 · 画板 I：窄屏 compact（tier1 · 620–859）+ 深色对照</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">课堂 · tier1 compact 620×620 <span>mode=compact · 老师条 96px · 右栏折叠为抽屉 · 课件优先</span></div>
+      <div class="screen compact" data-theme="light">
+        <div class="topbar" style="height:56px;flex-basis:56px;padding:0 12px">
+          <div class="brand" style="font-size:14px"><span class="logo" style="width:22px;height:22px"></span>小智课堂</div>
+          <div class="spacer"></div><div class="iconbtn">☰</div><div class="iconbtn">⋯</div>
+        </div>
+        <div class="narrowbody">
+          <div class="strip">
+            <div class="tchip"><span style="font-size:16px">👩‍🏫</span><span class="mock">老师 · 讲解中</span></div>
+            <div class="tchip">💬 字幕</div>
+            <div class="tchip">📖 词汇</div>
+            <div class="tchip">📝 笔记</div>
+          </div>
+          <div class="col" style="flex:1">
+            <div class="colhead">第 1 课 · 办理入住 <span style="font-weight:400;font-size:11px;color:#7E8CA8">2/5</span></div>
+            <div class="colbody">
+              <div class="slide" style="padding:16px">
+                <div class="kicker">Vocabulary</div>
+                <div class="word" style="font-size:30px;word-break:break-word">internationalization</div>
+                <div class="ipa" style="font-size:15px;word-break:break-all">/ˌɪntəˌnæʃnəlaɪˈzeɪʃn/</div>
+                <div class="mean">n. 国际化</div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊</div><div class="btn sec">跟读</div><div class="btn pri">下一页</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom" style="flex-basis:64px">
+          <div class="mic" style="width:44px;height:44px;font-size:17px">🎤</div>
+          <div class="input">输入文字…</div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">深色模式对照 · 同一课堂 <span>tonal elevation · 文字对比度 ≥4.5:1（REV1A 已修复标题对比度）</span></div>
+      <div class="screen mid" data-theme="dark" style="height:560px">
+        <div class="topbar">
+          <div class="brand"><span class="logo"></span>小智 AI 学生课堂</div>
+          <span class="pill" title="设计样例"><span class="dot"></span>老师在线<span class="mchip">样例</span></span>
+          <div class="spacer"></div><div class="iconbtn">☀</div><div class="iconbtn">⛶</div>
+        </div>
+        <div class="body">
+          <div class="col teacher" style="width:200px;flex-basis:200px">
+            <div class="colhead">AI 老师</div>
+            <div class="colbody">
+              <div class="tavatar" style="height:110px"><div class="face">👩‍🏫</div></div>
+              <div class="tname"><span class="mock">Lily · 英语老师</span></div>
+              <span class="badge speak"><span class="mock">正在讲解</span></span>
+            </div>
+          </div>
+          <div class="col course">
+            <div class="colhead">课件 · 第 1 课</div>
+            <div class="colbody">
+              <div class="slide">
+                <div class="kicker">Vocabulary</div>
+                <div class="word">reservation</div>
+                <div class="ipa">/ˌrezəˈveɪʃn/</div>
+                <div class="mean">n. 预订</div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊 朗读</div><div class="btn pri">下一页 →</div></div>
+            </div>
+          </div>
+          <div class="col panel" style="width:240px;flex-basis:240px">
+            <div class="tabs"><b class="on">实时字幕</b><b>词汇</b></div>
+            <div class="bar"></div>
+            <div class="colbody"><div class="line t"><div class="who">老师</div>reservation 表示"预订"。<span class="mchip">样例</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>10 · 画板 K：六类界面状态 + 网络四态</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">六类状态 · 正常 / 加载 / 空数据 / 离线 / 错误 / 禁用 <span>状态不靠颜色单独传达</span></div>
+    <div class="states" data-theme="light">
+      <div class="card"><div class="ic">✅</div><div class="ti">正常</div><div class="de">标准令牌；内容与操作完整可用</div></div>
+      <div class="card"><div class="skel"></div><div class="skel" style="width:70%"></div><div class="skel" style="width:85%"></div><div class="ti" style="margin-top:6px">加载</div><div class="de">骨架屏（≤300ms 不显示）；长任务用顶部渐变进度条</div></div>
+      <div class="card"><div class="ic">📚</div><div class="ti">空数据</div><div class="de">图标 + 说明 + 单个主操作（「导入第一本教材」）</div></div>
+      <div class="card"><div class="ic" style="color:#D98317">☁️</div><div class="ti">离线</div><div class="de">顶部横幅「离线，可继续阅读本地教材」；网络操作禁用并说明原因</div></div>
+      <div class="card"><div class="ic" style="color:#E5484D">⚠️</div><div class="ti">错误</div><div class="de">内联错误卡（不整页崩）+ 原因 + 「重试」；图标 + 文字，不只靠色</div></div>
+      <div class="card"><div class="btn pri dis" style="width:70%">下一页</div><div class="ti">禁用</div><div class="de">opacity .4 + 必须提示原因（如「未开始学习」「存在待确认项」）</div></div>
+    </div>
+    <div style="padding:0 16px 18px">
+      <div class="cap" style="border:0;background:transparent;padding:6px 0;font-weight:700;color:#2B3A5C">网络四态（REV1A 新增 · V2 客户端首次具备网络能力，须与「离线」区分）</div>
+      <div class="states six" data-theme="light" style="padding:0">
+        <div class="card"><div class="ic">🔌</div><div class="ti">未连接</div><div class="de">本地环回网关未就绪；本地阅读不受影响，网络动作显示原因</div></div>
+        <div class="card"><div class="ic">⏳</div><div class="ti">连接中</div><div class="de">骨架/脉冲；超过 3s 显示「仍在连接…」+ 取消</div></div>
+        <div class="card"><div class="ic" style="color:#D98317">↻</div><div class="ti">失败可重试</div><div class="de">内联错误卡 + 明确原因 + 「重试」；不整页崩</div></div>
+        <div class="card"><div class="ic" style="color:#93A1BD">☁️</div><div class="ti">离线</div><div class="de">系统无网络；<b>与"未连接"区分</b>——离线仍可读本地已发布课程</div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>11 · REV1A/REV1B/01A 设计样例声明与实现约束</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">设计样例清单（禁止以样例值替代真实状态）<span>REV1A 指令 ⑥</span></div>
+    <div style="padding:18px" data-theme="light">
+      <div class="prov" style="font-size:12px;line-height:1.9">
+        <b>本画布中的以下内容均为视觉占位（设计样例），实现时必须替换为真实数据源：</b><br>
+        · <b>老师姓名 / 学科 / 教学语言 / 音色</b> → 来自 <code>GET /xiaozhi/v1/teacher/list</code>（真实老师列表）<br>
+        · <b>连接状态（老师在线 / 未连接）</b> → 来自真实 WebSocket 会话状态<br>
+        · <b>语音状态（正在聆听 / 正在讲解 / 待启动）</b> → 来自真实音频会话事件<br>
+        · <b>实时字幕内容</b> → 来自真实字幕事件流；<b>无事件时显示空态</b>，不得预填示例句子<br>
+        · <b>数字人口型</b> → 无真实 TTS 音频时口型必须恒为 0，并明示「未同步」<br>
+        · <b>教材文件名 / 页数 / 章节数 / 封面</b> → 来自真实知识库文档与课程元数据<br>
+        · <b>课程与课件正文</b> → 来自用户教材解析产物；无用户教材时<b>不得</b>以内置演示课程冒充正式内容（演示样本须显式标注 <code>local-demo</code>）<br>
+        · <b>待确认项数量 / 校对进度</b> → 来自真实校对状态，不得写死
+      </div>
+      <div class="gate blk" style="margin-top:14px">
+        <span class="gi">⛔</span>
+        <div><b>硬性验收点：</b>在无真实连接的情况下，正式 UI 必须显示「未连接 / 状态未知」，
+        <b>不允许</b>回退显示画布中的样例值（如「老师在线」「正在讲解」）。
+        QA 必须以「断开全部后端」为用例，逐一核验上述字段不出现假数据。</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="legend" style="margin-top:24px">画布位置：<code>docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas.html</code>（<b>REV1B</b> · 历史版归档 <code>..._REV1.html</code>）｜ 落地规范：<code>CLASSROOM_V2_UI_DESIGN.md</code> ｜ 差异清单：<code>CLASSROOM_V2_REV1A_DIFF.md</code> / <code>CLASSROOM_V2_REV1B_DIFF.md</code> ｜ 契约补正：<code>CLASSROOM_V2_CONTRACT_FIX_01A.md</code></p>
+</div>
+</body>
+</html>

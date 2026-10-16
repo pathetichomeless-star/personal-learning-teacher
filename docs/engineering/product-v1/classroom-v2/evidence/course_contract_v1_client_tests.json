@@ -1,0 +1,174 @@
+{
+  "artifact": "course_contract_v1_client_tests",
+  "scope": "PHASE2 CONTRACT FIX 01 · 修正②/③ + C5（客户端侧行为）",
+  "demo_bundle": "client/src/classroom/data/courses.json",
+  "schema_version": 1,
+  "results": [
+    {
+      "case_id": "K01",
+      "name": "随包 courses.json 是合法契约 v1（零违规）",
+      "passed": true,
+      "observed": "[]",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 88
+    },
+    {
+      "case_id": "K02",
+      "name": "文档级不含 source（来源已下沉到 course）",
+      "passed": true,
+      "observed": "['courses', 'label', 'notice', 'schema', 'version']",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 90
+    },
+    {
+      "case_id": "K03",
+      "name": "每个 course 的本地演示来源绑定字段全为 null（不得伪造知识库来源）",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 92
+    },
+    {
+      "case_id": "K04",
+      "name": "随包数据可被客户端正常载入（无错误、课程数>0）",
+      "passed": true,
+      "observed": "('', 3)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 96
+    },
+    {
+      "case_id": "K05",
+      "name": "未知 slide.type → 错误态 + 零课程（不静默跳过）",
+      "passed": true,
+      "observed": "(\"课程数据不符合契约 v1：$.courses[0].lessons[0].slides[0].type: 未知内容类型 'quiz'（闭枚举 cover|practice|sentence|summary|vocab）—— 不得静默跳过\", 0)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 104
+    },
+    {
+      "case_id": "K06",
+      "name": "未知 version → 错误态 + 零课程（fail-closed，不静默）",
+      "passed": true,
+      "observed": "('课程数据不符合契约 v1：$.version: 未知/缺失版本 2（本客户端/服务端支持 const 1）—— fail-closed，不得静默', 0)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 108
+    },
+    {
+      "case_id": "K07",
+      "name": "文档级 source（历史遗留）→ 错误态 + 零课程",
+      "passed": true,
+      "observed": "(\"课程数据不符合契约 v1：$: 未知字段 ['source']（v1 封版，未知字段一律拒绝）\", 0)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 112
+    },
+    {
+      "case_id": "K08",
+      "name": "local-demo 伪造知识库来源 → 错误态 + 零课程",
+      "passed": true,
+      "observed": "(\"课程数据不符合契约 v1：$.courses[0].source_doc_id: source=local-demo 时必须为 null（不得伪造知识库来源），得到 'doc_deadbeef'\", 0)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 119
+    },
+    {
+      "case_id": "K09",
+      "name": "载入 answer=null 的练习（无错误）",
+      "passed": true,
+      "observed": "('', True)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 127
+    },
+    {
+      "case_id": "K10",
+      "name": "answer=null 被标记为「答案待人工确认」（answerUnknown=True）",
+      "passed": true,
+      "observed": "{'question': '选出正确答案', 'options': ['A', 'B', 'C'], 'answer': -1, 'answerUnknown': True, 'answered': False, 'picked': -1, 'feedback': '', 'graded': False, 'correct': False, 'explain': ''}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 130
+    },
+    {
+      "case_id": "K11",
+      "name": "作答后 graded=False（不判分）且 correct=False（不判错）",
+      "passed": true,
+      "observed": "{'question': '选出正确答案', 'options': ['A', 'B', 'C'], 'answer': -1, 'answerUnknown': True, 'answered': True, 'picked': 1, 'feedback': '答案待人工确认，本次不计分、不判错。', 'graded': False, 'correct': False, 'explain': ''}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 134
+    },
+    {
+      "case_id": "K12",
+      "name": "反馈文案显式说明「答案待人工确认」（不静默判错）",
+      "passed": true,
+      "observed": "'答案待人工确认，本次不计分、不判错。'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 136
+    },
+    {
+      "case_id": "K12b",
+      "name": "对照：answer=1 时正常判分（graded=True, correct=True）",
+      "passed": true,
+      "observed": "{'question': '选出正确答案', 'options': ['A', 'B', 'C'], 'answer': 1, 'answerUnknown': False, 'answered': True, 'picked': 1, 'feedback': '答对了！解析：', 'graded': True, 'correct': True, 'explain': ''}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 145
+    },
+    {
+      "case_id": "K13",
+      "name": "无 file_sha256 → 显示「原文件哈希待确认」",
+      "passed": true,
+      "observed": "'原文件哈希待确认'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 150
+    },
+    {
+      "case_id": "K14",
+      "name": "非法/伪造形式（非 sha256:64hex）→ 同样显示「待确认」，不得放行",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 153
+    },
+    {
+      "case_id": "K15",
+      "name": "content_hash 不得冒充 file_sha256：schema 未把 source_doc_hash 映射到该显示位",
+      "passed": true,
+      "observed": "'display 仅接受 file_sha256 形参；content_hash 走 source_doc_hash（另一字段）'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 156
+    },
+    {
+      "case_id": "K16",
+      "name": "local-demo 可阅读且来源均为 local-demo（不冒充正式用户教材来源）",
+      "passed": true,
+      "observed": "(['local-demo', 'local-demo', 'local-demo'], 3)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 164
+    },
+    {
+      "case_id": "K17",
+      "name": "声称 user-textbook 但缺真实 doc_id → 拒绝（不得伪造正式来源）",
+      "passed": true,
+      "observed": "('课程数据不符合契约 v1：$.courses[0].source_doc_id: user-textbook 必须提供真实知识库 doc_id，得到 None', 0)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 174
+    },
+    {
+      "case_id": "K18",
+      "name": "真实裸 hex content_hash 绑定 → 客户端接受（01A 放宽哈希形式）",
+      "passed": true,
+      "observed": "('', 1)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 183
+    },
+    {
+      "case_id": "K19",
+      "name": "file_hash_display(裸64hex) 规范化为 sha256:<hex>（01A 强化展示口径）",
+      "passed": true,
+      "observed": "'sha256:cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_course_contract_v1.py",
+      "asserted_line": 187
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

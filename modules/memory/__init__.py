@@ -1,0 +1,1 @@
+"""Memory module (MEMORY-1 minimal): preferences + weak vocab only."""

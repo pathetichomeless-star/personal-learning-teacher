@@ -1,0 +1,25 @@
+{
+  "status": "OFFLINE_INTEGRITY_PASS_ONLY",
+  "backup_directory": "/home/<nas-login>/.xiaozhi-b6-backups/b6-20261009T190033Z",
+  "manifest_sha256": "37afd3bd8cb636ce302bc5d63b4b82d4a65938990c4198e66da1ee51b0a54994",
+  "ciphertext_sha256_checks": 3,
+  "authenticated_archives": {
+    "production-image.tar.aesgcm": true,
+    "runtime-inspect.json.aesgcm": true,
+    "image-inspect.json.aesgcm": true
+  },
+  "tampered_tag_rejected_count": 3,
+  "image_plaintext_sha256": "62d00b6b7ad32b6a77fc5b0dac51d8485c2b84fc6b90f750deba45c5da2ceb01",
+  "image_plaintext_bytes": 179633664,
+  "archive_config_digest": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+  "image_inspect_and_runtime_identity_match": true,
+  "architecture": "arm64",
+  "os": "linux",
+  "ordered_layer_hashes_match": true,
+  "layer_count": 13,
+  "verified_oci_blob_count": 28,
+  "no_plaintext_extracted": true,
+  "no_docker_operations": true,
+  "independent_image_load": "NOT_PERFORMED",
+  "data_secrets_policy_runtime_restore": "BLOCKED_NOT_PERFORMED"
+}

@@ -1,0 +1,445 @@
+{
+  "probe": "mvp_real_smoke",
+  "result": {
+    "turn1_done": true,
+    "turn2_audio_started": true,
+    "bargein_stop": true,
+    "turn3_recovery": true,
+    "quiesced": true
+  },
+  "closure_residuals": {
+    "source": 0,
+    "framer": 0,
+    "disposition": 0
+  },
+  "health_after": {
+    "qwen_connected": 1,
+    "qwen_sessions": 1,
+    "responses_completed": 2,
+    "responses_cancelled": 1,
+    "barge_ins": 2,
+    "upstream_errors": 0,
+    "qwen_dispatch_errors_total": 0,
+    "accounting_fault_events": 0,
+    "orphan_pcm_bytes": 0,
+    "pacer_starts": 3,
+    "pacer_rebases": 1,
+    "pacer_fatal_stalls": 0,
+    "audio_store_peak_frames": 1094
+  },
+  "deltas": {
+    "source_pcm_bytes": 2192640,
+    "admitted_pcm_bytes": 2192640,
+    "encoded_full_frames": 2284,
+    "sent_confirmed_frames": 978,
+    "barge_in_sequences_total": 2,
+    "responses_completed": 2,
+    "responses_cancelled": 1
+  },
+  "packets": 978,
+  "transcripts": [
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 2
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 2
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk about",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 2
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": "Of",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk about something",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk about something else",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk about something else now",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hold on! Stop! I want to talk about something else now.",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": null,
+      "text": "Hold on! Stop! I want to talk about something else now.",
+      "final": true,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": " course,",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": " we can switch topics",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": " anytime",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": ". What would you",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": " like to talk about",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": " instead",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": "?",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": null,
+      "text": "Of course, we can switch topics anytime. What would you like to talk about instead?",
+      "final": true,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello.",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me what",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me what you",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me what you can",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me what you can do",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": "Hello. Can you tell me what you can do?",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "user",
+      "delta": null,
+      "text": "Hello. Can you tell me what you can do?",
+      "final": true,
+      "interrupted": false,
+      "turn": 3
+    },
+    {
+      "type": "transcript",
+      "role": "assistant",
+      "delta": "I",
+      "text": null,
+      "final": false,
+      "interrupted": false,
+      "turn": 4
+    }
+  ],
+  "tts_events": [
+    [
+      "start",
+      480436.481
+    ],
+    [
+      "stop",
+      480448.711
+    ],
+    [
+      "start",
+      480462.911
+    ],
+    [
+      "stop",
+      480468.862
+    ],
+    [
+      "start",
+      480473.595
+    ],
+    [
+      "stop",
+      480475.021
+    ]
+  ],
+  "events": [
+    {
+      "t": 480431.974,
+      "kind": "asset_loaded",
+      "asset": "u1",
+      "packets": 118
+    },
+    {
+      "t": 480432.205,
+      "kind": "asset_loaded",
+      "asset": "u2",
+      "packets": 629
+    },
+    {
+      "t": 480432.274,
+      "kind": "asset_loaded",
+      "asset": "u3",
+      "packets": 187
+    },
+    {
+      "t": 480432.576,
+      "kind": "client_connected"
+    },
+    {
+      "t": 480432.576,
+      "kind": "uplink_start",
+      "asset": "u1",
+      "packets": 118
+    },
+    {
+      "t": 480436.178,
+      "kind": "uplink_end",
+      "asset": "u1"
+    },
+    {
+      "t": 480436.481,
+      "kind": "tts_start"
+    },
+    {
+      "t": 480448.711,
+      "kind": "tts_stop"
+    },
+    {
+      "t": 480448.713,
+      "kind": "turn1",
+      "ok": true
+    },
+    {
+      "t": 480448.713,
+      "kind": "uplink_start",
+      "asset": "u2",
+      "packets": 629
+    },
+    {
+      "t": 480462.755,
+      "kind": "uplink_end",
+      "asset": "u2"
+    },
+    {
+      "t": 480462.911,
+      "kind": "tts_start"
+    },
+    {
+      "t": 480468.313,
+      "kind": "uplink_start",
+      "asset": "u3",
+      "packets": 187
+    },
+    {
+      "t": 480468.862,
+      "kind": "tts_stop"
+    },
+    {
+      "t": 480473.363,
+      "kind": "uplink_end",
+      "asset": "u3"
+    },
+    {
+      "t": 480473.364,
+      "kind": "bargein",
+      "stop": true
+    },
+    {
+      "t": 480473.595,
+      "kind": "tts_start"
+    },
+    {
+      "t": 480474.365,
+      "kind": "uplink_start",
+      "asset": "u1",
+      "packets": 118
+    },
+    {
+      "t": 480475.021,
+      "kind": "tts_stop"
+    },
+    {
+      "t": 480478.022,
+      "kind": "uplink_end",
+      "asset": "u1"
+    },
+    {
+      "t": 480478.022,
+      "kind": "turn3",
+      "ok": true
+    }
+  ]
+}

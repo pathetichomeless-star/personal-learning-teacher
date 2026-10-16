@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- avatar_page.html — 数字人 Live2D 页面（阶段 2 集成版，改编自
+     prototypes/avatar-runtime-lab/）。由 client/src/ui/gui/qml/components/AvatarLive2D.qml
+     经 QtWebEngineView 加载。
+     资产：runtime/vendor/（tools/fetch_avatar_runtime.sh 下载，不入 Git）。
+     注：模型资源经 XHR 拉取，需 LocalContentCanAccessFileUrls（QML 侧已显式开启）。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>avatar-live2d</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; background: #101014; }
+  #stage { position: fixed; inset: 0; }
+  canvas { display: block; }
+  #state-badge {
+    position: fixed; left: 8px; top: 8px; z-index: 10;
+    font: 12px/1.4 monospace; color: #9fe8ff;
+    background: rgba(0,0,0,.55); padding: 2px 8px; border-radius: 4px;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="state-badge">loading…</div>
+<!-- 顺序敏感：Cubism Core → pixi v6 → pixi-live2d-display(cubism4, 依赖 window.PIXI) -->
+<script src="vendor/lib/live2dcubismcore.min.js"></script>
+<script src="vendor/lib/pixi.min.js"></script>
+<script src="vendor/lib/pixi-live2d-display.cubism4.min.js"></script>
+<script src="avatar_page.js"></script>
+</body>
+</html>

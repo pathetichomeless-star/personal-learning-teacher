@@ -1,0 +1,19 @@
+# 离线流水线复算（交付物 C · 非敏感测试教材）
+# 命令: PYTHONPATH= python3 tools/classroom_offline_pipeline.py --textbook docs/engineering/product-v1/classroom-v2/demo/sample_textbook.md --out <tmp> --course-id crs_offline_demo_basics
+# 时间: 2026-10-12T23:22:14+0800
+
+离线流水线：textbook=docs/engineering/product-v1/classroom-v2/demo/sample_textbook.md
+  [OK ] read_bytes — sample_textbook.md（1325 字节，sha256=32f3029c4162…）
+  [OK ] parse — 解析器=builtin-text，抽取 803 字符
+  [OK ] kb_commit — 隔离库 knowledge.json；doc_id=doc_08b4638077cb；content_hash=0ed82af7b008…（裸 hex）
+  [OK ] structure — 识别 2 个课次 / 12 个条目
+  [OK ] build_course — course_id=crs_offline_demo_basics，课次 2，待人工确认 3 项
+  [OK ] validate — 通过冻结契约 v1（JSON schema + 手写校验）
+  [OK ] binding_check — 回读 store：doc 存在=True；content_hash 与课程 source_doc_hash 一致=True
+
+产物：
+  /private/tmp/iq-offline-demo/library/crs_offline_demo_basics.course.json
+  /private/tmp/iq-offline-demo/library/crs_offline_demo_basics.manifest.json
+  /private/tmp/iq-offline-demo/kb_snapshot/knowledge.json
+  /private/tmp/iq-offline-demo/library/index.json
+阶段：7，全部成功=True

@@ -1,0 +1,529 @@
+{
+  "artifact": "epub_parser_security_tests",
+  "scope": "CLASSROOM V2 · D2 — text-only EPUB parsing",
+  "generated_at": "2026-10-12T22:23:25+0800",
+  "python_version": "3.13.12 (main, Feb  4 2026, 00:05:32) [Clang 21.1.4 ]",
+  "python_executable": "<user-home>/.workbuddy/binaries/python/envs/xiaozhi-p2b2/bin/python",
+  "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+  "repo_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "target_module": "modules/knowledge/parsers.py",
+  "safety_constants": {
+    "EPUB_MAX_ENTRIES": 4096,
+    "EPUB_MAX_ENTRY_BYTES": 16777216,
+    "EPUB_MAX_TOTAL_BYTES": 67108864,
+    "EPUB_READ_CHUNK": 65536,
+    "EPUB_REJECT_DTD": true,
+    "EPUB_ALLOW_BARE_DOCTYPE": true
+  },
+  "dtd_policy": {
+    "reject": [
+      "<!ENTITY ...>",
+      "<!DOCTYPE ... SYSTEM|PUBLIC ...>",
+      "<!DOCTYPE ... [ ... ]>"
+    ],
+    "tolerate_and_strip": [
+      "bare <!DOCTYPE html>"
+    ],
+    "rationale": "TC decision 2026-10-12: real-world EPUB XHTML carries a bare <!DOCTYPE html> which cannot define entities; refusing it would reject most genuine EPUBs. Entity/XXE vectors still fail-closed."
+  },
+  "new_error_codes": [
+    "epub_malformed",
+    "epub_unsafe"
+  ],
+  "reused_error_codes": [
+    "encrypted",
+    "empty_extraction",
+    "extract_failed"
+  ],
+  "summary": {
+    "total": 41,
+    "passed": 41,
+    "failed": 0,
+    "failed_ids": []
+  },
+  "cases": [
+    {
+      "case_id": "C10",
+      "name": ".epub parser_available is True (stdlib only)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "available": true,
+        "reason": null
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 155
+    },
+    {
+      "case_id": "C11",
+      "name": "capabilities() contains .epub and available=true",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "ext": ".epub",
+        "source_type": "epub_text",
+        "parser": "builtin-epub (zipfile+xml)",
+        "available": true,
+        "reason": null,
+        "p0": true
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 160
+    },
+    {
+      "case_id": "C01a",
+      "name": "normal EPUB parses (no error)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "err": null,
+        "chars": 127
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 168
+    },
+    {
+      "case_id": "C01b",
+      "name": "chapters emitted in SPINE order (not filename order)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "one": 12,
+        "two": 69,
+        "three": 103
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 169
+    },
+    {
+      "case_id": "C01c",
+      "name": "chapter boundary markers [chapter n] present in spine order",
+      "passed": true,
+      "error_code": null,
+      "observed": "[chapter 1]\nCHAPTER-ONE\nBody one\nline two\nCDATA-VISIBLE\n\n[chapter 2]\nCHAPTER-TWO",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 171
+    },
+    {
+      "case_id": "C01d",
+      "name": "text starts with the first spine chapter marker",
+      "passed": true,
+      "error_code": null,
+      "observed": "[chapter 1]\nCHAPTER-ONE\nBody one\nline tw",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 176
+    },
+    {
+      "case_id": "C01e",
+      "name": "XHTML CDATA content preserved",
+      "passed": true,
+      "error_code": null,
+      "observed": true,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 178
+    },
+    {
+      "case_id": "C01f",
+      "name": "XML comment not leaked into text",
+      "passed": true,
+      "error_code": null,
+      "observed": false,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 180
+    },
+    {
+      "case_id": "C01g",
+      "name": "percent-encoded manifest href resolves (my%20chapter → 'my chapter')",
+      "passed": true,
+      "error_code": null,
+      "observed": true,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 182
+    },
+    {
+      "case_id": "C05a",
+      "name": "<script> body stripped (not executed text)",
+      "passed": true,
+      "error_code": null,
+      "observed": false,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 186
+    },
+    {
+      "case_id": "C05b",
+      "name": "<style> content stripped; visible text kept",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "has_visible": true,
+        "has_css": false
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 195
+    },
+    {
+      "case_id": "C02a",
+      "name": "zip bomb (declared 20MiB > 16MiB cap) → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe",
+        "compressed_bytes": 21150,
+        "uncompressed": 20971520
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 206
+    },
+    {
+      "case_id": "C02b",
+      "name": "zip bomb with forged declared size → fail-closed (no text returned)",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed",
+        "declared_usize": 1024,
+        "actual_usize": 20971520
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 221
+    },
+    {
+      "case_id": "C02c",
+      "name": "5×14MiB members exceed 64MiB total budget → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe",
+        "total_uncompressed": 73400320,
+        "total_budget": 67108864
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 235
+    },
+    {
+      "case_id": "C03a",
+      "name": "path-traversal member '../evil.xhtml' → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "entry": "../evil.xhtml",
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 250
+    },
+    {
+      "case_id": "C03b",
+      "name": "path-traversal member '/etc/passwd' → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "entry": "/etc/passwd",
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 250
+    },
+    {
+      "case_id": "C03c",
+      "name": "path-traversal member 'OEBPS/../../evil.xhtml' → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "entry": "OEBPS/../../evil.xhtml",
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 250
+    },
+    {
+      "case_id": "C03d",
+      "name": "path-traversal member '..\\\\evil.xhtml' → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "entry": "..\\evil.xhtml",
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 250
+    },
+    {
+      "case_id": "C04a",
+      "name": "chapter <!ENTITY> XXE payload → epub_unsafe (rejected before parse)",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 263
+    },
+    {
+      "case_id": "C04b",
+      "name": "container.xml <!DOCTYPE ... SYSTEM ...> → epub_unsafe (external DTD blocked)",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 273
+    },
+    {
+      "case_id": "C04c",
+      "name": "bare <!DOCTYPE html> (no entities) → PARSED (tolerated & stripped)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "error_code": null,
+        "text_len": 38,
+        "accepts_real_world_epub": true
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 289
+    },
+    {
+      "case_id": "C04d",
+      "name": "<!DOCTYPE> with internal subset (no ENTITY) → epub_unsafe",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 305
+    },
+    {
+      "case_id": "C04e",
+      "name": "chapter <!DOCTYPE ... SYSTEM ...> → epub_unsafe (no external fetch)",
+      "passed": true,
+      "error_code": "epub_unsafe",
+      "observed": {
+        "error_code": "epub_unsafe"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 318
+    },
+    {
+      "case_id": "C06",
+      "name": "non-zip content named .epub → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 323
+    },
+    {
+      "case_id": "C07",
+      "name": "empty zip → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 330
+    },
+    {
+      "case_id": "C08",
+      "name": "truncated/corrupt zip → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 335
+    },
+    {
+      "case_id": "C09",
+      "name": "textless spine → empty_extraction",
+      "passed": true,
+      "error_code": "empty_extraction",
+      "observed": {
+        "error_code": "empty_extraction"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 344
+    },
+    {
+      "case_id": "C13",
+      "name": "encrypted member → encrypted",
+      "passed": true,
+      "error_code": "encrypted",
+      "observed": {
+        "error_code": "encrypted"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 356
+    },
+    {
+      "case_id": "C14a",
+      "name": "OPF without spine → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 369
+    },
+    {
+      "case_id": "C14b",
+      "name": "EPUB without META-INF/container.xml → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 376
+    },
+    {
+      "case_id": "C14c",
+      "name": "container points at a missing rootfile → epub_malformed",
+      "passed": true,
+      "error_code": "epub_malformed",
+      "observed": {
+        "error_code": "epub_malformed"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 384
+    },
+    {
+      "case_id": "C15",
+      "name": "malformed chapter → VISIBLE marker (not silently dropped); good chapter survives",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "error_code": null,
+        "text": "[chapter 1]\n[本章无法解析，内容缺失，需人工确认]\n\n[chapter 2]\nGOOD-CHAPTER",
+        "marker_present": true,
+        "marker_text": "[本章无法解析，内容缺失，需人工确认]"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 395
+    },
+    {
+      "case_id": "C15b",
+      "name": "ALL chapters malformed → empty_extraction (never marker-only success)",
+      "passed": true,
+      "error_code": "empty_extraction",
+      "observed": {
+        "error_code": "empty_extraction"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 412
+    },
+    {
+      "case_id": "C16",
+      "name": "parse_file never raises; always returns exactly one of (text, error)",
+      "passed": true,
+      "error_code": null,
+      "observed": "ok",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 433
+    },
+    {
+      "case_id": "C12a",
+      "name": "TXT still parses (and is NOT subject to the EPUB DTD guard)",
+      "passed": true,
+      "error_code": null,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 441
+    },
+    {
+      "case_id": "C12b",
+      "name": "MD still parses",
+      "passed": true,
+      "error_code": null,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 444
+    },
+    {
+      "case_id": "C12c",
+      "name": "DOCX still parses",
+      "passed": true,
+      "error_code": null,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 451
+    },
+    {
+      "case_id": "C12d",
+      "name": "PPTX still parses",
+      "passed": true,
+      "error_code": null,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 459
+    },
+    {
+      "case_id": "C12e",
+      "name": "PDF still parses (pdfminer present in venv)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "error_code": null,
+        "preview": "Hello Knowledge Base"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 475
+    },
+    {
+      "case_id": "C12f",
+      "name": "all six formats present in capabilities()",
+      "passed": true,
+      "error_code": null,
+      "observed": [
+        ".docx",
+        ".epub",
+        ".md",
+        ".pdf",
+        ".pptx",
+        ".txt"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 480
+    },
+    {
+      "case_id": "C17",
+      "name": "EPUB accepted end-to-end by import pipeline → preview_ready (epub_text)",
+      "passed": true,
+      "error_code": null,
+      "observed": {
+        "status": "preview_ready",
+        "source_type": "epub_text",
+        "extracted_chars": 127,
+        "preview_head": "[chapter 1]\nCHAPTER-ONE\n"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_epub_tests.py",
+      "asserted_line": 494
+    }
+  ],
+  "cross_file_assertions": [
+    {
+      "file": "gateway/tests/admin_v4_api_tests.py",
+      "line": 472,
+      "text": "check(\"T8 parsers all P0 present\", len(parsers) == 6)   # five P0 + .epub (D2)",
+      "status": "aligned_by_impl (was '== 5' before .epub)"
+    },
+    {
+      "file": "gateway/tests/import_v4_tests.py",
+      "line": 159,
+      "text": "all(v for _, v in kinds) and len(kinds) == 6, kinds)",
+      "status": "aligned_by_impl (was '== 5' before .epub)"
+    },
+    {
+      "file": "deploy/v4-acceptance/verify_v4_e2e.py",
+      "line": 120,
+      "text": "for ext in (\".txt\", \".md\", \".pdf\", \".docx\", \".pptx\"):",
+      "status": "no count assertion — iterates the five exts only, still passes"
+    }
+  ]
+}

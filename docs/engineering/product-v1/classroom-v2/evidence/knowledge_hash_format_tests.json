@@ -1,0 +1,225 @@
+{
+  "artifact": "knowledge_hash_format_tests",
+  "scope": "CLASSROOM V2 CONTRACT_FIX_01A 一.4（真实知识库返回样本 × Schema 正则核验）",
+  "generated_at": "2026-10-12T22:58:39+0800",
+  "python_version": "3.13.12",
+  "repo_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "isolated_store_path": "/var/folders/_y/jk1x23x140n1wj54vm47v0m80000gn/T/xz-classroom-kbformat-fv4wevi7/knowledge.json",
+  "production_storage_touched": false,
+  "real_sample": {
+    "doc_id": "doc_e97014eb0f42",
+    "content_hash": "7a2229a89bbe2ae95493aa8909362a4adf75ff4b99aa842093af01be27ce874a",
+    "content_hash_len": 64,
+    "has_sha256_prefix": false,
+    "file_sha256_of_probe_bytes": "d2373c44204596d851732469571439b6c53e087cee859987d336ecb9adeff253"
+  },
+  "schema_patterns": {
+    "DOC_ID_RE": "^doc_[A-Za-z0-9]{4,64}$",
+    "SHA256_RE": "^(?:sha256:)?[0-9a-f]{64}$",
+    "SHA256_CANON_RE": "^sha256:[0-9a-f]{64}$"
+  },
+  "conflict_evidence": {
+    "old_strict_pattern": "^sha256:[0-9a-f]{64}$",
+    "old_strict_rejects_real_content_hash": true,
+    "resolution": "01A 放宽 SHA256_RE 为 ^(?:sha256:)?[0-9a-f]{64}$，接受裸 hex 与前缀形式"
+  },
+  "results": [
+    {
+      "case_id": "H01a",
+      "name": "真实 doc_id 匹配 DOC_ID_RE（^doc_[A-Za-z0-9]{4,64}$）",
+      "passed": true,
+      "observed": "doc_e97014eb0f42",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 101
+    },
+    {
+      "case_id": "H01b",
+      "name": "真实 doc_id 前缀为 doc_",
+      "passed": true,
+      "observed": "doc_e970…",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 103
+    },
+    {
+      "case_id": "H02a",
+      "name": "真实 content_hash 为裸 64hex 且匹配（放宽后的）SHA256_RE",
+      "passed": true,
+      "observed": "7a2229a89bbe2ae95493aa8909362a4adf75ff4b99aa842093af01be27ce874a",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 109
+    },
+    {
+      "case_id": "H02b",
+      "name": "真实 content_hash 长度为 64",
+      "passed": true,
+      "observed": 64,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 111
+    },
+    {
+      "case_id": "H02c",
+      "name": "真实 content_hash 不含 sha256: 前缀（证明旧严格正则会误拒）",
+      "passed": true,
+      "observed": "7a2229a89bbe…",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 114
+    },
+    {
+      "case_id": "H02d",
+      "name": "旧严格正则 ^sha256:[0-9a-f]{64}$ 对真实 content_hash 判定为【不匹配】（冲突证据）",
+      "passed": true,
+      "observed": "strict_rejects_real_value",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 120
+    },
+    {
+      "case_id": "H03a",
+      "name": "canonical_sha256(真实 content_hash) == sha256:<同 hex>",
+      "passed": true,
+      "observed": "sha256:7a2229a89bbe2ae95493aa8909362a4adf75ff4b99aa842093af01be27ce874a",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 125
+    },
+    {
+      "case_id": "H03b",
+      "name": "规范化后满足 Canonical（前缀）形式 SHA256_CANON_RE",
+      "passed": true,
+      "observed": "sha256:7a2229a89bbe2ae95493aa8909362a4adf75ff4b99aa842093af01be27ce874a",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 128
+    },
+    {
+      "case_id": "H04a",
+      "name": "绑定【真实】KnowledgeStore 返回值的课程通过冻结 schema v1 校验",
+      "passed": true,
+      "observed": [],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 148
+    },
+    {
+      "case_id": "H04b",
+      "name": "该绑定的 source_doc_id/source_doc_hash 与 store 返回值逐字相等",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 150
+    },
+    {
+      "case_id": "H05a",
+      "name": "原文件字节哈希 != 知识库 content_hash（抽取文本哈希）—— 语义确实不同",
+      "passed": true,
+      "observed": {
+        "file": "d2373c442045…",
+        "content": "7a2229a89bbe…"
+      },
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 157
+    },
+    {
+      "case_id": "H05b",
+      "name": "同时携带真实原文件哈希（裸 hex）仍通过校验",
+      "passed": true,
+      "observed": [],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 162
+    },
+    {
+      "case_id": "H05c",
+      "name": "sha256_matches 判定 裸hex 与 sha256:前缀 为同一摘要（比较口径统一）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 164
+    },
+    {
+      "case_id": "H08a",
+      "name": "交叉 (a) 裸hex ↔ 裸hex ⇒ 同一摘要",
+      "passed": true,
+      "observed": "bare↔bare",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 175
+    },
+    {
+      "case_id": "H08b",
+      "name": "交叉 (b) 裸hex(课程 source_doc_hash) ↔ 前缀(store) ⇒ 同一摘要",
+      "passed": true,
+      "observed": "bare↔prefixed",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 177
+    },
+    {
+      "case_id": "H08c",
+      "name": "交叉 (c) 前缀(课程 source_doc_hash) ↔ 裸hex(store) ⇒ 同一摘要",
+      "passed": true,
+      "observed": "prefixed↔bare",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 179
+    },
+    {
+      "case_id": "H08d",
+      "name": "交叉 (d) 前缀 ↔ 前缀 ⇒ 同一摘要",
+      "passed": true,
+      "observed": "prefixed↔prefixed",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 181
+    },
+    {
+      "case_id": "H08e",
+      "name": "不同摘要不得因规范化而被误判相同（比较仍具判别力）",
+      "passed": true,
+      "observed": "distinct/illegal",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 183
+    },
+    {
+      "case_id": "H08f",
+      "name": "课程用 sha256: 前缀形式绑定真实 store 裸 hex ⇒ 仍通过冻结 schema 校验",
+      "passed": true,
+      "observed": [],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 189
+    },
+    {
+      "case_id": "H06a",
+      "name": "伪造/非法哈希仍被拒绝（fail-closed 未被放宽削弱）",
+      "passed": true,
+      "observed": [
+        "$.courses[0].source_doc_hash: user-textbook 必须提供 SHA-256 形式的 content_hash（裸 64hex 或 sha256:<64hex>），得到 'not-a-valid-hash'"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 196
+    },
+    {
+      "case_id": "H06b",
+      "name": "非 doc_ 前缀的 doc_id 仍被拒绝",
+      "passed": true,
+      "observed": [
+        "$.courses[0].source_doc_id: user-textbook 必须提供真实知识库 doc_id，得到 'document-123'"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 201
+    },
+    {
+      "case_id": "H07a",
+      "name": "知识库打开于隔离临时目录（未触碰生产存储）",
+      "passed": true,
+      "observed": "/var/folders/_y/jk1x23x140n1wj54vm47v0m80000gn/T/xz-classroom-kbformat-fv4wevi7/knowledge.json",
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 207
+    },
+    {
+      "case_id": "H07b",
+      "name": "随机生成的 doc_id 两次调用不相同（非固定桩值）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/knowledge_hash_format_tests.py",
+      "asserted_line": 209
+    }
+  ],
+  "summary": {
+    "total": 23,
+    "passed": 23,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

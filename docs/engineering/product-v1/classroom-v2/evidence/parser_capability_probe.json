@@ -1,0 +1,282 @@
+{
+  "probe": "parser_capability_probe/v2",
+  "repo": "<project-root>",
+  "python": "3.13.12",
+  "parsers_table": [
+    {
+      "ext": ".docx",
+      "source_type": "docx_text",
+      "parser": "python-docx",
+      "available": true,
+      "reason": null,
+      "p0": true
+    },
+    {
+      "ext": ".epub",
+      "source_type": "epub_text",
+      "parser": "builtin-epub (zipfile+xml)",
+      "available": true,
+      "reason": null,
+      "p0": true
+    },
+    {
+      "ext": ".md",
+      "source_type": "markdown",
+      "parser": "builtin-text",
+      "available": true,
+      "reason": null,
+      "p0": true
+    },
+    {
+      "ext": ".pdf",
+      "source_type": "pdf_text",
+      "parser": "pdfminer.six",
+      "available": true,
+      "reason": null,
+      "p0": true
+    },
+    {
+      "ext": ".pptx",
+      "source_type": "pptx_text",
+      "parser": "python-pptx",
+      "available": true,
+      "reason": null,
+      "p0": true
+    },
+    {
+      "ext": ".txt",
+      "source_type": "text",
+      "parser": "builtin-text",
+      "available": true,
+      "reason": null,
+      "p0": true
+    }
+  ],
+  "dependency_matrix": [
+    {
+      "label": "probe(当前)",
+      "exe": "<user-home>/.workbuddy/binaries/python/envs/xiaozhi-p2b2/bin/python",
+      "status": "OK",
+      "python": "3.13.12",
+      "deps": {
+        "pdfminer.six": "OK",
+        "python-docx": "OK",
+        "python-pptx": "OK"
+      }
+    },
+    {
+      "label": "client/.venv",
+      "exe": "<project-root>/client/.venv/bin/python",
+      "status": "OK",
+      "python": "3.10.20",
+      "deps": {
+        "pdfminer.six": "MISSING",
+        "python-docx": "MISSING",
+        "python-pptx": "MISSING"
+      }
+    },
+    {
+      "label": "xiaozhi-p2b2",
+      "exe": "<user-home>/.workbuddy/binaries/python/envs/xiaozhi-p2b2/bin/python",
+      "status": "OK",
+      "python": "3.13.12",
+      "deps": {
+        "pdfminer.six": "OK",
+        "python-docx": "OK",
+        "python-pptx": "OK"
+      }
+    },
+    {
+      "label": "system",
+      "exe": "/usr/local/bin/python3",
+      "status": "OK",
+      "python": "3.13.13",
+      "deps": {
+        "pdfminer.six": "MISSING",
+        "python-docx": "MISSING",
+        "python-pptx": "MISSING"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "format": "TXT",
+      "ext": ".txt",
+      "status": "PARSED",
+      "bytes": 74,
+      "text_len": 64,
+      "error": null,
+      "preview": "Hotel English\\nreservation /ˌrezəˈveɪʃn/ 预订\\nI have a reservation."
+    },
+    {
+      "format": "MD",
+      "ext": ".md",
+      "status": "PARSED",
+      "bytes": 54,
+      "text_len": 44,
+      "error": null,
+      "preview": "# Unit 1\\n\\n- **reservation** /ˌrezəˈveɪʃn/ 预订"
+    },
+    {
+      "format": "PDF(text)",
+      "ext": ".pdf",
+      "status": "PARSED",
+      "bytes": 11836,
+      "text_len": 183,
+      "error": null,
+      "preview": "Hotel English                                                                   \\nreservation booking                    "
+    },
+    {
+      "format": "DOCX",
+      "ext": ".docx",
+      "status": "PARSED",
+      "bytes": 36828,
+      "text_len": 94,
+      "error": null,
+      "preview": "Unit 1 At the Restaurant\\nGood evening. A table for two, please.\\nreservation | /ˌrezəˈveɪʃn/ 预订"
+    },
+    {
+      "format": "PPTX",
+      "ext": ".pptx",
+      "status": "PARSED",
+      "bytes": 28288,
+      "text_len": 60,
+      "error": null,
+      "preview": "[slide 1]\\nHotel English · Check-in\\nreservation /ˌrezəˈveɪʃn/"
+    },
+    {
+      "format": "EPUB",
+      "ext": ".epub",
+      "status": "PARSED",
+      "bytes": 1523,
+      "text_len": 106,
+      "error": null,
+      "preview": "[chapter 1]\\nUnit 1\\nreservation /ˌrezəˈveɪʃn/ 预订\\n\\n[chapter 2]\\nUnit 2\\nGood evening. A table for two, please."
+    },
+    {
+      "format": "PDF(real-repo)",
+      "ext": ".pdf",
+      "status": "PARSED",
+      "bytes": 7856,
+      "text_len": 5940,
+      "error": null,
+      "preview": "Fix-Round PDF Sample - Page 1 of 3 (synthetic)\\n\\nPDF page 1 line 01: hotel vocabulary practice with a travel story fragme"
+    },
+    {
+      "format": "PDF(scanned)",
+      "ext": ".pdf",
+      "status": "REFUSED",
+      "bytes": 6525,
+      "text_len": 0,
+      "error": "scanned_pdf_no_text",
+      "preview": "",
+      "expect_error": "scanned_pdf_no_text",
+      "expectation_met": true
+    },
+    {
+      "format": "PDF(two-column-wide)",
+      "ext": ".pdf",
+      "status": "PARSED",
+      "bytes": 944,
+      "text_len": 243,
+      "error": null,
+      "preview": "LEFTCOL 1 reservation booking confirm detail\\nLEFTCOL 2 reservation booking confirm detail\\nLEFTCOL 3 reservation booking ",
+      "order_expected": [
+        "LEFTCOL 1",
+        "LEFTCOL 2",
+        "LEFTCOL 3",
+        "RIGHTCOL 1",
+        "RIGHTCOL 2",
+        "RIGHTCOL 3"
+      ],
+      "order_observed": [
+        "LEFTCOL 1",
+        "LEFTCOL 2",
+        "LEFTCOL 3",
+        "RIGHTCOL 1",
+        "RIGHTCOL 2",
+        "RIGHTCOL 3"
+      ],
+      "order_matches_visual": true,
+      "raw_lines": [
+        "LEFTCOL 1 reservation booking confirm detail",
+        "LEFTCOL 2 reservation booking confirm detail",
+        "LEFTCOL 3 reservation booking confirm detail",
+        "",
+        "RIGHTCOL 1 deposit luggage passport",
+        "RIGHTCOL 2 deposit luggage passport"
+      ]
+    },
+    {
+      "format": "PDF(two-column-narrow)",
+      "ext": ".pdf",
+      "status": "PARSED",
+      "bytes": 944,
+      "text_len": 239,
+      "error": null,
+      "preview": "LEFTCOL 1 reservation booking confirm detailRIGHTCOL 1 deposit luggage passport\\nLEFTCOL 2 reservation booking confirm de",
+      "order_expected": [
+        "LEFTCOL 1",
+        "LEFTCOL 2",
+        "LEFTCOL 3",
+        "RIGHTCOL 1",
+        "RIGHTCOL 2",
+        "RIGHTCOL 3"
+      ],
+      "order_observed": [
+        "LEFTCOL 1",
+        "RIGHTCOL 1",
+        "LEFTCOL 2",
+        "RIGHTCOL 2",
+        "LEFTCOL 3",
+        "RIGHTCOL 3"
+      ],
+      "order_matches_visual": false,
+      "raw_lines": [
+        "LEFTCOL 1 reservation booking confirm detailRIGHTCOL 1 deposit luggage passport",
+        "LEFTCOL 2 reservation booking confirm detailRIGHTCOL 2 deposit luggage passport",
+        "LEFTCOL 3 reservation booking confirm detailRIGHTCOL 3 deposit luggage passport"
+      ]
+    },
+    {
+      "format": "IMAGE",
+      "ext": ".png",
+      "status": "UNSUPPORTED_BY_DESIGN",
+      "is_p0": false,
+      "available": false,
+      "reason": "unsupported_content_type",
+      "text_len": 0,
+      "error": "unsupported_content_type",
+      "bytes": 2060,
+      "expect_error": "unsupported_content_type",
+      "expectation_met": true
+    }
+  ],
+  "notes": [],
+  "summary": {
+    "p0_formats_verified": [
+      ".docx",
+      ".epub",
+      ".md",
+      ".pdf",
+      ".pptx",
+      ".txt"
+    ],
+    "p0_parsed_ok": [
+      ".docx",
+      ".epub",
+      ".md",
+      ".pdf",
+      ".pptx",
+      ".txt"
+    ],
+    "p0_refused": [
+      [
+        "PDF(scanned)",
+        "scanned_pdf_no_text"
+      ]
+    ],
+    "boundary_expectations_met": true,
+    "layout_order_defect_reproduced": true
+  }
+}

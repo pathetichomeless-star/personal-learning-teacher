@@ -1,0 +1,170 @@
+# Workspace file hash snapshot
+# generated: 2026-10-12T23:44:10.905405
+# HEAD: 3754e502701713ee420e19b5badee5c421a77f88
+# branch: p2b2-teacher-voice
+# NOTE: read-only snapshot; NO git add/commit/reset/clean/stash performed
+
+??  60c03ee4eaea546443f9f653dcf90b45e7848df5120257c69837812df5d24b22       6949  %E5%B0%8F%E6%99%BA%E4%B8%AD%E6%96%87%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5%E8%AE%BE%E8%AE%A1_V2.md
+??  eca38a71927cb5e35358423558fdb5d2cd2c437d486dbec7d8a7a55933e38eef     702117  %E5%B0%8F%E6%99%BA%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5_V2.zip
+??  3c4b0ef8e356108d4e786c8a6e29fe2abbf794682062412e4a75bad920a86aef      23057  CLASSROOM_V1_INDEPENDENT_QA_REPORT.md
+??  5a116387f63b6f655aaff3f81dc49a9dc1d24e9d2c8c6d8929f0bb50fd39c7cd      14713  CLASSROOM_V1_RELEASE_FIX02_INDEPENDENT_QA.md
+??  7a1fa765fd2c1e8acbbef8381915a6b13dfef5b612e06769dccd0b0853a8b9a7      16332  CLASSROOM_V2_DELIVERY_GATE_02_REPORT.md
+??  4ce6f8d7a0b816499461812e9d461b03d614d359fd42ea2bda560191c82a71ab      21474  CLASSROOM_V2_MASTER_AUDIT.md
+??  ea8cae38423108418cb54aec78d8d350a441e7845146f51fabd9474d084298c3      31777  CLASSROOM_V2_PARSER_CAPABILITY_REPORT.md
+??  4f9f218366f6a89beda5c73f9c7442549cb7a2653417ab4e9fa2f42868c0c614      23805  CLASSROOM_V2_REV1A_DIFF.md
+??  8c187d7628bb975e31193552ca290929d43e94aff5f5cb96eae80f036ccb8084      16116  CLASSROOM_V2_REV1B_DIFF.md
+??  630996fdcb1f77819e63f7c81b46a2d9b4fc7a73fb59fca87443b0bffb384875      38070  CLASSROOM_V2_UI_DESIGN.md
+?? (dir)  6e3e0d4eab7b1cb7b63df50b3b58b825a08a417555ca405b73706cb616a9206b       5455  client/build_info/classroom_build_info.json
+ M  0c8f78ebcd98acd3f05624e21e53b7fcd3c3c54a171ee93fcfc7f8b5b0ce2ce9       5831  client/classroom_app.spec
+ M  f3cb7ea33770e15eb964204925c71b12f943baac1767d137f7e555ffd4308ceb      11594  client/probe_avatar_qml_offscreen.py
+ M  1243b98d346d8bfa39575ff7824e6f8b45805dd1d8d9110b3b60c5dcc12e38e5      14216  client/src/avatar/runtime/avatar_page.js
+??  a64046baea038d247b0fad63d76c7d756f882379ea3e8a2510dca2274586d88b       5800  client/src/avatar/runtime_server.py
+??  1bce5f3143e6f750a62d54e279d2bab5d61de10539014cb35cfbda15936eff42       4716  client/src/classroom/avatar_adapter.py
+??  92bc03308e7e2dc726389e06982f2c68b50a2b660509c2342d6a4824958ff2f5      11624  client/src/classroom/classroom_api.py
+ M  bf59ca9f39017c18731d5912b8dd03993ed947d40ac4e3593e35faab6da79a12      51799  client/src/classroom/classroom_model.py
+??  6917028611597f2bf5f3a577879a2a5ffcbdf861bf4f64a8bebbcc9f9602284a      15586  client/src/classroom/course_schema.py
+??  f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba       8445  client/src/classroom/course_schema.v1.json
+ M  e48f80f65fe614ec5ca684c0d4d4751cc8e7c00698a79a56886e4c1d120cb5ec       9657  client/src/classroom/data/courses.json
+?? (dir)  a1f91f9c02a92ec29fe4398aede1f54283602872c2f2b6611e004b3765a6bd0e       4338  client/src/classroom/data/demo/kb_snapshot/knowledge.json
+?? (dir)  85dbe7b74caeb30b301a3b57159f7c3a9f9f6609ded5ea02e47838d9134e72a5       4581  client/src/classroom/data/demo/library/crs_offline_demo_basics.course.json
+?? (dir)  6cacf9e3907f1f8903d0c3576283e4a77ed76901efe9e3fa8f319691c5fb2c16       2512  client/src/classroom/data/demo/library/crs_offline_demo_basics.manifest.json
+?? (dir)  dea4316f14e1889343c3d864264793fffe89b0ff71f33963746333fbee6f55b0        316  client/src/classroom/data/demo/library/index.json
+??  1b8fa59b255c12aa13f6aceb93361eb66f8b9d7721521e3a99edaf4cba065d91       6831  client/src/classroom/learning_record.py
+ M  8301f73659f9cdc91fb9b1c473e7c06447c8125d8686451a4ee1508246ec2c94      35454  client/src/classroom/qml/ClassroomWindow.qml
+ M  317e37ff8a5336cc0688b62a98657830870bcc9cbb01f197044949381b781f81      17760  client/src/classroom/qml/CourseArea.qml
+??  40907ed18b5219579879e86320eef3231a09ae144d2cee676cc966ff9a09674f      14437  client/src/classroom/qml/ImportPanel.qml
+??  f569a5c13fd6027ec000d66a3fbfa442ea475b23b56df7c8ec829974b298b6ea      10161  client/src/classroom/qml/LibraryPanel.qml
+??  18685d3354194182da1e6ce5c2b61e253ccee8de24873753e683624d8f50408a       2934  client/src/classroom/qml/NavBar.qml
+??  f6d8f434ddd4161cbdcfa575114da1277cfab72d0482dbf29ab0c1b6fce3c726       8120  client/src/classroom/qml/ProofreadPanel.qml
+??  cd75d69479bff30122004bc9af762ed99c0adf0934840fc44b83c6ed6c9a59c6       8244  client/src/classroom/qml/PublishPanel.qml
+??  294666afe94d844ee2e3cc9b1bad8326586d33e9f345ca2152e146adb82c67da       5333  client/src/classroom/tests/test_avatar_adapter.py
+??  88511e9d30b2e1c2e7348f0dd01ec4a2aaeda4688cb27a6f46f95b63ed6c8bb2      13512  client/src/classroom/tests/test_classroom_api.py
+ M  b6286da1feed0d989527eee399b238b5536a6b32e47d9d94fb3dafcac4268fd8      10268  client/src/classroom/tests/test_classroom_app_bundle.py
+??  c92c5aa949ce13c857607161761d8adf1353bd37c7192c446cc2a4a40c1c43f8      11368  client/src/classroom/tests/test_course_contract_v1.py
+??  45f5c0c0350bb4e849fa622018d3b66d7c77d61d20d4d3fbc3769a2a42482c2e       6303  client/src/classroom/tests/test_learning_record.py
+??  28b2452af217a11c1c55df13e817aead386dd32da7678ec3bfed9d89874bc288       6167  client/src/classroom/tests/test_voice_mock.py
+??  dbdd2a407bd756756639a334428bcd03c35b3cb607bfdcc6af24cbb7a046702e      25963  client/src/classroom/tests/ui_pages_probe.py
+??  12b7370aeb93b1a3c67b541da29b34dc1fec843569d659568f4e362bdf3492ad       6817  client/src/classroom/voice_mock.py
+ M  bd2de04b77ea9461ab2ca855b5543237a7c2c18bf6b312855a93f8a353d769c1       7078  client/src/ui/gui/manager.py
+ M  32c1c16a8b1c5c906af91bd9ecc166632a4fcfabc079061ce7a90c8b7fcbd358       5881  client/src/ui/gui/qml/components/AvatarLive2D.qml
+??  b12ba4dd84b00f6ba4bb5ee9a4d1099614c8339f7fd689480345500834af679d      16650  docs/engineering/product-v1/P2B2_ACCEPTANCE_REPORT.md
+??  f462172289319c15a79e045eaa7bf88b17b21ac77e4d1598a1f37c504468fc79       8861  docs/engineering/product-v1/P2B2_REAL_VOICE_ACCEPTANCE_ENTRY.md
+??  cf91c58274c9f08666dbe5ba02e2f797bacd1bb9f43f6cdf8ba1dc583ac485f7      23534  docs/engineering/product-v1/R3_2C_INDEPENDENT_SIM_QA_REPORT.md
+ M  8ac51456840290c2432af203d2d753b903ca446964efee4c59ce6806a1dcc326      20746  docs/engineering/product-v1/avatar-vision-v0/V1_MAC_GUI_ACCEPTANCE.md
+?? (dir)  b55580905a913faea7cfcccbdf1bd1e9715c36cf6bd52f6b892e7a58a34c5bd0       6148  docs/engineering/product-v1/classroom-v1/qa-independent/.DS_Store
+?? (dir)  0b225480506ef88ea659026eeac8677b8d05e52cfb0ab5454286485f49743ec5        412  docs/engineering/product-v1/classroom-v1/qa-independent/logs/command_direct.out
+?? (dir)  2c8bd92fb10c1261321158edb69346e92977b13021cefca0857fa3610863dabd       2644  docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_corrupt.json
+?? (dir)  919eebea14a6172db1f93b145a1933db90d2df1dd654d1078c59e86aef5700aa       2725  docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_fresh.json
+?? (dir)  d75b11acb1d2364adcd2260572030cdf8478d44236a2750187b1955220aeac49      53691  docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_full.json
+?? (dir)  e416f440ea3b4b492f94952d5805f7bbefc82ecc8d4ef20e11ee667714f8f365      18413  docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_full.out
+?? (dir)  737fb2a9d1572e2ff31d89c36b75174f7f907fe0eca4bfe5203be547508fa9d6         78  docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_compact.json
+?? (dir)  67225bcf7f092835e86b5e7819a7f0048a46c97d5278aa17a5d9cc709527fbca         74  docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_fullscreen.json
+?? (dir)  1d6293cc25eb3f7d3dd70543330005f0369cfe6e664690325d702924be14429e         76  docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_wide.json
+?? (dir)  db07e83d0b9d4a5b5a6d20b17b599ef0b4bfa161bed7026f2f4bf89434c549f5        444  docs/engineering/product-v1/classroom-v1/qa-independent/logs/product2_fullscreen.out
+?? (dir)  06000de62a0a016724aefe046465a98261e4f715a12a8efb8aa691c9203cdb80        555  docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_compact.out
+?? (dir)  465f05b62c820a6d87e91b80659a9d8a1b423648ac6783f8c2a8bb77bdbe885f        551  docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_fullscreen.out
+?? (dir)  6e0ac3b9bb09e964f7faaee5834952acbc7d95c19134b3e199aaae784a41b4ec        553  docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_wide.out
+?? (dir)  4f45e27384bbef8d9aa596727d87ef148c23e629ff2cf4916fe765ce05bfcc68       1393  docs/engineering/product-v1/classroom-v1/qa-independent/logs/qa_mock_requests.log
+?? (dir)  7d96bd05e4b39b71b5d1fb1a5c15da74203c94d72c315c60961978600a82569f      28055  docs/engineering/product-v1/classroom-v1/qa-independent/scripts/driver.py
+?? (dir)  48a8af64c25fdd17e75e6a96d9eccaa29b0ef65ee40315aae02ea5d35b3ddd62       6048  docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe.py
+?? (dir)  ebbe1babb97995483dbc13b02c3ca999de5b6d3ca5be7b37b4367192f8f6ed30       4038  docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe2.py
+?? (dir)  e2df5b67cc6d9f2d3bcb01d292a80bd767559d8fa93809e84c52dbc36bde46fc       5015  docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe3.py
+?? (dir)  b32abb35f97a07cf1124e29941718d0989aa4d8dae71239b83f038d587b20823       2495  docs/engineering/product-v1/classroom-v1/qa-independent/scripts/qa_mock.py
+?? (dir)  5db2758be6604a8831421b957263b34a1229c9754202d935fdae301465bca851     285465  docs/engineering/product-v1/classroom-v1/qa-independent/shots/after_course_switch.png
+?? (dir)  dfbc52998ecca5a46ea2d4827c302307bcdf02e4aac6ab114853ea1a8abbbe19     362576  docs/engineering/product-v1/classroom-v1/qa-independent/shots/after_teacher_B.png
+?? (dir)  c1f489d054a80fb4dca16f1ea048dcd18a33ba97900633892af6ba1ba77cb0c1     245930  docs/engineering/product-v1/classroom-v1/qa-independent/shots/corrupt_after_boot.png
+?? (dir)  da8bd67494ba4c1517117debc64699608dde20e6103db6a02a2c7e376b3d9e41     282494  docs/engineering/product-v1/classroom-v1/qa-independent/shots/course_cover.png
+?? (dir)  d89ac23e395b9ba4fdfc8baff6015515b3cc3146d69dc76f52f5a693f19c4b95    2076395  docs/engineering/product-v1/classroom-v1/qa-independent/shots/dblclick_t1.png
+?? (dir)  5853c7681c3492cdb08ee48af56c6980637b2f6edfec9e7cb9cda0b05f43cbd2    2076156  docs/engineering/product-v1/classroom-v1/qa-independent/shots/dblclick_t3.png
+?? (dir)  9fbec46fef7ab352025597aafc9424526f62718c6876ba766d5eeb9ece587005     245934  docs/engineering/product-v1/classroom-v1/qa-independent/shots/fresh_after_boot.png
+?? (dir)  11408409f4185e1664098d7c9d54de028768e49acc4bd0ed73b36265816fed59     368494  docs/engineering/product-v1/classroom-v1/qa-independent/shots/fullscreen.png
+?? (dir)  e9e20e5684664839b4d00158eb0eef80934cabbe682ec676e024f7604cc236a8     195099  docs/engineering/product-v1/classroom-v1/qa-independent/shots/layout_compact.png
+?? (dir)  0501b95efed40676e8b82459b4f8f87ac40f8b9f643aa09f61a13089de619248      69722  docs/engineering/product-v1/classroom-v1/qa-independent/shots/layout_narrow.png
+?? (dir)  626b2e73f0d737f4b0b36f64ce388b2099a722a3dbfe14a91cef8416de470be8     502672  docs/engineering/product-v1/classroom-v1/qa-independent/shots/practice_answered.png
+?? (dir)  170ed50fdb17c67ccfb1692590ed2f9a8ce161dc67c284e6aa356b37920eabba     276412  docs/engineering/product-v1/classroom-v1/qa-independent/shots/probe2_dialog.png
+?? (dir)  91bf5c237f7a568eee05eb471c55466f9a61f2dce1eb7f827cefa34796340f50     344794  docs/engineering/product-v1/classroom-v1/qa-independent/shots/probe_teacher_dialog.png
+?? (dir)  b659a054f0f71d8d801df7e30ab95f2432b888cb0df37bbc6175f36fca8ed2fc     286033  docs/engineering/product-v1/classroom-v1/qa-independent/shots/product2_compact_screen.png
+?? (dir)  25e4f358390b8a5681849fde20a971263a62b397e9af14fc8527cf4861ecb6df     546360  docs/engineering/product-v1/classroom-v1/qa-independent/shots/product2_fullscreen_fullscreen.png
+?? (dir)  3e3546935a7058e77194c1517a8264396846e5c1940ce113d9648015238c47fe     537473  docs/engineering/product-v1/classroom-v1/qa-independent/shots/product_fullscreen_screen.png
+?? (dir)  7b5c212c186a2fe33095cfbd56e3882f61a32975f7ec6fb776137e2539e53662     535064  docs/engineering/product-v1/classroom-v1/qa-independent/shots/product_wide_screen.png
+?? (dir)  604691450e208eb9fd3c459fa783845a7c2cfbc4ba737f0d3f6a7b8d2e7958ed     312545  docs/engineering/product-v1/classroom-v1/qa-independent/shots/restarted.png
+?? (dir)  c193e50dbdd7a8d5537ff3aa9c98b66d162b83695b471d7e40940f81e8c8007c     362426  docs/engineering/product-v1/classroom-v1/qa-independent/shots/wide_360.png
+?? (dir)  4fd1ec4d90025c94ab59ebf9e9e62bb494b089f143aa99d3eb1a8394fda8de65     523488  docs/engineering/product-v1/classroom-v1/qa-independent/shots/wide_on_screen_screen.png
+ M  883836b17c5cb7319aa910c85d994d691cccda5d395375299ae9a6defd85c18c     189218  docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_compact_860.png
+ M  94f64a032facded116269194d943dafe98fbc6c004c75892905717537e42731e     323657  docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_fullscreen.png
+ M  73c0b3a7e23240186c3477b69922cdf2e4083535c295d01019e83af5dc08ad93     253774  docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_medium_1000.png
+ M  b74a5d224ba6d804de380eb012d839f1118231c62168af368106dc1dc6546a07     185894  docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_narrow_620.png
+ M  84f1fccda4dd0a15ffbeb56229d0f50e587d136162c89a7065a9c3b3feb2ec9b     318067  docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_wide_1360.png
+ M  c18170a341c29db2b6784cd5e0c1be7db1a1253ac8085073a63263db8e913398       6294  docs/engineering/product-v1/classroom-v1/release-fix01/test-results/ui_geometry.json
+?? (dir)  f181c7f8ea7364a68e223b8c47e9e249a1e4fd735def7c2aa59a402a86187d36       8196  docs/engineering/product-v1/classroom-v2/.DS_Store
+?? (dir)  151a8bfa802fd9da440fdcc80a7b3da563089ccf3ee3f019eec862e5ee320386      42837  docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_AGENT_PLAN.md
+?? (dir)  8b9b245f965bc9f3a138cfbfdf4a414adfd9596f7287ba8642b6f7a2ab9ea1d7      22740  docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_CONTRACT_FIX_01A.md
+?? (dir)  c4257f0f9a6d745b6b2566bdc57e09411c092818278dd5730e5561d549500127      18704  docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_PHASE2_CONTRACT_FIX_01.md
+?? (dir)  9c217ed25ffa682a2ade37e0ee11774d26c49e33b77c6efe464db245aa4820d7      20380  docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_RESEARCH_SYNTHESIS.md
+?? (dir)  65b1c1d265751676271c23b72cdc7336e523fdfd00829c6be795c17b43bb9711       6237  docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_SCHEMA_V1_ERRATA.md
+?? (dir)  350db2d27896fb5e9db9e19eaf20a3e21f01f2c49ef9dc3c575fc90d8db560de       7714  docs/engineering/product-v1/classroom-v2/api/STUDENT_CLS_KNOWLEDGE_CONTRACT.md
+?? (dir)  ebad6ad573a3c73f4229079bac81e2103adf68f4eb9b84f7e5f006a1b2adf64f       6148  docs/engineering/product-v1/classroom-v2/delivery-02/.DS_Store
+?? (dir)  e5dfe4f5883302a31f27c636b1461f5bcd4293ade0803776560d087211faebb6     341601  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_advanced_dialog_wide.png
+?? (dir)  051663ae19934d9dbddffde9cebb2e1573aa35223659bc55216c3cbfa01ee0ea     312941  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_classroom_offline_demo_wide.png
+?? (dir)  a2f6cb1f2a5792cab0d284c07dbf420b19ee9f07f34787b6771df6aaa63d9f8b     170538  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_course_dialog_narrow620.png
+?? (dir)  45875952e5ef18b3c3ec410c36e75229c1b67a9fbb96a559b4e860c11710798d     342408  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_course_dialog_wide.png
+?? (dir)  c19a68217934a0e36ce334807a0968bcc0622838b91274705bf8c35a1573a77b     858127  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_finder_open.png
+?? (dir)  35470688772c69d5d6788e74dd131036d423bac2fded002590d18f191d36bf2c     315263  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_narrow620.png
+?? (dir)  a5529ca304aba88be920a268b392322452b3b978665b740128255b44aa5891f9     524997  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_progress_wide.png
+?? (dir)  db6974192c5476a11d4d955c93b30216fd3213ab78b5447d9b23d597fc384461     425515  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_wide.png
+?? (dir)  5871a9b37a619a13e45a2f6fdbed2d99559d6412bf2f0af211fc22f78c209487     211502  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_library_narrow620.png
+?? (dir)  400293286af5b6a1efd28472824df2b005309385360e5f0aa0029126a190ec50     268741  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_library_wide.png
+?? (dir)  b659fb793d738c2c400acac9ff64d95b12111b29b561042cb23e20a250d9622b     197985  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_proofread_narrow620.png
+?? (dir)  d138e33d9dc44150dae76a79fc35133400c273e1e05c9dfb5545b8a0bbb077ad     233291  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_proofread_wide.png
+?? (dir)  cf8b323b82a7b38e35b097b5d0a8acad40c4de75d248d9d067c4760042886195     360059  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_after_wide.png
+?? (dir)  80bd469bc5ce314a13054d7b6b8380e0cb430f076c836be2a6ddda5c74a9ea85     254580  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_before_wide.png
+?? (dir)  ec5e1dd4526b48824551f4352bf91fd0758f4f6b2e10206deb99bcfb5d63604e     284920  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_narrow620.png
+?? (dir)  13c765b9151805b0d3337f653aff404fb8c6388e217d181766dfbcda7e4ffda9     314165  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_teacher_dialog_wide.png
+?? (dir)  bb77673d5cec52248fbf2cb27a308ea6bc8d27cb4068307c7a3f1fa7690d7c2a     448875  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_voice_mock_after_wide.png
+?? (dir)  9b13a62a7965af757545fa3057c0958e07d0d13936707d96bed8728a56edd895     409402  docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_voice_mock_before_wide.png
+?? (dir)  f3b5bfde6924068da1fa08aba6f148291c440115a20efca3989aec56d487f948       2314  docs/engineering/product-v1/classroom-v2/delivery-02/test-results/boundary_check.json
+?? (dir)  95e58713994997cec5e9c3e327ce58eed3134054e53ceb14d13448a128c2af72       1283  docs/engineering/product-v1/classroom-v2/delivery-02/test-results/offline_pipeline_replay.txt
+?? (dir)  dab095b971ef454becb03c3e2b9b692c496f76ff6c26c7f1e056a84ca32263f1      11666  docs/engineering/product-v1/classroom-v2/delivery-02/test-results/ui_pages.json
+?? (dir)  9a175be9f48f74a26e1072c4ca9d9911cf90f6ce476f01639018dfd0c8c965b3       1024  docs/engineering/product-v1/classroom-v2/delivery-02/test-results/voice_mock_event_log.json
+?? (dir)  91f4dbabf8d1fe84297f2469c53897b68d625e921ae07dad19d62bfc934a89de       3418  docs/engineering/product-v1/classroom-v2/delivery-02/workspace-manifest/git_status_porcelain.txt
+?? (dir)  32f3029c4162ce7f43052c7e5a5dd37a0905a8d27c52f87e0fa00b702718a90c       1325  docs/engineering/product-v1/classroom-v2/demo/sample_textbook.md
+?? (dir)  08ccb0e1d828df21bac198e08f553cfa2ec364af096424c88f2ba89c5a6ac73a      21838  docs/engineering/product-v1/classroom-v2/deploy/D1_LOCAL_SERVICE_LIFECYCLE.md
+?? (dir)  437f25d4d01a8d24f81a89987c2166ebdba07df614fb40068153e135ba698c2d       9288  docs/engineering/product-v1/classroom-v2/deploy/STUDENT_APP_PACKAGING_MINIMAL.md
+?? (dir)  9abe390500e623ed7730891df17eb25ed7cc5c7d6ce38bbe7147fef92009716a       6148  docs/engineering/product-v1/classroom-v2/design/.DS_Store
+?? (dir)  73d2a5de19de09f61982663c2700a24d4bca73f7e2f19940dc771edad1a70323      70858  docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas.html
+?? (dir)  dc9c57fe3a9d87bdda030c5d74a695cd5e44d679b93c573ccb8c99043da4a38b      36404  docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas_REV1.html
+?? (dir)  1c1b254945a3153761ec8230afe762d52463f9ab4c6d97767ebd79affd94fb61       4448  docs/engineering/product-v1/classroom-v2/evidence/avatar_adapter_tests.json
+?? (dir)  5ef166f80b215ef5b8e169c958bb84b853d5b45ad3120bd3994f3345005ebd2c       7064  docs/engineering/product-v1/classroom-v2/evidence/classroom_api_tests.json
+?? (dir)  63d11cf851c877aa5a0235b2803f5943ffde06b0e187de100ea24c549706e33b       8160  docs/engineering/product-v1/classroom-v2/evidence/course_contract_v1_client_tests.json
+?? (dir)  df266da5a1194ee561e0d33171bb2c2745b913fa53cf90ec50b287c91567d0fe       9787  docs/engineering/product-v1/classroom-v2/evidence/course_schema_consistency_tests.json
+?? (dir)  c2ca87841c8332fd4eee252c20f8c351c163951853e129d0763b2621a37e9882       6308  docs/engineering/product-v1/classroom-v2/evidence/curriculum_builder_tests.json
+?? (dir)  4349e52c67a9be7b2dc00507a5d45aceb65a27c6ba5570e41ca79cb511740016      16910  docs/engineering/product-v1/classroom-v2/evidence/epub_parser_security_tests.json
+?? (dir)  1865df4a4d73f5998fcc390703a52cea952616f16a58ca3d1d5b75d370dbfd45       8783  docs/engineering/product-v1/classroom-v2/evidence/knowledge_hash_format_tests.json
+?? (dir)  87d63df088d7580546f22a15423e3d707d6633879bc30acd109e5f17b51e607a       3980  docs/engineering/product-v1/classroom-v2/evidence/learning_record_tests.json
+?? (dir)  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855          0  docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.err
+?? (dir)  c926f8bc7e08f1f769cd2e35e029b6c54a12e5703cb8ad058c4139934bb53eb8       7182  docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.json
+?? (dir)  8bff6590d4ec7e39338d0efb58e54981b706e09a926e70b062a955e398fcda85      16619  docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.py
+?? (dir)  cb2f9be4bb23a36f1c6dbc787d548aaad2536d0e2c48a4d3837cab453f417aa6       7549  docs/engineering/product-v1/classroom-v2/evidence/schema_v1_errata_tests.json
+?? (dir)  a078401696762cdaff3d010e923ac027643ed871d9707393611b819f48d433b9       5085  docs/engineering/product-v1/classroom-v2/evidence/voice_mock_tests.json
+?? (dir)  8411ed59f307f0244c3825282e21e406db32ad3379cfe8fd88656266e13311a8       3468  docs/engineering/product-v1/classroom-v2/ownership/QML_OWNERSHIP_EXCEPTION_01.md
+?? (dir)  a3cc3c0052de687056b604c7126cfae5bbf5f85f265a8987ccae8e694b4cfcf7      42555  docs/engineering/product-v1/classroom-v2/security/D1_MINIMAL_PRIVILEGE_IMPORT_ACCESS.md
+ M  f2fd471fd11dfac00b0beed12af2d405f363602efb3910df3fe65f66e5626fc8      12917  gateway/app/admin/api_import.py
+ M  57bd016746a555140fd0b752a2ff5374b933527811c14ca7fd0f349ff100b6a5      38414  gateway/tests/admin_v4_api_tests.py
+??  397d418af496da1e6dd8e025fd44dae70854567997bc7153366b6697188968aa      13308  gateway/tests/course_schema_consistency_tests.py
+??  bb9b3a76d40c7ccd75756dd1d3eb5dd686610c2273a685dc8158ac933a136fa6       9088  gateway/tests/curriculum_builder_tests.py
+ M  f555de9e106fa160ad3fafe4ed7d970ebbc7a3ab5356aa9836cce3f3d9f9fdb4      10454  gateway/tests/import_v4_tests.py
+??  f07ae9f30888a911bf91f597ec1f4d04ce65b47e6dcc5778d2a45fd3c9ecb0fb      28410  gateway/tests/knowledge_epub_tests.py
+??  43c93dc8d03c85fedae058c4be3e1802dac07412a9c49f26efb07b0bb17a3cf6      12725  gateway/tests/knowledge_hash_format_tests.py
+??  4a6bdfa029d0af39f0518a715da640aff54175691e7625599f4b2474c2597480      13235  gateway/tests/schema_v1_errata_tests.py
+?? (dir)  a59dc6ffeafe41ab02bbd3e5e31137c90c74fbd782b63be45ec388a6ca6ad7e5        524  modules/curriculum/__init__.py
+?? (dir)  eb245cb9598a6125c1bafa7e826afe15011d24793465d3f497cf32d805842e1a       8531  modules/curriculum/builder.py
+?? (dir)  23f3bd92688aedf0c0026dabf53c92087e9d04ad75a0496577ff17710ed09148      15849  modules/curriculum/course_schema.py
+?? (dir)  f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba       8445  modules/curriculum/course_schema.v1.json
+?? (dir)  52aa28a00bbeba5b54cd3c4e910dd542f1aeca1776670401720fbff0b006145a       3757  modules/curriculum/phonetics.py
+ M  0190395f98915b120570de00651641e5523fc9e20107a8ae924d35b7a77a3bd9      19540  modules/knowledge/parsers.py
+ M  8aa854f0c9e9a98a23d0a088bd6add69c803565e99b7af2d4a73686728795415       1379  tools/build_classroom_app.sh
+??  ca60f36709f0dc016a191c027a383a773e58e976119af8526292ef3a29f4fb80       5348  tools/classroom_build_info.py
+??  93792042ff802d1b4c0fed49685f450bc41096acbdc249a2146265bba2ede8e1      12808  tools/classroom_delivery_boundary_check.py
+??  4e0b5d642faa3d26227e03a96d5bab7b021c01e7f40ac3388eba3bad2320cae7       3716  tools/classroom_finder_open_check.sh
+??  6fb10363494b8a5457c8ffe1b0f87a11e687eb436fdffce630a71351abf3e14c      13715  tools/classroom_offline_pipeline.py
+??  5e25b87d442bccad24764b0bf74ae80831fced267f86a467d90594bd2cff5126       5999  tools/migrate_course_bundle_v1.py

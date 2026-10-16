@@ -1,0 +1,167 @@
+ADMIN-1 LEAD TEST EVIDENCE (regenerated 2026-10-07T06:17:50Z; supersedes the earlier copy)
+local test env: gateway/.venv (aiohttp 3.14.4) + locally built libopus 1.3.1 at /tmp/opus131/lib (dev-only; the NAS image ships its own libopus)
+
+== 1) ADMIN-1 deterministic suite ==
+PASS default ADMIN_ENABLED=0
+PASS default ADMIN_BIND=127.0.0.1
+PASS default ADMIN_PORT=8112
+PASS audio app routes unchanged (7, no admin routes)
+PASS admin app mounts exactly the allowlist
+PASS admin app mounts no audio/OTA/diag/health route
+PASS no /admin write or reset route exists
+PASS ADMIN_ENABLED=0 starts no listener
+PASS ADMIN_ENABLED=1 without token fails closed (no listener)
+PASS fail-closed log carries no secret
+PASS anonymous /admin/* -> 401 (all six)
+PASS invalid token -> 401 (all six)
+PASS 401 bodies are identical apart from the request id (no oracle)
+PASS valid token -> 200 (all six)
+PASS malformed Authorization header -> 401
+PASS lowercase scheme accepted
+PASS no bearer token in any response
+PASS no transcript fixture in any response
+PASS no raw session id in any response
+PASS no raw response id in any response
+PASS no workspace id in any response
+PASS no capture private dir in any response
+PASS no token file path in any response
+PASS diag-summary omits 'transcripts' (allowlist)
+PASS diag-summary omits 'journal_tail' (allowlist)
+PASS diag-summary omits 'send_intents' (allowlist)
+PASS diag-summary omits 'send_timeline' (allowlist)
+PASS /admin/health key set deterministic
+PASS /admin/health payload bounded (<16KB)
+PASS /admin/version key set deterministic
+PASS /admin/version payload bounded (<16KB)
+PASS /admin/sessions key set deterministic
+PASS /admin/sessions payload bounded (<16KB)
+PASS /admin/metrics key set deterministic
+PASS /admin/metrics payload bounded (<16KB)
+PASS /admin/telemetry key set deterministic
+PASS /admin/telemetry payload bounded (<16KB)
+PASS /admin/diag-summary key set deterministic
+PASS /admin/diag-summary payload bounded (<16KB)
+PASS telemetry honest (unavailable + reason)
+PASS telemetry exposes no fake zero metrics
+PASS version: image_digest honest null+source
+PASS version never returns the token
+PASS health reports admin auth configured
+PASS health carries no extra gateway-info keys
+PASS health exposes no secret paths
+PASS sessions list is sanitized (count present, no raw ids)
+PASS diag-summary keeps aggregates only
+PASS diag-summary has no reset surface
+PASS no endpoint mutates gateway counters (uptime excluded)
+PASS no endpoint mutates diagnostics
+PASS no endpoint mutates the session registry
+PASS /admin/env is rejected
+PASS /admin/config is rejected
+PASS /admin/debug is rejected
+PASS /admin/../etc/passwd is rejected
+PASS /admin/%2e%2e/etc/passwd is rejected
+PASS /admin/health/../../secret is rejected
+PASS token never appears in logs
+PASS no secret values echoed in logs
+PASS auth rejections are logged without the token
+PASS admin package never writes counters / shells out / opens sockets
+PASS diag-summary never references hostile keys (allowlist-built)
+PASS capture dir is never copied into responses
+PASS registry hooks are lifecycle-only in ws.py
+PASS UI shell carries no backend data
+PASS token kept in sessionStorage only
+PASS token never placed in URL/query
+PASS token rendered back never
+PASS clear-token action exists
+PASS UI calls exactly the six approved endpoints
+PASS UI issues GET-only requests
+PASS UI references no ADMIN-2 / reset / routing endpoint
+PASS UI has no write controls (no method overrides, no save/apply buttons)
+PASS no reset control in the shell
+PASS telemetry-unavailable state is explicit
+PASS all eight UI states are implemented
+PASS no legacy/workbench integration in the UI
+PASS request id shown on errors
+PASS CSS served with the shell
+
+ADMIN1_TESTS: 80/80 PASS
+
+== 2) ADMIN-1 load regression ==
+PASS admin listener started for the load test
+PASS requested load scenarios found in the harness
+PASS  clean_long: audio flowed (non-vacuous run) - (600, 600)
+PASS  clean_long: minimum frames sent (550) - 600
+PASS  clean_long: source closure residual 0
+PASS  clean_long: framer closure residual 0
+PASS  clean_long: disposition closure residual 0 - (0, {'encoded_full_frames': 600, 'synthetic_tail_frames': 0, 'sent_confirmed_frames': 600, 'send_outcome_unknown_frames': 0})
+PASS  clean_long: post_terminal 0 (got 0)
+PASS  clean_long: dispatch errors 0 (got 0)
+PASS  clean_long: accounting faults 0 (got 0)
+PASS  clean_long: no unknown outcome (got 0)
+PASS  clean_long: no send failures (got 0)
+PASS  clean_long: no byte cap (got 0)
+PASS  clean_long: no store cap (got 0)
+PASS  clean_long: wire excess <= 1 (got 0.0)
+PASS  clean_long: single pacer (got 1) - 1
+PASS  clean_long: no vacuous rate evidence (got 1) - 1
+PASS  clean_long: fps min >= 49.5 (got 49.99113731820799) - 49.99113731820799
+PASS  clean_long: fps max <= 50.5 (got 49.99113731820799) - 49.99113731820799
+PASS  clean_long: mean min >= 19.80 (got 20.003545701205233) - 20.003545701205233
+PASS  clean_long: mean max <= 20.20 (got 20.003545701205233) - 20.003545701205233
+PASS  clean_long: floor >= 14.999 (got 17.07033407688141) - 17.07033407688141
+PASS  clean_long: guard violations 0 (got 0)
+PASS  clean_long: markers <= 1 (got 1) - 1
+PASS  clean_long: stops <= 1 (got 1) - 1
+PASS  clean_long: cancel <= 1 (got None)
+PASS R-1f harness gates pass under admin load: clean_long
+PASS clean_long: pacer fatal stalls 0
+PASS clean_long: slow-send guard violations 0
+PASS clean_long: short intervals 0
+PASS clean_long: no store-cap transitions
+PASS clean_long: wire excess <= 1
+PASS clean_long: single pacer ever
+PASS clean_long: no unknown send outcome
+PASS clean_long: no post-terminal sends
+PASS clean_long: qualifying steady segments >= 1
+PASS clean_long: fps in band
+PASS clean_long: means in band
+PASS  rapid_barge: audio flowed (non-vacuous run) - (121, 36)
+PASS  rapid_barge: minimum frames sent (1) - 36
+PASS  rapid_barge: source closure residual 0
+PASS  rapid_barge: framer closure residual 0
+PASS  rapid_barge: disposition closure residual 0 - (0, {'encoded_full_frames': 121, 'synthetic_tail_frames': 0, 'sent_confirmed_frames': 36, 'send_outcome_unknown_frames': 0})
+PASS  rapid_barge: barge-in recorded (got 1) - 1
+PASS  rapid_barge: barge bits complete (got 0)
+PASS  rapid_barge: post_terminal 0 (got 0)
+PASS  rapid_barge: dispatch errors 0 (got 0)
+PASS  rapid_barge: barge-in lands in RESERVED_WAIT (no unknown) (got 0)
+PASS  rapid_barge: accounting faults 0 (got 0)
+PASS  rapid_barge: stops <= 1 (got 1) - 1
+PASS R-1f harness gates pass under admin load: rapid_barge
+PASS rapid_barge: pacer fatal stalls 0
+PASS rapid_barge: slow-send guard violations 0
+PASS rapid_barge: short intervals 0
+PASS rapid_barge: no store-cap transitions
+PASS rapid_barge: wire excess <= 1
+PASS rapid_barge: single pacer ever
+PASS rapid_barge: no unknown send outcome
+PASS rapid_barge: no post-terminal sends
+PASS rapid_barge: barge-in completed (no incomplete sequence)
+PASS rapid_barge: steady-segment rate gates N/A (aborted run, judged by barge gates)
+PASS admin load generated a meaningful number of requests
+PASS every admin response was 200
+PASS no admin request errored
+PASS admin response latency stayed bounded (< 1s)
+load summary: requests=450 max_ms=5.4  {"clean_long": {"pacer_rebases": 0, "sent_confirmed": 600, "segments_qualifying": 1, "fps": [49.99113731820799, 49.99113731820799]}, "rapid_barge": {"pacer_rebases": 0, "sent_confirmed": 36, "segments_qualifying": 1, "fps": [49.99113731820799, 49.99113731820799]}}
+ADMIN1_LOAD: 29/29 PASS
+
+== 3) R-1f deterministic suite (current source) ==
+======================================================================
+R1F_BRIDGE_TESTS: 180 checks, 179 PASS, 1 FAIL, 0.4s
+FAILED CHECKS:
+  - B test_sentinel_harness EXCEPTION OpusError()
+
+== 4) R-1f deterministic suite (pristine baseline ecb8209, same interpreter+libopus) ==
+======================================================================
+R1F_BRIDGE_TESTS: 180 checks, 179 PASS, 1 FAIL, 0.4s
+FAILED CHECKS:
+  - B test_sentinel_harness EXCEPTION OpusError()

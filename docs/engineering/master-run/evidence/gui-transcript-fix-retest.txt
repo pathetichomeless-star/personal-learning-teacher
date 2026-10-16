@@ -1,0 +1,29 @@
+GUI TRANSCRIPT FIX — RETEST EVIDENCE (2026-10-07T15:41:54Z)
+env: client uv env (PySide6 6.10.1, QT_QPA_PLATFORM=offscreen for the live-binding suite) + gateway/.venv
+
+== CLIENT_UI1_TESTS (client) ==
+
+CLIENT_UI1_TESTS: 48/48 PASS
+
+== GUI_TRANSCRIPT_LIVE_TESTS (new: real presenter->manager->model->QML engine) ==
+PASS reset clears the QML list
+======================================================================
+GUI_TRANSCRIPT_LIVE_TESTS: 25 checks, 25 PASS, 0 FAIL
+
+== CLIENT_UI1_INTEGRATION (gateway half) ==
+
+CLIENT_UI1_INTEGRATION: 19/19 PASS
+
+== BEHAVIOR-1 ==
+======================================================================
+BEHAVIOR1_TESTS: 111 checks, 111 PASS, 0 FAIL
+
+== MVP INTEGRATION ==
+======================================================================
+MVP_INTEGRATION_TESTS: 28 checks, 28 PASS, 0 FAIL
+
+== R-1f regression ==
+======================================================================
+R1F_BRIDGE_TESTS: 180 checks, 179 PASS, 1 FAIL, 0.4s
+FAILED CHECKS:
+  - B test_sentinel_harness EXCEPTION OpusError()

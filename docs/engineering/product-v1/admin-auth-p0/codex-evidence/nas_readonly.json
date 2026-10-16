@@ -1,0 +1,289 @@
+{
+  "timestamp_utc": "2026-10-09T15:16:33.722829+00:00",
+  "image": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+  "container": "295eb64dc48c364de65cc4a5d163a60ec9aa1d936cf2909fafe53e2937b4c4bd",
+  "started": "2026-10-09T06:36:55.857693136Z",
+  "health": "healthy",
+  "restart_count": 0,
+  "ports": {
+    "8110/tcp": [
+      {
+        "HostIp": "0.0.0.0",
+        "HostPort": "28310"
+      },
+      {
+        "HostIp": "::",
+        "HostPort": "28310"
+      }
+    ],
+    "8111/tcp": [
+      {
+        "HostIp": "0.0.0.0",
+        "HostPort": "28311"
+      },
+      {
+        "HostIp": "::",
+        "HostPort": "28311"
+      }
+    ],
+    "8112/tcp": [
+      {
+        "HostIp": "0.0.0.0",
+        "HostPort": "28312"
+      },
+      {
+        "HostIp": "::",
+        "HostPort": "28312"
+      }
+    ]
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/volume1/docker/xiaozhi-product-v1/data",
+      "Destination": "/app/data",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/volume1/docker/xiaozhi-product-v1/secrets",
+      "Destination": "/app/secrets",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "compose_labels": {
+    "com.docker.compose.config-hash": "e7c6ba1c6f09da1a98385bdcb0babc854ee0765dacb8d52a0bad7b19d2780f1a",
+    "com.docker.compose.container-number": "1",
+    "com.docker.compose.depends_on": "",
+    "com.docker.compose.image": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+    "com.docker.compose.oneoff": "False",
+    "com.docker.compose.project": "xiaozhi-product-v1",
+    "com.docker.compose.project.config_files": "/volume1/docker/xiaozhi-product-v1/docker-compose.yml",
+    "com.docker.compose.project.working_dir": "/volume1/docker/xiaozhi-product-v1",
+    "com.docker.compose.replace": "xiaozhi-product-v1-sidecar",
+    "com.docker.compose.service": "xiaozhi-product-v1-sidecar",
+    "com.docker.compose.version": "5.1.3"
+  },
+  "host_config": {
+    "Memory": 402653184,
+    "CapDrop": [
+      "ALL"
+    ],
+    "SecurityOpt": [
+      "no-new-privileges:true"
+    ],
+    "RestartPolicy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "NetworkMode": "xiaozhi-product-v1_default",
+    "ReadonlyRootfs": false
+  },
+  "image_metadata": [
+    {
+      "Id": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+      "Created": "2026-10-09T14:35:59.896753368+08:00",
+      "RepoTags": [
+        "xiaozhi-product-v1-sidecar:admin-visual-v2-release",
+        "xiaozhi-product-v1-xiaozhi-product-v1-sidecar:latest"
+      ],
+      "RepoDigests": [],
+      "Size": 174556624,
+      "RootFS": {
+        "Type": "layers",
+        "Layers": [
+          "sha256:258ba1f62b513e7bb7492d3cc8ce445e4ef176a14980f193f789b6d7270ae61c",
+          "sha256:373ce1c1778b9a35fa1db898d648974a737e314bb3503ac5c988fa42ca1f63d5",
+          "sha256:11d89b6e886fe5bea9177eb50df86009b68b75957e4605f2bb472bbb4a76751b",
+          "sha256:84dd5a4db43e5a9bfe3a50e18c5b5ad0a8789ea9b894392200ad8a95388a745e",
+          "sha256:a659565c51a2b94f0c91103764c4c9030339313cf298e6f7658c50cccfc63a4b",
+          "sha256:04efd174b10b28bfbe72ac1188fce6415bf807be562ff41945b26a9d725ac852",
+          "sha256:18d4f1f8533de97566edd22ff1a0d31b7e3930139313b68a744912a5a1c5877a",
+          "sha256:f42f85e8e714e68ce8dda0709aecfb088212c4b328d4ae40ab7442e56aa59bdb",
+          "sha256:59eac64d167e723f8879ba413041600d08fd4a2c200cfed481a12164be25f291",
+          "sha256:2c1025493d35a19ec93ce1cf17733ec13900c79ef4032878bd00e65601ea0d6a",
+          "sha256:58335915a7ed041f7a689cebd7cf35b004f94d4a8f46609596e6f2216432d8a3",
+          "sha256:765fbe95705442f6e253cf8b5f368185a72e27a41c9ee17c6b6efcd6dd38c0bb",
+          "sha256:b86c0f0e70f4899be92caf0d1ea1968766079b064b4c9412b9eb7c214571bb04"
+        ]
+      }
+    },
+    {
+      "Id": "sha256:34ea8277cb571f327d14deb43659c6dba71c4cd49677a15b1d580cd93445a6a4",
+      "Created": "2026-10-08T22:47:24.68195346+08:00",
+      "RepoTags": [
+        "xiaozhi-product-v1-sidecar:XIAOZHI-VOICE-V1-HUMAN-ACCEPTED"
+      ],
+      "RepoDigests": [],
+      "Size": 174538992,
+      "RootFS": {
+        "Type": "layers",
+        "Layers": [
+          "sha256:258ba1f62b513e7bb7492d3cc8ce445e4ef176a14980f193f789b6d7270ae61c",
+          "sha256:373ce1c1778b9a35fa1db898d648974a737e314bb3503ac5c988fa42ca1f63d5",
+          "sha256:11d89b6e886fe5bea9177eb50df86009b68b75957e4605f2bb472bbb4a76751b",
+          "sha256:84dd5a4db43e5a9bfe3a50e18c5b5ad0a8789ea9b894392200ad8a95388a745e",
+          "sha256:a659565c51a2b94f0c91103764c4c9030339313cf298e6f7658c50cccfc63a4b",
+          "sha256:04efd174b10b28bfbe72ac1188fce6415bf807be562ff41945b26a9d725ac852",
+          "sha256:18d4f1f8533de97566edd22ff1a0d31b7e3930139313b68a744912a5a1c5877a",
+          "sha256:f42f85e8e714e68ce8dda0709aecfb088212c4b328d4ae40ab7442e56aa59bdb",
+          "sha256:59eac64d167e723f8879ba413041600d08fd4a2c200cfed481a12164be25f291",
+          "sha256:2c1025493d35a19ec93ce1cf17733ec13900c79ef4032878bd00e65601ea0d6a",
+          "sha256:58335915a7ed041f7a689cebd7cf35b004f94d4a8f46609596e6f2216432d8a3",
+          "sha256:d2702dc146fd4ec3bb1827cd1a8eb9f6650b53897747cf38bb461fab19a245fc",
+          "sha256:e469f6087e4da6d0b4bc3fe9529cfaf644414e8dbe40e99eb8014656424e1556"
+        ]
+      }
+    }
+  ],
+  "file_metadata": [
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/docker-compose.yml",
+      "mode": "0o644",
+      "uid": 1000,
+      "gid": 10,
+      "size": 2249,
+      "mtime": 1791527743.0,
+      "type": "file"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/.env",
+      "mode": "0o644",
+      "uid": 1000,
+      "gid": 10,
+      "size": 19,
+      "mtime": 1791475300.084729,
+      "type": "file"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/config/config.json",
+      "mode": "0o644",
+      "uid": 1000,
+      "gid": 10,
+      "size": 299,
+      "mtime": 1791527742.0,
+      "type": "file"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/data/policy.json",
+      "unavailable": "PermissionError"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/data/memory.json",
+      "unavailable": "PermissionError"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/data/knowledge.json",
+      "unavailable": "PermissionError"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/secrets",
+      "mode": "0o755",
+      "uid": 1000,
+      "gid": 10,
+      "size": 4096,
+      "mtime": 1791394471.2807245,
+      "type": "dir"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/secrets/product_v1_admin_token",
+      "mode": "0o600",
+      "uid": 10001,
+      "gid": 10001,
+      "size": 64,
+      "mtime": 1791394464.928563,
+      "type": "file"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/secrets/qwen-realtime.env",
+      "mode": "0o600",
+      "uid": 10001,
+      "gid": 10001,
+      "size": 384,
+      "mtime": 1791394471.2807245,
+      "type": "file"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/freeze/pre-adminv2",
+      "mode": "0o755",
+      "uid": 1000,
+      "gid": 10,
+      "size": 4096,
+      "mtime": 1791527721.0496879,
+      "type": "dir"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/freeze/pre-adminv2/running_image_id.txt",
+      "mode": "0o644",
+      "uid": 1000,
+      "gid": 10,
+      "size": 72,
+      "mtime": 1791527721.0736878,
+      "type": "file",
+      "image_id": "sha256:34ea8277cb571f327d14deb43659c6dba71c4cd49677a15b1d580cd93445a6a4"
+    },
+    {
+      "path": "/volume1/docker/xiaozhi-product-v1/freeze/pre-adminauth-p0",
+      "unavailable": "FileNotFoundError"
+    }
+  ],
+  "production_source_hashes": {
+    "/app/app/qwen.py": "399499993350fa64bb4621d04a701c1786b3f2ff96db16e87db645b23ee87a00",
+    "/app/app/diag.py": "8cc31768b0d17174cfc7e300e9fb8e64d2330bd954d0d6c5abc39914ee146ba0",
+    "/app/app/turns.py": "e18a0d08ed3a28771dee71d39dd5563f52f3d1199043ac81b8d9a7b5a2a498bd",
+    "/app/app/main.py": "40a423799d0e3cf17d43558a5081c3c6777db758740306d347c32751887185c6",
+    "/app/app/audio.py": "c2218a2c3fda520089473e312ce6ee3fac4436c540755a8c98fd634ff7a87c09",
+    "/app/app/protocol.py": "944e2d5ab4f0c2b13a51b547d366175cc18263575034566fda928b2a7b30d9f8",
+    "/app/app/http.py": "63d26c203af9e4b1d534bb4603da5bc590f66659b103c36625cc714e5791174f",
+    "/app/app/counters.py": "b435ecafbbe83464819ae260a39b37c2f3d0abc7c6c3ddb338f77ececfa1a622",
+    "/app/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/app/app/behavior.py": "6d705960cb0154f17fa9eb0ce9ef1d651d0b4a64c9d4564fde5957d08d6a0088",
+    "/app/app/ws.py": "dde9d427883721c17628f40c73bf417bc9c0ab32711d07a4f22e9ed7ad63dd1c",
+    "/app/app/admin/config.py": "027caa8b01690105f34234370f7d887f1db8d353099170109949933a0894ddfc",
+    "/app/app/admin/service.py": "a5a9a04cf608674707582d0b149a22d161e8a0355053ebf27e52e9142a5f1881",
+    "/app/app/admin/api.py": "e8b48903db5444cde78512607fb0915f11eeef594cab42968763642bdd915c22",
+    "/app/app/admin/auth.py": "2914c9ded2ec32fdbfaaf57058876392fce5c233bdefa39e83a53f0d7703c7f7",
+    "/app/app/admin/app.py": "66c4afdb3046d4b34ab5e00548338d0f93c504139c0aa52d43fe1793ed242d49",
+    "/app/app/admin/stores.py": "fbf481599acbcadc4f0dd6b67259a664692f350a8e7571e8880a09dc4c2aa428",
+    "/app/app/admin/version.py": "dbf7743f879840a1837d430ab310b141eceb5ac825bb9f7d1d5fa888c624c878",
+    "/app/app/admin/views.py": "1abc8308ec761964cbdac9f6e6df0fa0a47a072e283c6e8bb2215ff2f5e90088",
+    "/app/app/admin/registry.py": "8b5f47ce1cb4479839cb069b13f9fdf54ad831ceef20d185527aa32b35e8ff00",
+    "/app/app/admin/__init__.py": "40a8ceb2d505e2bd17877f134eb18b5275a370de07949f23d968dfe2350d575a",
+    "/app/modules/_store_lock.py": "c92cebb10a52b734436d9680fc60e13a61fd4bb3c088b37b2f7aeef499ae882f",
+    "/app/modules/__init__.py": "4c359e43b23ec93cb524ab4f77a820df3a6f088e2d5b28ec551374dd8aee319c",
+    "/app/modules/memory/store.py": "71de2ef38fd0e6c7feb3c6f6ba9a6ef13bf12b4993e68f7c4208acd811fd6abb",
+    "/app/modules/memory/__init__.py": "1ff5e8dc319c4892c2231d38fe0dae3817ce1e99b94cfcc22fab1258aa227ae2",
+    "/app/modules/policy/persona.py": "918dd683d9c5fc469447a1bc614054210c3ecc1fbc4ca746e2e4e1761f4b67ba",
+    "/app/modules/policy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/app/modules/adapters/workbench.py": "581fb24722d4683cf5d3c15e45f2b8df516526b685f1bc32bda8f32b74cce9c0",
+    "/app/modules/adapters/__init__.py": "396f6901c64742ed478d512018914d77a24e82e4d5fc31b6263d0f053056b991",
+    "/app/modules/intent/__init__.py": "7f4daf24eb8a34de3d59703e7d906ff81abf44490f259a387826fe9e7883614c",
+    "/app/modules/intent/behavior.py": "341281f9a0efb660c0a6a35198e147021c25d103b039903c2742d2b7cd0666b6",
+    "/app/modules/knowledge/store.py": "828df1470391923a0235175c58ab0fa154089dd66f1d68532e3d879663eadf1f",
+    "/app/admin-ui/styles.css": "9626194537584fed636426a956f3d8d93d98512f8bac47d2ac4fbb82fab05bb9",
+    "/app/admin-ui/index.html": "4dd6d985464da3c01624c7e52abc4770848b910c5f5287768cd683d5e0687eee",
+    "/app/admin-ui/shared.js": "4f07af092d4090ffc76590d062e5b4defb6d391262f819ad7564aa76101aae7d",
+    "/app/admin-ui/app.js": "42c4a0e4ab2804bac3aeef5205742ceaba56be4da0c27b0feae7557ce7d119ea"
+  },
+  "http://127.0.0.1:28311/health": {
+    "status": 200,
+    "safe_fields": {
+      "status": "ok",
+      "ws_connections": 1,
+      "qwen_connected": 1,
+      "qwen_sessions": 2
+    }
+  },
+  "http://127.0.0.1:28312/": {
+    "status": 200
+  },
+  "baseline_source_comparison": {
+    "baseline": "e51d9a5",
+    "files_compared": 36,
+    "mismatches": []
+  }
+}

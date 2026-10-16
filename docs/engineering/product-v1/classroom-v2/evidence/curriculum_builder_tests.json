@@ -1,0 +1,197 @@
+{
+  "artifact": "curriculum_builder_tests",
+  "scope": "CLASSROOM V2 PHASE2 · Agent E（教材→课程生成 + 音标）",
+  "generated_at": "2026-10-12T22:23:24+0800",
+  "python_version": "3.13.12",
+  "repo_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "phonetics_words": 40,
+  "accent_label": "en-GB (RP)",
+  "sample_bundle_course_count": 1,
+  "results": [
+    {
+      "case_id": "E01a",
+      "name": "local-demo 课程构建并通过冻结 schema v1 校验",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 89
+    },
+    {
+      "case_id": "E01b",
+      "name": "local-demo 三个来源绑定字段全为 null（不得伪造来源）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 90
+    },
+    {
+      "case_id": "E01c",
+      "name": "doc 级不含 source（来源只在 course 级）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 93
+    },
+    {
+      "case_id": "E02",
+      "name": "user-textbook 携带真实绑定 → 校验通过（含裸 hex content_hash）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 101
+    },
+    {
+      "case_id": "E03",
+      "name": "user-textbook 缺绑定 → 构建即失败（fail-closed）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 109
+    },
+    {
+      "case_id": "E04",
+      "name": "未知条目 kind → 抛错（不得静默跳过）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 118
+    },
+    {
+      "case_id": "E05a",
+      "name": "非法/缺失答案 → answer=None（绝不落 0/-1）",
+      "passed": true,
+      "observed": [
+        null,
+        null
+      ],
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 127
+    },
+    {
+      "case_id": "E05b",
+      "name": "不确定项被记入 needs_review（可见，不静默）",
+      "passed": true,
+      "observed": [
+        {
+          "where": "unit[0].item[0]",
+          "reason": "answer_needs_human",
+          "question": "q1",
+          "provided": 5
+        },
+        {
+          "where": "unit[0].item[1]",
+          "reason": "answer_needs_human",
+          "question": "q2",
+          "provided": null
+        }
+      ],
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 129
+    },
+    {
+      "case_id": "E06",
+      "name": "合法答案 2 原样保留",
+      "passed": true,
+      "observed": 2,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 135
+    },
+    {
+      "case_id": "E07",
+      "name": "已知词填入真实 en-GB (RP) 音标",
+      "passed": true,
+      "observed": "ˌrezəˈveɪʃn",
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 142
+    },
+    {
+      "case_id": "E07b",
+      "name": "音标口音标签为 en-GB (RP)（不冒充美音）",
+      "passed": true,
+      "observed": "en-GB (RP)",
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 144
+    },
+    {
+      "case_id": "E08",
+      "name": "未知词省略 phonetic 字段（既不写 null 也不编造）",
+      "passed": true,
+      "observed": {
+        "type": "vocab",
+        "word": "zyxwvu",
+        "meaning": "（生僻词）",
+        "en": "zyxwvu",
+        "cn": "生僻词"
+      },
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 146
+    },
+    {
+      "case_id": "E09a",
+      "name": "输出不含固定 20 天计划痕迹（Day N / 20 天）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 151
+    },
+    {
+      "case_id": "E09b",
+      "name": "课时数 == 用户教材 unit 数（2）",
+      "passed": true,
+      "observed": 2,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 153
+    },
+    {
+      "case_id": "E10",
+      "name": "make_course_id 全部满足 ^crs_[A-Za-z0-9_-]{4,64}$",
+      "passed": true,
+      "observed": [
+        "crs_course",
+        "crs_A_course",
+        "crs_x_course",
+        "crs_Long_Name_With_Spaces_1234567890"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 158
+    },
+    {
+      "case_id": "E11",
+      "name": "空 units → 抛错（不生成空课程）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 167
+    },
+    {
+      "case_id": "E12",
+      "name": "每课自动含 cover 与 summary 幻灯片",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 171
+    },
+    {
+      "case_id": "E13a",
+      "name": "version 只在文档级（course 内无 version）",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 176
+    },
+    {
+      "case_id": "E13b",
+      "name": "source 只在 course 级",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/curriculum_builder_tests.py",
+      "asserted_line": 178
+    }
+  ],
+  "summary": {
+    "total": 19,
+    "passed": 19,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

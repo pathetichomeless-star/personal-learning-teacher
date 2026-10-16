@@ -1,0 +1,171 @@
+{
+  "artifact": "schema_v1_errata_tests",
+  "scope": "CLASSROOM V2 · Course Schema v1 勘误（SHA-256 正则放宽）向后兼容证明",
+  "old_pattern": "^sha256:[0-9a-f]{64}$",
+  "new_pattern": "^(?:sha256:)?[0-9a-f]{64}$",
+  "claim": "L(old) ⊆ L(new) ⇒ 旧 v1 合法文档在新 v1 下仍然合法（向后兼容，无需升版本）",
+  "method": [
+    "语料包含性",
+    "受限穷举网格",
+    "确定性随机性质测试(20000)",
+    "扩张类精确性",
+    "fail-closed 未削弱(端到端)",
+    "结构与版本面未变",
+    "权威↔镜像同步",
+    "勘误已登记"
+  ],
+  "grid_cells_checked": 240,
+  "random_cases": 20000,
+  "results": [
+    {
+      "case_id": "E01a",
+      "name": "语料：不存在「旧合法 → 新非法」的值（包含性必要条件的抽样证据）",
+      "passed": true,
+      "observed": "[]",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 105
+    },
+    {
+      "case_id": "E01b",
+      "name": "语料：旧合法的值在新口径下全部合法（逐条计数一致）",
+      "passed": true,
+      "observed": "{'old': 5, 'new': 8}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 107
+    },
+    {
+      "case_id": "E02a",
+      "name": "受限穷举（前缀×分隔符×长度×大小写）未发现任何「旧合法→新非法」",
+      "passed": true,
+      "observed": "{'grid': 240, 'missing': []}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 129
+    },
+    {
+      "case_id": "E03a",
+      "name": "确定性随机 20000 例：无「旧合法→新非法」（性质测试）",
+      "passed": true,
+      "observed": "{'old_ok': 3304, 'new_ok': 6670, 'missing': []}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 155
+    },
+    {
+      "case_id": "E03b",
+      "name": "随机样本中新口径接受数 ≥ 旧口径（单调扩张的方向正确）",
+      "passed": true,
+      "observed": "{'old': 3304, 'new': 6670}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 158
+    },
+    {
+      "case_id": "E04a",
+      "name": "扩张类恰为「裸 64hex」（带前缀 64hex 旧口径本就接受，不应出现在扩张集）",
+      "passed": true,
+      "observed": "{'bare64hex'}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 170
+    },
+    {
+      "case_id": "E04b",
+      "name": "旧非法且新非法的值未被意外放行（如大写/长度错/非 hex 仍拒）",
+      "passed": true,
+      "observed": "'illegal still rejected'",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 172
+    },
+    {
+      "case_id": "E05a",
+      "name": "旧口径合法的绑定在新 v1 下**仍然合法**（端到端）",
+      "passed": true,
+      "observed": "[]",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 190
+    },
+    {
+      "case_id": "E05b",
+      "name": "旧非法（长度错）在新 v1 下**仍然非法**（fail-closed 未削弱）",
+      "passed": true,
+      "observed": "[\"$.courses[0].source_doc_hash: admin-knowledge 必须提供 SHA-256 形式的 content_hash（裸 64hex 或 sha256:<64hex>），得到 'sha256:ababababababababababababababababababababababababababababababab'\"]",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 195
+    },
+    {
+      "case_id": "E05c",
+      "name": "大写裸 hex 仍被拒（扩张仅限小写裸 hex，不放行大小写任意）",
+      "passed": true,
+      "observed": "[\"$.courses[0].source_doc_hash: admin-knowledge 必须提供 SHA-256 形式的 content_hash（裸 64hex 或 sha256:<64hex>），得到 'ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB'\"]",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 200
+    },
+    {
+      "case_id": "E06a",
+      "name": "文档级 version 仍为 const 1（未升版本号；向后兼容 ≠ 结构变更）",
+      "passed": true,
+      "observed": "{'const': 1, 'description': 'schema 版本。只在文档级出现，course 内不得重复（消除双 version 歧义）。'}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 207
+    },
+    {
+      "case_id": "E06b",
+      "name": "文档级 schema 名未变（classroom.course.bundle）",
+      "passed": true,
+      "observed": "{'const': 'classroom.course.bundle', 'description': '文档类型常量。缺失或取值不符 = 校验失败。'}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 209
+    },
+    {
+      "case_id": "E06c",
+      "name": "doc_id / course_id 正则未变（勘误只涉及两个哈希字段）",
+      "passed": true,
+      "observed": "('^doc_[A-Za-z0-9]{4,64}$', '^crs_[A-Za-z0-9_-]{4,64}$')",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 212
+    },
+    {
+      "case_id": "E06d",
+      "name": "规范形式仍存在且严格（sha256:<64hex>），展示/规范比较不被放宽",
+      "passed": true,
+      "observed": "'^sha256:[0-9a-f]{64}$'",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 216
+    },
+    {
+      "case_id": "E07a",
+      "name": "权威与客户端镜像的 pattern 集合完全一致（勘误两侧同步，无单边漂移）",
+      "passed": true,
+      "observed": "{'auth': ['^(?:sha256:)?[0-9a-f]{64}$', '^(?:sha256:)?[0-9a-f]{64}$', '^crs_[A-Za-z0-9_-]{4,64}$', '^doc_[A-Za-z0-9]{4,64}$'], 'mirror': ['^(?:sha256:)?[0-9a-f]{64}$', '^(?:sha256:)?[0-9a-f]{64}$', '^crs_[A-Za-z0-9_-]{4,64}$', '^doc_[A-Za-z0-9]{4,64}$']}",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 241
+    },
+    {
+      "case_id": "E07b",
+      "name": "两侧哈希字段均使用放宽后的正则（不存在一边仍写死前缀）",
+      "passed": true,
+      "observed": "['^(?:sha256:)?[0-9a-f]{64}$', '^(?:sha256:)?[0-9a-f]{64}$', '^crs_[A-Za-z0-9_-]{4,64}$', '^doc_[A-Za-z0-9]{4,64}$']",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 244
+    },
+    {
+      "case_id": "E08a",
+      "name": "勘误有独立文档记录（非静默变更）—— 文件存在即视为已登记",
+      "passed": true,
+      "observed": "'CLASSROOM_V2_SCHEMA_V1_ERRATA.md'",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 249
+    },
+    {
+      "case_id": "E08b",
+      "name": "生产代码显式标注勘误来源（course_schema.py 引用 CONTRACT_FIX_01A 一.4）",
+      "passed": true,
+      "observed": "'modules/curriculum/course_schema.py'",
+      "asserted_file": "<project-root>/gateway/tests/schema_v1_errata_tests.py",
+      "asserted_line": 253
+    }
+  ],
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

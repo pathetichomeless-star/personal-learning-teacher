@@ -1,0 +1,61 @@
+# 私密与凭据（永不入库）
+secrets/
+**/secrets/
+*.env
+!*.env.example
+!**/*.env.example
+deploy/.env
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+.netrc
+
+# 备份（可能含净化前凭据）
+config-backups/
+rtl-lab-backups/
+admin0-backups/
+backups/
+
+# 日志 / 遥测 / 转写（仅根目录 logs/；发布树内已审查的 QA 证据日志有例外，见文末）
+/logs/
+*.log
+*.jsonl
+
+# 用户学习状态 / 私密知识库
+**/user_state*.json
+**/knowledge_private/**
+**/kb_private/**
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+
+# Python / 构建 / 缓存
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# 资产（按许可证审查后手动添加；audio/模型类默认不入库）
+*.wav
+*.mp3
+*.bin
+*.bundle
+*.tar.gz
+*.zip
+
+# 工具与系统文件
+.DS_Store
+._*
+Thumbs.db
+
+# 例外：发布树内已审查的 QA 证据日志（whitelist 收录）
+!docs/engineering/**/logs/
+!docs/engineering/**/logs/**
+!docs/engineering/**/*.log

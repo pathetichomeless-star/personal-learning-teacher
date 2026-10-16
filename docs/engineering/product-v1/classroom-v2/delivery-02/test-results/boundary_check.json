@@ -1,0 +1,78 @@
+{
+  "artifact": "classroom_delivery_boundary_check",
+  "phase": "CLASSROOM V2 · DELIVERY GATE 02 · 交付物 F",
+  "baseline_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "results": [
+    {
+      "name": "A01 冻结六文件（Tina）工作树 == HEAD（逐字节）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "A02 冻结六文件 git 状态干净（未修改/未暂存/未新增）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "B01 受保护数字人 5 文件 == R3-0 基线（逐字节）",
+      "ok": true,
+      "detail": "{}"
+    },
+    {
+      "name": "C01 暂存区为空（本轮未 git add）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "C02 HEAD 仍为施工基线提交（未提交/未 amend）",
+      "ok": true,
+      "detail": "3754e502701713ee420e19b5badee5c421a77f88"
+    },
+    {
+      "name": "D01 课堂运行期源码无非环回 URL 字面量（无外部/付费网络面）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "D02 课堂运行期源码无子进程能力（subprocess/os.system/Popen）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "E01 包内含构建信息 classroom_build_info.json",
+      "ok": true,
+      "detail": "<project-root>/client/dist/小智 AI 学生课堂.app/Contents/Resources/classroom_build_info.json"
+    },
+    {
+      "name": "E02 包内运行期必需资源齐备（9 项；含导入期 schema JSON）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "E03 包内随包资源逐字节等于构建信息所记（18 个文件）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "E04 当前源码集合 == 包内记录（打包后源码未改动）",
+      "ok": true,
+      "detail": "{'now': 'a9cb055e2b941c8f', 'bundle': 'a9cb055e2b941c8f'}"
+    },
+    {
+      "name": "E05 包内 git_head / 源文件数与当前一致",
+      "ok": true,
+      "detail": "{'now': ('3754e5027017', 29), 'bundle': ('3754e5027017', 29)}"
+    },
+    {
+      "name": "E06 Info.plist 版本 == 构建信息版本",
+      "ok": true,
+      "detail": "{'plist': ('2.0.0', '3'), 'info': ('2.0.0', '3')}"
+    }
+  ],
+  "summary": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

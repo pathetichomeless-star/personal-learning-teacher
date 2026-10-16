@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "label": "本地演示课程（非正式教材，非 AI 生成）",
+  "notice": "本课程数据为随客户端分发的本地演示内容，用于打通「选课 → 翻页 → 双语显示 → 文字练习」链路；它不代表已接入正式教材或真实 AI 生成能力。",
+  "courses": [
+    {
+      "title": "酒店英语 · Hotel English",
+      "subject": "english",
+      "level": "初级",
+      "description": "办理入住、点餐与求助的日常表达",
+      "lessons": [
+        {
+          "title": "第 1 课 · 办理入住 Check-in",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "办理入住 Check-in",
+              "subtitle": "Hotel check-in",
+              "points": [
+                "问候与自我介绍",
+                "出示预订信息",
+                "询问房型与楼层"
+              ]
+            },
+            {
+              "type": "vocab",
+              "word": "reservation",
+              "phonetic": "/ˌrezəˈveɪʃn/",
+              "meaning": "预订",
+              "en": "I have a reservation under the name Li.",
+              "cn": "我有一个以李为名的预订。"
+            },
+            {
+              "type": "sentence",
+              "en": "Good evening. I'd like to check in, please.",
+              "cn": "晚上好，我想办理入住。",
+              "note": "礼貌句型：I'd like to ...（我想要……）"
+            },
+            {
+              "type": "practice",
+              "question": "「预订」对应的英文单词是哪个？",
+              "options": [
+                "reservation",
+                "reception",
+                "rental"
+              ],
+              "answer": 0,
+              "explain": "reservation = 预订；reception = 前台/接待；rental = 租赁。"
+            },
+            {
+              "type": "summary",
+              "title": "本课小结",
+              "points": [
+                "reservation 预订",
+                "I'd like to check in, please.",
+                "询问楼层：Which floor is it on?"
+              ]
+            }
+          ],
+          "lesson_id": "lesson_checkin"
+        },
+        {
+          "title": "第 2 课 · 预订早餐 Breakfast",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "预订早餐 Breakfast",
+              "subtitle": "Ordering breakfast",
+              "points": [
+                "说明用餐时间",
+                "表达忌口",
+                "确认送餐方式"
+              ]
+            },
+            {
+              "type": "vocab",
+              "word": "breakfast",
+              "phonetic": "/ˈbrekfəst/",
+              "meaning": "早餐",
+              "en": "Breakfast is served from seven to ten.",
+              "cn": "早餐供应时间是七点到十点。"
+            },
+            {
+              "type": "sentence",
+              "en": "Could I have breakfast in my room tomorrow?",
+              "cn": "我明天可以在房间里用早餐吗？",
+              "note": "Could I ... 比 Can I ... 更客气。"
+            },
+            {
+              "type": "practice",
+              "question": "「早餐」的英文是？",
+              "options": [
+                "breakfast",
+                "lunch",
+                "dinner"
+              ],
+              "answer": 0,
+              "explain": "breakfast 早餐；lunch 午餐；dinner 晚餐。"
+            },
+            {
+              "type": "summary",
+              "title": "本课小结",
+              "points": [
+                "breakfast 早餐",
+                "Could I have ... ?",
+                "in my room 在我的房间"
+              ]
+            }
+          ],
+          "lesson_id": "lesson_breakfast"
+        }
+      ],
+      "course_id": "crs_hotel",
+      "source": "local-demo",
+      "revision": 1,
+      "source_doc_id": null,
+      "source_doc_hash": null,
+      "source_file_sha256": null
+    },
+    {
+      "title": "日常口语 · Daily English",
+      "subject": "english",
+      "level": "入门",
+      "description": "打招呼、道别与简单闲聊",
+      "lessons": [
+        {
+          "title": "第 1 课 · 打招呼 Greetings",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "打招呼 Greetings",
+              "subtitle": "Saying hello",
+              "points": [
+                "不同时间的问候",
+                "自我介绍",
+                "简单回应"
+              ]
+            },
+            {
+              "type": "vocab",
+              "word": "morning",
+              "phonetic": "/ˈmɔːnɪŋ/",
+              "meaning": "早晨",
+              "en": "Good morning! How are you today?",
+              "cn": "早上好！你今天怎么样？"
+            },
+            {
+              "type": "sentence",
+              "en": "Nice to meet you. My name is Lin.",
+              "cn": "很高兴认识你，我叫林。",
+              "note": "Nice to meet you 用于初次见面。"
+            },
+            {
+              "type": "practice",
+              "question": "初次见面说「很高兴认识你」，应选哪一句？",
+              "options": [
+                "Nice to meet you.",
+                "See you later.",
+                "Good night."
+              ],
+              "answer": 0,
+              "explain": "见：Nice to meet you；别：See you later；晚安：Good night。"
+            },
+            {
+              "type": "summary",
+              "title": "本课小结",
+              "points": [
+                "Good morning!",
+                "Nice to meet you.",
+                "My name is ..."
+              ]
+            }
+          ],
+          "lesson_id": "lesson_greeting"
+        },
+        {
+          "title": "第 2 课 · 简单闲聊 Small talk",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "简单闲聊 Small talk",
+              "subtitle": "Weather and weekend",
+              "points": [
+                "谈天气",
+                "问周末安排",
+                "礼貌结束对话"
+              ]
+            },
+            {
+              "type": "vocab",
+              "word": "weekend",
+              "phonetic": "/ˌwiːkˈend/",
+              "meaning": "周末",
+              "en": "What are you doing this weekend?",
+              "cn": "你这周末打算做什么？"
+            },
+            {
+              "type": "sentence",
+              "en": "It looks like it's going to rain.",
+              "cn": "看起来要下雨了。",
+              "note": "It looks like ... 表示推测。"
+            },
+            {
+              "type": "practice",
+              "question": "「周末」的英文是？",
+              "options": [
+                "weekday",
+                "weekend",
+                "weekly"
+              ],
+              "answer": 1,
+              "explain": "weekend 周末；weekday 工作日；weekly 每周的。"
+            },
+            {
+              "type": "summary",
+              "title": "本课小结",
+              "points": [
+                "weekend 周末",
+                "It looks like ...",
+                "What are you doing ...?"
+              ]
+            }
+          ],
+          "lesson_id": "lesson_smalltalk"
+        }
+      ],
+      "course_id": "crs_daily",
+      "source": "local-demo",
+      "revision": 1,
+      "source_doc_id": null,
+      "source_doc_hash": null,
+      "source_file_sha256": null
+    },
+    {
+      "title": "数字与时间 · Numbers & Time",
+      "subject": "english",
+      "level": "入门",
+      "description": "读数字、问时间、说价格",
+      "lessons": [
+        {
+          "title": "第 1 课 · 询问时间 Telling time",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "询问时间 Telling time",
+              "subtitle": "What time is it?",
+              "points": [
+                "整点与半点",
+                "上午/下午",
+                "约定时间"
+              ]
+            },
+            {
+              "type": "vocab",
+              "word": "half past",
+              "phonetic": "/hɑːf pɑːst/",
+              "meaning": "……点半",
+              "en": "It's half past seven.",
+              "cn": "现在是七点半。"
+            },
+            {
+              "type": "sentence",
+              "en": "The train leaves at a quarter to nine.",
+              "cn": "火车九点差一刻出发。",
+              "note": "a quarter to nine = 8:45。"
+            },
+            {
+              "type": "practice",
+              "question": "「七点半」的正确说法是？",
+              "options": [
+                "half past seven",
+                "quarter past seven",
+                "seven to half"
+              ],
+              "answer": 0,
+              "explain": "half past seven = 7:30；quarter past seven = 7:15。"
+            },
+            {
+              "type": "summary",
+              "title": "本课小结",
+              "points": [
+                "half past = ……点半",
+                "a quarter to = 差一刻",
+                "What time is it?"
+              ]
+            }
+          ],
+          "lesson_id": "lesson_time"
+        }
+      ],
+      "course_id": "crs_numbers",
+      "source": "local-demo",
+      "revision": 1,
+      "source_doc_id": null,
+      "source_doc_hash": null,
+      "source_file_sha256": null
+    }
+  ],
+  "schema": "classroom.course.bundle"
+}

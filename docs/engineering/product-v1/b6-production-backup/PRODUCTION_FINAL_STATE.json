@@ -1,0 +1,18 @@
+{
+  "at_utc": "2026-10-09T19:01:25.287032+00:00",
+  "id": "295eb64dc48c364de65cc4a5d163a60ec9aa1d936cf2909fafe53e2937b4c4bd",
+  "image": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+  "status": "running",
+  "paused": false,
+  "started_at": "2026-10-09T06:36:55.857693136Z",
+  "restart_count": 0,
+  "health_status": "healthy",
+  "voice_health": {
+    "status": "ok",
+    "ws_connections": 0,
+    "qwen_connected": 0,
+    "turns": 26,
+    "uptime_s": 44668.7,
+    "uptime": null
+  }
+}

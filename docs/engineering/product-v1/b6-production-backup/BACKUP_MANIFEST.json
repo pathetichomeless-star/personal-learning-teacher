@@ -1,0 +1,70 @@
+{
+  "status": "PARTIAL",
+  "run_id": "b6-20261009T190033Z",
+  "created_at_utc": "2026-10-09T19:00:37.783583+00:00",
+  "backup_directory": "/home/<nas-login>/.xiaozhi-b6-backups/b6-20261009T190033Z",
+  "separate_key_directory": "/home/<nas-login>/.xiaozhi-b6-keys/b6-20261009T190033Z",
+  "key_material_in_manifest": false,
+  "backup_directory_mode": "0o700",
+  "key_directory_mode": "0o700",
+  "file_mode": "0o600",
+  "cipher": "AES-256-GCM",
+  "header": "XZB6GCM1 + 12-byte nonce; ciphertext; 16-byte GCM tag; header authenticated as AAD",
+  "image_id": "sha256:038d2f6c7a8945ff8ceadffdf100dc306123d51aa8b0ad2c4c48ed073b826611",
+  "architecture": "arm64",
+  "os": "linux",
+  "rootfs_diff_ids": [
+    "sha256:258ba1f62b513e7bb7492d3cc8ce445e4ef176a14980f193f789b6d7270ae61c",
+    "sha256:373ce1c1778b9a35fa1db898d648974a737e314bb3503ac5c988fa42ca1f63d5",
+    "sha256:11d89b6e886fe5bea9177eb50df86009b68b75957e4605f2bb472bbb4a76751b",
+    "sha256:84dd5a4db43e5a9bfe3a50e18c5b5ad0a8789ea9b894392200ad8a95388a745e",
+    "sha256:a659565c51a2b94f0c91103764c4c9030339313cf298e6f7658c50cccfc63a4b",
+    "sha256:04efd174b10b28bfbe72ac1188fce6415bf807be562ff41945b26a9d725ac852",
+    "sha256:18d4f1f8533de97566edd22ff1a0d31b7e3930139313b68a744912a5a1c5877a",
+    "sha256:f42f85e8e714e68ce8dda0709aecfb088212c4b328d4ae40ab7442e56aa59bdb",
+    "sha256:59eac64d167e723f8879ba413041600d08fd4a2c200cfed481a12164be25f291",
+    "sha256:2c1025493d35a19ec93ce1cf17733ec13900c79ef4032878bd00e65601ea0d6a",
+    "sha256:58335915a7ed041f7a689cebd7cf35b004f94d4a8f46609596e6f2216432d8a3",
+    "sha256:765fbe95705442f6e253cf8b5f368185a72e27a41c9ee17c6b6efcd6dd38c0bb",
+    "sha256:b86c0f0e70f4899be92caf0d1ea1968766079b064b4c9412b9eb7c214571bb04"
+  ],
+  "container_id": "295eb64dc48c364de65cc4a5d163a60ec9aa1d936cf2909fafe53e2937b4c4bd",
+  "production_identity_and_start_unchanged": true,
+  "records": [
+    {
+      "file": "production-image.tar.aesgcm",
+      "plaintext_bytes": 179633664,
+      "plaintext_sha256": "62d00b6b7ad32b6a77fc5b0dac51d8485c2b84fc6b90f750deba45c5da2ceb01",
+      "ciphertext_sha256": "b9af26b8af9a11db46e2e27ccd172b41513fd330573dc653c53740dc5bd9e926",
+      "ciphertext_bytes": 179633700,
+      "aes256_gcm_authentication": true,
+      "mode": "0o600"
+    },
+    {
+      "file": "runtime-inspect.json.aesgcm",
+      "plaintext_bytes": 14551,
+      "plaintext_sha256": "4b2e88adf77119756469c12ccc5dc4ac4203058d93c9b80d8c953c366c07cc0b",
+      "ciphertext_sha256": "f51cd08d90f26e59c52bf139c70d9904890d90f4ba56d8e9d8f3c4fd7c3a4fea",
+      "ciphertext_bytes": 14587,
+      "aes256_gcm_authentication": true,
+      "mode": "0o600"
+    },
+    {
+      "file": "image-inspect.json.aesgcm",
+      "plaintext_bytes": 4613,
+      "plaintext_sha256": "f07950b02c53afcf509fe64fdf4c19ce7f776f1a43d1afff82905e1d3f445552",
+      "ciphertext_sha256": "be3e4ba7ff68e55b988864f038d016534c18745c40f6f614cb25a8ee70d1c691",
+      "ciphertext_bytes": 4649,
+      "aes256_gcm_authentication": true,
+      "mode": "0o600"
+    }
+  ],
+  "not_backed_up": [
+    "live Compose/env files",
+    "full Secrets directory",
+    "full data directory",
+    "configuration/build dependencies outside image"
+  ],
+  "consistency": "Immutable image and captured runtime specs only; no mutable-data backup or consistent snapshot claimed.",
+  "independent_image_load": "NOT_PERFORMED"
+}

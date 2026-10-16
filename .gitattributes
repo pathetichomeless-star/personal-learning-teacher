@@ -1,0 +1,23 @@
+# 统一换行处理；二进制文件显式标注
+* text=auto
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.icns binary
+*.ico binary
+*.onnx binary
+*.model binary
+*.raw binary
+*.pdf binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.gz binary
+*.dylib binary
+*.so binary
+*.dll binary

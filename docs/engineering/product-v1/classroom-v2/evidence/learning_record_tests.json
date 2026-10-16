@@ -1,0 +1,116 @@
+{
+  "artifact": "learning_record_tests",
+  "scope": "CLASSROOM V2 PHASE2 · Agent F（本机学习记录）",
+  "results": [
+    {
+      "case_id": "L01",
+      "name": "add + count == 4",
+      "passed": true,
+      "observed": "4",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 58
+    },
+    {
+      "case_id": "L02",
+      "name": "跨重启恢复：新实例读到 4 条",
+      "passed": true,
+      "observed": "4",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 62
+    },
+    {
+      "case_id": "L04",
+      "name": "磁盘文件 mode=0o600 且为合法 JSON",
+      "passed": true,
+      "observed": "('0o600', 'local-single-user')",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 68
+    },
+    {
+      "case_id": "L05",
+      "name": "错题本含 1 条（result=wrong）",
+      "passed": true,
+      "observed": "['s2']",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 72
+    },
+    {
+      "case_id": "L06",
+      "name": "待复习按 item_id 去重（s3 只 1 条，且为最新）",
+      "passed": true,
+      "observed": "[('s3', 'double room v2')]",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 79
+    },
+    {
+      "case_id": "L07",
+      "name": "掌握度在 (0,1] 且 <1（含 1 条错题）",
+      "passed": true,
+      "observed": "0.75",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 85
+    },
+    {
+      "case_id": "L07b",
+      "name": "无记录课程掌握度 = 0.0",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 86
+    },
+    {
+      "case_id": "L08a",
+      "name": "按课程删除返回删除条数",
+      "passed": true,
+      "observed": "(1, 4)",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 90
+    },
+    {
+      "case_id": "L08b",
+      "name": "按记录删除后 count 减少",
+      "passed": true,
+      "observed": "3",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 92
+    },
+    {
+      "case_id": "L09",
+      "name": "无 user_id/account 字段且全部带 scope=local-single-user（非多学生隔离）",
+      "passed": true,
+      "observed": "['answer', 'course_id', 'item_id', 'item_type', 'lesson_id', 'prompt', 'result', 'scope', 'source', 'ts']",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 98
+    },
+    {
+      "case_id": "L10",
+      "name": "未知 item_type → 拒绝写入",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 108
+    },
+    {
+      "case_id": "L03",
+      "name": "损坏文件 → 隔离 + 空启动 + 标记（不崩溃）",
+      "passed": true,
+      "observed": "(0, True, ['bad.json.corrupt-1792006169'])",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 116
+    },
+    {
+      "case_id": "L03b",
+      "name": "隔离后可继续正常写入",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_learning_record.py",
+      "asserted_line": 122
+    }
+  ],
+  "summary": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

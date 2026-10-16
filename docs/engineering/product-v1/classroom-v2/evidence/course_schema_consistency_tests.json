@@ -1,0 +1,312 @@
+{
+  "artifact": "course_schema_consistency_tests",
+  "scope": "CLASSROOM V2 PHASE2 CONTRACT FIX 01 · 修正②（服务端/客户端同版本一致性）",
+  "generated_at": "2026-10-12T22:23:24+0800",
+  "python_version": "3.13.12",
+  "repo_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "server_schema_path": "modules/curriculum/course_schema.v1.json",
+  "client_schema_path": "client/src/classroom/course_schema.v1.json",
+  "schema_sha256": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+  "constants": {
+    "SCHEMA_ID": "xiaozhi:classroom.course.v1",
+    "SCHEMA_VERSION": 1,
+    "SCHEMA_DOCUMENT_TYPE": "classroom.course.bundle",
+    "SOURCE_ENUM": [
+      "local-demo",
+      "admin-knowledge",
+      "user-textbook"
+    ],
+    "SLIDE_TYPES": [
+      "cover",
+      "practice",
+      "sentence",
+      "summary",
+      "vocab"
+    ],
+    "SOURCE_REQUIRING_BINDING": [
+      "admin-knowledge",
+      "user-textbook"
+    ],
+    "COURSE_ID_RE.pattern": "^crs_[A-Za-z0-9_-]{4,64}$",
+    "DOC_ID_RE.pattern": "^doc_[A-Za-z0-9]{4,64}$",
+    "SHA256_RE.pattern": "^(?:sha256:)?[0-9a-f]{64}$",
+    "SHA256_CANON_RE.pattern": "^sha256:[0-9a-f]{64}$",
+    "BUNDLE_LEGACY_FORBIDDEN_KEYS": [
+      "source"
+    ]
+  },
+  "corpus_verdicts": {
+    "legal-local-demo": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "legal-user-textbook": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "legal-answer-null-needs-human": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "legal-file-hash-present": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "legal-bare-hex-content-hash": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "legal-bare-hex-file-hash": {
+      "expected": true,
+      "server": true,
+      "client": true
+    },
+    "illegal-unknown-slide-type": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-local-demo-forged-source": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-textbook-missing-binding": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-version-duplicated-in-course": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-version-unknown": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-legacy-root-source": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-legacy-id-field": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-answer-out-of-range": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-null-phonetic-sentinel": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-missing-schema-field": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-bad-hash-format": {
+      "expected": false,
+      "server": false,
+      "client": false
+    },
+    "illegal-short-hash": {
+      "expected": false,
+      "server": false,
+      "client": false
+    }
+  },
+  "results": [
+    {
+      "case_id": "S01a",
+      "name": "两份 course_schema.v1.json 均存在",
+      "passed": true,
+      "observed": null,
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 175
+    },
+    {
+      "case_id": "S01b",
+      "name": "两侧 schema JSON 逐字节一致（sha256 相等）",
+      "passed": true,
+      "observed": {
+        "server": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+        "client": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba"
+      },
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 178
+    },
+    {
+      "case_id": "S02a",
+      "name": "服务端/客户端规范常量全部一致",
+      "passed": true,
+      "observed": [],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 198
+    },
+    {
+      "case_id": "S02b",
+      "name": "版本常量 == 1（冻结版）",
+      "passed": true,
+      "observed": 1,
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 199
+    },
+    {
+      "case_id": "S02c",
+      "name": "slide.type 闭枚举 == 5 类",
+      "passed": true,
+      "observed": [
+        "cover",
+        "practice",
+        "sentence",
+        "summary",
+        "vocab"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 200
+    },
+    {
+      "case_id": "S02d",
+      "name": "source 枚举 == 3 类（local-demo 独立）",
+      "passed": true,
+      "observed": [
+        "local-demo",
+        "admin-knowledge",
+        "user-textbook"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 203
+    },
+    {
+      "case_id": "S03a",
+      "name": "共享语料上 服务端/客户端 判定完全一致且符合预期",
+      "passed": true,
+      "observed": [],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 218
+    },
+    {
+      "case_id": "S03b",
+      "name": "语料规模 >= 18（合法 6 + 非法 12）",
+      "passed": true,
+      "observed": 18,
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 220
+    },
+    {
+      "case_id": "S04a",
+      "name": "拒绝并给出可解释原因：illegal-unknown-slide-type",
+      "passed": true,
+      "observed": [
+        "$.courses[0].lessons[0].slides[0].type: 未知内容类型 'quiz'（闭枚举 cover|practice|sentence|summary|vocab）—— 不得静默跳过"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 234
+    },
+    {
+      "case_id": "S04b",
+      "name": "拒绝并给出可解释原因：illegal-local-demo-forged-source",
+      "passed": true,
+      "observed": [
+        "$.courses[0].source_doc_id: source=local-demo 时必须为 null（不得伪造知识库来源），得到 'doc_deadbeef'",
+        "$.courses[0].source_doc_hash: source=local-demo 时必须为 null（不得伪造知识库来源），得到 'sha256:0000000000000000000000000000000000000000000000000000000000000000'"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 234
+    },
+    {
+      "case_id": "S04c",
+      "name": "拒绝并给出可解释原因：illegal-version-duplicated-in-course",
+      "passed": true,
+      "observed": [
+        "$.courses[0]: 未知字段 ['version']（v1 封版，未知字段一律拒绝）",
+        "$.courses[0].version: version 只允许出现在文档级（消除双 version 歧义）"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 234
+    },
+    {
+      "case_id": "S04d",
+      "name": "拒绝并给出可解释原因：illegal-answer-out-of-range",
+      "passed": true,
+      "observed": [
+        "$.courses[0].lessons[0].slides[0].answer: 下标 5 越界（options 长度 2）—— 禁止落 -1/越界值静默错判"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 234
+    },
+    {
+      "case_id": "S04e",
+      "name": "拒绝并给出可解释原因：illegal-textbook-missing-binding",
+      "passed": true,
+      "observed": [
+        "$.courses[0].source_doc_id: user-textbook 必须提供真实知识库 doc_id，得到 None",
+        "$.courses[0].source_doc_hash: user-textbook 必须提供 SHA-256 形式的 content_hash（裸 64hex 或 sha256:<64hex>），得到 None"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 234
+    },
+    {
+      "case_id": "S05a",
+      "name": "自证伪：伪造一侧 slide.type 枚举 → 一致性断言必然失败",
+      "passed": true,
+      "observed": [
+        "SLIDE_TYPES"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 242
+    },
+    {
+      "case_id": "S05b",
+      "name": "自证伪：若一侧 schema 的 source 枚举漂移 → S02a 常量一致性断言必然失败",
+      "passed": true,
+      "observed": [
+        "local-demo",
+        "forged-extra"
+      ],
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 259
+    },
+    {
+      "case_id": "S05c",
+      "name": "自证伪：若 slide.type 之一被改名而客户端未同步 → 枚举断言必然失败",
+      "passed": true,
+      "observed": {
+        "mutated": [
+          "cover_renamed",
+          "practice",
+          "sentence",
+          "summary",
+          "vocab"
+        ],
+        "client": [
+          "cover",
+          "practice",
+          "sentence",
+          "summary",
+          "vocab"
+        ]
+      },
+      "asserted_file": "<project-root>/gateway/tests/course_schema_consistency_tests.py",
+      "asserted_line": 265
+    }
+  ],
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "failed_ids": []
+  }
+}
