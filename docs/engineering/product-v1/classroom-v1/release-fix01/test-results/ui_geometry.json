@@ -1,0 +1,298 @@
+{
+ "sizes": {
+  "narrow620": {
+   "window": [
+    620,
+    620
+   ],
+   "controls": 11,
+   "outside": []
+  },
+  "compact860": {
+   "window": [
+    860,
+    700
+   ],
+   "controls": 13,
+   "outside": []
+  },
+  "medium1000": {
+   "window": [
+    1000,
+    740
+   ],
+   "controls": 16,
+   "outside": []
+  },
+  "wide1360": {
+   "window": [
+    1360,
+    815
+   ],
+   "controls": 16,
+   "outside": []
+  }
+ },
+ "checks": [
+  {
+   "name": "U62 mode=narrow",
+   "ok": true,
+   "detail": "narrow"
+  },
+  {
+   "name": "U62 控件全部在窗口内（0 越界）",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "U62 课件区可见（教学步骤标签在位且位于左条右侧）",
+   "ok": true,
+   "detail": "(True, [126.0])"
+  },
+  {
+   "name": "U62 输入框宽度 ≥ 200",
+   "ok": true,
+   "detail": "262.0"
+  },
+  {
+   "name": "U62 开始学习按钮可点击",
+   "ok": true,
+   "detail": "(True, '讲解')"
+  },
+  {
+   "name": "U62 课件区「下一页」可点击（翻页生效）",
+   "ok": true,
+   "detail": "1"
+  },
+  {
+   "name": "U62 文字输入可用（提交进入字幕）",
+   "ok": true,
+   "detail": "['hello narrow 620']"
+  },
+  {
+   "name": "U62 换老师按钮可点击",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 老师弹窗可见",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 老师信息默认文案（缺字段不显示“学科 —”）",
+   "ok": true,
+   "detail": "['当前状态：未接入真实 AI 老师（等待独立安全复核与授权）。数字人为静态占位、讲解为本地文字演示；正式版将支持选择老师、声音、教学语言、真实语音与数字人。', '教学语言 en · 音色 Cherry', '教学语言 未提供 · 音色 默认']"
+  },
+  {
+   "name": "U62 选择老师乙",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 保存并切换",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 保存写入隔离配置（t_b）",
+   "ok": true,
+   "detail": "t_b"
+  },
+  {
+   "name": "U62 左条显示老师乙",
+   "ok": true,
+   "detail": "['老师：模拟老师乙    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    讲解', '模拟老师乙', '老师：模拟老师甲（本地文字演示，非真实语音）']"
+  },
+  {
+   "name": "U62 选择课程可点击",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 课程弹窗可见",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 切换课程并进入（无旧课残留）",
+   "ok": true,
+   "detail": "(True, True, '日常口语 · Daily English')"
+  },
+  {
+   "name": "U62 底部更多菜单可打开",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 底部菜单含「结束学习」",
+   "ok": true,
+   "detail": "['结束学习', '结束学习', '结束学习']"
+  },
+  {
+   "name": "U62 菜单内结束学习可点击",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 结束学习生效（状态复位）",
+   "ok": true,
+   "detail": "(-1, '待开始')"
+  },
+  {
+   "name": "U62 顶部更多菜单可打开",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U62 顶部菜单含「退出课堂」「高级设置」",
+   "ok": true,
+   "detail": "['高级设置', '高级设置', '高级设置']"
+  },
+  {
+   "name": "U62 演示配置未被隐式开启/篡改（allow 仍为 True、令牌仍在）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U86 mode=compact",
+   "ok": true,
+   "detail": "compact"
+  },
+  {
+   "name": "U86 控件全部在窗口内（0 越界；含「结束学习」完整）",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "U86 「结束学习」完整显示",
+   "ok": true,
+   "detail": "[(689.0, 80.6)]"
+  },
+  {
+   "name": "U86 输入框宽度 ≥ 200",
+   "ok": true,
+   "detail": "413.0"
+  },
+  {
+   "name": "U86 选课回课堂（点击链路）",
+   "ok": true,
+   "detail": "(True, True, True, '酒店英语 · Hotel English')"
+  },
+  {
+   "name": "U86 底栏「结束学习」可点击（点击生效）",
+   "ok": true,
+   "detail": "(-1, '待开始')"
+  },
+  {
+   "name": "U100 mode=medium",
+   "ok": true,
+   "detail": "medium"
+  },
+  {
+   "name": "U100 控件全部在窗口内（0 越界）",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "U100 输入框不再被压缩（≥ 200px，旧值 65px）",
+   "ok": true,
+   "detail": "240.0"
+  },
+  {
+   "name": "U100 文字输入可用",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U100 「展开字幕」在位并打开抽屉",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U100 字幕抽屉打开",
+   "ok": true,
+   "detail": "<PySide6.QtCore.QObject(0x83236cc40) at 0x1458e8040>"
+  },
+  {
+   "name": "U100 字幕抽屉可关闭",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U100 宽屏专属「语音对话」在 medium 隐藏（折叠进菜单）",
+   "ok": true,
+   "detail": "None"
+  },
+  {
+   "name": "U100 底部更多菜单可打开",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U100 菜单内语音项存在且诚实禁用",
+   "ok": true,
+   "detail": "[False, False, False]"
+  },
+  {
+   "name": "U136 mode=wide",
+   "ok": true,
+   "detail": "wide"
+  },
+  {
+   "name": "U136 控件全部在窗口内（0 越界）",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "U136 三栏结构在位（AI 老师面板 + 互动面板标签 + 课件区）",
+   "ok": true,
+   "detail": "['小智 AI 学生课堂', '演示模式 · 本地演示', '老师：模拟老师乙    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    待开始', '全屏']"
+  },
+  {
+   "name": "U136 左栏老师信息=「教学语言 未提供 · 音色 默认」（缺字段默认文案，非“学科 —”）",
+   "ok": true,
+   "detail": "['教学语言 未提供 · 音色 默认']"
+  },
+  {
+   "name": "U136 宽屏完整底栏（语音禁用项 + 重复讲解 + 下一页 + 结束学习）",
+   "ok": true,
+   "detail": "None"
+  },
+  {
+   "name": "U136 高级设置弹窗打开",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U136 高级设置内容在位（不显示密钥字段）",
+   "ok": true,
+   "detail": "['高级设置', '高级设置']"
+  },
+  {
+   "name": "U136 高级设置关闭",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U136 全屏进入",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U136 全屏态",
+   "ok": true,
+   "detail": "True"
+  },
+  {
+   "name": "U136 全屏退出",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "U136 恢复正常（fullscreen=False）",
+   "ok": true,
+   "detail": "False"
+  }
+ ]
+}

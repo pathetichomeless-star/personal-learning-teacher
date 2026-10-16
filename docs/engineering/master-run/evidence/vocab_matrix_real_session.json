@@ -1,0 +1,710 @@
+{
+ "probe": "spike_vocab_matrix",
+ "model": "qwen3.8-omni-flash-realtime",
+ "voice": "Tina",
+ "turns": [
+  {
+   "id": "m01",
+   "question": "街道用英语怎么说？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 1303,
+   "instruction_applied": true,
+   "transcript": "“街道”在英语中通常翻译为 \"street\"。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 984,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m01",
+   "question": "街道用英语怎么说？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“街道”用英语说是 street，发音是 /striːt/。比如：We walked down the street together.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1653,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m02",
+   "question": "酒店用英语怎么说？",
+   "accepted": [
+    "hotel"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“酒店”用英语说是 hotel，发音是 /hoʊˈtɛl/。比如：We stayed at a nice hotel last night.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1925,
+   "contains_expected": [
+    "hotel"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m03",
+   "question": "房间怎么说？",
+   "accepted": [
+    "room"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“房间”用英语说是 room，发音是 /ruːm/。比如：My room is on the second floor.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1598,
+   "contains_expected": [
+    "room"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m04",
+   "question": "桌子用英语怎么说？",
+   "accepted": [
+    "table"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“桌子”用英语说是 table，发音是 /ˈteɪbl/。比如：Please put your bag on the table.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1761,
+   "contains_expected": [
+    "table"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m05",
+   "question": "窗户用英语怎么说？",
+   "accepted": [
+    "window"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“窗户”用英语说是 window，发音是 /ˈwɪndoʊ/。比如：The sunlight came through the window.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1714,
+   "contains_expected": [
+    "window"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m06",
+   "question": "机场用英语怎么说？",
+   "accepted": [
+    "airport"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“机场”用英语说是 airport，发音是 /ˈɛrpɔːrt/。比如：We arrived at the airport early for our flight.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1954,
+   "contains_expected": [
+    "airport"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m07",
+   "question": "离开用英语怎么说？",
+   "accepted": [
+    "leave"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 1303,
+   "instruction_applied": true,
+   "transcript": "“离开”用英语说是 leave，发音是 /liːv/。比如：I will leave the room now.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1628,
+   "contains_expected": [
+    "leave"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m07",
+   "question": "离开用英语怎么说？",
+   "accepted": [
+    "leave"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“离开”用英语说是 leave，发音是 /liːv/。比如：She decided to leave the party early.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1798,
+   "contains_expected": [
+    "leave"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m08",
+   "question": "居住用英语怎么说？",
+   "accepted": [
+    "live"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“居住”用英语说是 live，发音是 /lɪv/。比如：I live in a small apartment.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1757,
+   "contains_expected": [
+    "live"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m09",
+   "question": "到达用英语怎么说？",
+   "accepted": [
+    "arrive"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“到达”用英语说是 arrive，发音是 /əˈraɪv/。比如：We will arrive at the station in ten minutes.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1916,
+   "contains_expected": [
+    "arrive"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m10",
+   "question": "预订用英语怎么说？",
+   "accepted": [
+    "book",
+    "reserve",
+    "booking",
+    "reservation"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“预订”用英语说是 book，发音是 /bʊk/。比如：I need to book a room for next week.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1717,
+   "contains_expected": [
+    "book"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m11",
+   "question": "船用英语怎么说？",
+   "accepted": [
+    "ship"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 1303,
+   "instruction_applied": true,
+   "transcript": "“船”用英语说是 boat，发音是 /boʊt/。比如：We took a boat across the river.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1674,
+   "contains_expected": [],
+   "pass": false
+  },
+  {
+   "id": "m11",
+   "question": "船用英语怎么说？",
+   "accepted": [
+    "ship"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“船”用英语说是 boat，发音是 /boʊt/。比如：The boat sailed smoothly on the calm water.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1769,
+   "contains_expected": [],
+   "pass": false
+  },
+  {
+   "id": "m12",
+   "question": "羊用英语怎么说？",
+   "accepted": [
+    "sheep"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 1303,
+   "instruction_applied": true,
+   "transcript": "“羊”用英语说是 sheep，发音是 /ʃiːp/。比如：There are many sheep on the farm.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1627,
+   "contains_expected": [
+    "sheep"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m12",
+   "question": "羊用英语怎么说？",
+   "accepted": [
+    "sheep"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“羊”用英语说是 sheep，发音是 /ʃiːp/。比如：The sheep are grazing in the field.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1678,
+   "contains_expected": [
+    "sheep"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m13",
+   "question": "住宿用英语怎么说？",
+   "accepted": [
+    "accommodation",
+    "lodging"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 1303,
+   "instruction_applied": true,
+   "transcript": "“住宿”用英语说是 accommodation，发音是 /əˌkɑməˈdeɪʃən/。比如：The hotel offers comfortable accommodation for guests.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 2077,
+   "contains_expected": [
+    "accommodation"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m13",
+   "question": "住宿用英语怎么说？",
+   "accepted": [
+    "accommodation",
+    "lodging"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“住宿”用英语说是 accommodation，发音是 /əˌkɑməˈdeɪʃən/。比如：We booked our accommodation online.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1939,
+   "contains_expected": [
+    "accommodation"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m14",
+   "question": "前台用英语怎么说？",
+   "accepted": [
+    "reception",
+    "front desk",
+    "front desk"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“前台”用英语说是 reception，发音是 /rɪˈsɛpʃən/。比如：Please check in at the reception desk.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1805,
+   "contains_expected": [
+    "reception"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m15",
+   "question": "行李用英语怎么说？",
+   "accepted": [
+    "luggage",
+    "baggage"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "“行李”用英语说是 luggage，发音是 /ˈlʌɡɪdʒ/。比如：Don't forget your luggage when you leave the hotel.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1816,
+   "contains_expected": [
+    "luggage"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m16",
+   "question": "street 怎么拼？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": true,
+   "phase": "pre_audit",
+   "route_temp": null,
+   "instruction_len": 1125,
+   "instruction_applied": true,
+   "transcript": "street 的拼写是 S-T-R-E-E-T。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1252,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m16",
+   "question": "street 怎么拼？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": true,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2220,
+   "instruction_applied": true,
+   "transcript": "street 的拼写是 s-t-r-e-e-t。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1216,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m17",
+   "question": "hotel 怎么拼？",
+   "accepted": [
+    "hotel"
+   ],
+   "spelling": true,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2219,
+   "instruction_applied": true,
+   "transcript": "hotel 的拼写是 h-o-t-e-l。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1118,
+   "contains_expected": [
+    "hotel"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m18",
+   "question": "accommodation 怎么拼？",
+   "accepted": [
+    "accommodation"
+   ],
+   "spelling": true,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2227,
+   "instruction_applied": true,
+   "transcript": "accommodation 的拼写是 a-c-c-o-m-m-o-d-a-t-i-o-n。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 2006,
+   "contains_expected": [
+    "accommodation"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m19",
+   "question": "街道是什么？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": null,
+   "instruction_len": 1125,
+   "instruction_applied": true,
+   "transcript": "街道是城市里供车辆和行人通行的公共道路。它通常连接不同的区域，方便人们出行和运输货物。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 2105,
+   "contains_expected": [],
+   "pass": false
+  },
+  {
+   "id": "m19",
+   "question": "街道是什么？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "街道就是城市里供人和车通行的公共道路。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1013,
+   "contains_expected": [],
+   "pass": false
+  },
+  {
+   "id": "m20",
+   "question": "英文里的街道怎么说？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "英文里的“街道”是 street，发音是 /striːt/。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1102,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m21",
+   "question": "街道的英文是什么？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "街道的英文是 street，发音为 /striːt/。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1020,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m22",
+   "question": "street 是什么意思？",
+   "accepted": [
+    "street"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2175,
+   "instruction_applied": true,
+   "transcript": "“street”在英语里指的是城市或城镇中供车辆和行人通行的公共道路，也就是我们常说的“街道”。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 2097,
+   "contains_expected": [
+    "street"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m23",
+   "question": "accommodation 是什么意思？",
+   "accepted": [
+    "accommodation"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2182,
+   "instruction_applied": true,
+   "transcript": "accommodation 是住宿，指酒店或房间等住的地方。比如：We booked our accommodation online.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1988,
+   "contains_expected": [
+    "accommodation"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m24",
+   "question": "在酒店预订房间用英语怎么说？",
+   "accepted": [
+    "book",
+    "reserve",
+    "booking",
+    "reservation"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "TRANSLATE",
+   "instruction_len": 2250,
+   "instruction_applied": true,
+   "transcript": "在酒店预订房间用英语说是 book a room at the hotel。",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1253,
+   "contains_expected": [
+    "book"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m25",
+   "question": "hotel 是什么意思？",
+   "accepted": [
+    "hotel"
+   ],
+   "spelling": false,
+   "phase": "pre_audit",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 1326,
+   "instruction_applied": true,
+   "transcript": "“hotel”是酒店，指提供住宿服务的场所。比如：We stayed at a nice hotel last night.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1742,
+   "contains_expected": [
+    "hotel"
+   ],
+   "pass": true
+  },
+  {
+   "id": "m25",
+   "question": "hotel 是什么意思？",
+   "accepted": [
+    "hotel"
+   ],
+   "spelling": false,
+   "phase": "post_fix",
+   "route_temp": "EXPLAIN_WORD",
+   "instruction_len": 2174,
+   "instruction_applied": true,
+   "transcript": "hotel 是酒店，指提供住宿的地方。比如：We stayed at a nice hotel last night.",
+   "done": true,
+   "status": "completed",
+   "errors": [],
+   "elapsed_ms": 1936,
+   "contains_expected": [
+    "hotel"
+   ],
+   "pass": true
+  }
+ ],
+ "sessions_used": 1,
+ "total_s": 56.2,
+ "summary": {
+  "turns": 33,
+  "pass": 29,
+  "fail": 4
+ }
+}

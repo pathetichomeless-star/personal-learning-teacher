@@ -1,0 +1,167 @@
+{
+  "artifact": "classroom_build_info",
+  "phase": "CLASSROOM V2 · DELIVERY GATE 02",
+  "app_version": "2.0.0",
+  "app_build": "6",
+  "bundle_name": "小智 AI 学生课堂.app",
+  "git_head": "3754e502701713ee420e19b5badee5c421a77f88",
+  "git_branch": "p2b2-teacher-voice",
+  "git_dirty_entries": 115,
+  "source_revision": "1aa9292148d2fc508c449b6114cf9463e726a953d47f53a6844865444f913069",
+  "source_file_count": 30,
+  "generated_at": "2026-10-15T03:29:36+0800",
+  "generator": "tools/classroom_build_info.py",
+  "honesty": "git_* 字段仅作参考：本工作树按授权**未提交**；真正的可复算凭据是 source_revision（对 files[] 的确定性哈希）。",
+  "files": [
+    {
+      "path": "classroom_app.spec",
+      "sha256": "0c8f78ebcd98acd3f05624e21e53b7fcd3c3c54a171ee93fcfc7f8b5b0ce2ce9",
+      "bytes": 5831
+    },
+    {
+      "path": "classroom_main.py",
+      "sha256": "a9be3e175664f6c586c4dd015a6118c3101bd4d043207dd4e5be226b6caf544b",
+      "bytes": 9886
+    },
+    {
+      "path": "src/classroom/__init__.py",
+      "sha256": "f0aa5e2470bd322a207c0f340d5dbae1deb74f65091a03a8def6dbf90f3ff75c",
+      "bytes": 134
+    },
+    {
+      "path": "src/classroom/avatar_adapter.py",
+      "sha256": "1bce5f3143e6f750a62d54e279d2bab5d61de10539014cb35cfbda15936eff42",
+      "bytes": 4716
+    },
+    {
+      "path": "src/classroom/classroom_api.py",
+      "sha256": "92bc03308e7e2dc726389e06982f2c68b50a2b660509c2342d6a4824958ff2f5",
+      "bytes": 11624
+    },
+    {
+      "path": "src/classroom/classroom_env.py",
+      "sha256": "128c5d9eb24e962aaba313e32d0be7d027b2c7ad7f9b2c4aaf5dfbd99c7844f0",
+      "bytes": 6741
+    },
+    {
+      "path": "src/classroom/classroom_model.py",
+      "sha256": "8996bfe65c26cd7d124cb225f7efbea70118bb7261aa507418c21322204aea0f",
+      "bytes": 76956
+    },
+    {
+      "path": "src/classroom/course_schema.py",
+      "sha256": "6917028611597f2bf5f3a577879a2a5ffcbdf861bf4f64a8bebbcc9f9602284a",
+      "bytes": 15586
+    },
+    {
+      "path": "src/classroom/course_schema.v1.json",
+      "sha256": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+      "bytes": 8445
+    },
+    {
+      "path": "src/classroom/data/courses.json",
+      "sha256": "e48f80f65fe614ec5ca684c0d4d4751cc8e7c00698a79a56886e4c1d120cb5ec",
+      "bytes": 9657
+    },
+    {
+      "path": "src/classroom/data/demo/kb_snapshot/knowledge.json",
+      "sha256": "a1f91f9c02a92ec29fe4398aede1f54283602872c2f2b6611e004b3765a6bd0e",
+      "bytes": 4338
+    },
+    {
+      "path": "src/classroom/data/demo/library/crs_offline_demo_basics.course.json",
+      "sha256": "85dbe7b74caeb30b301a3b57159f7c3a9f9f6609ded5ea02e47838d9134e72a5",
+      "bytes": 4581
+    },
+    {
+      "path": "src/classroom/data/demo/library/crs_offline_demo_basics.manifest.json",
+      "sha256": "6cacf9e3907f1f8903d0c3576283e4a77ed76901efe9e3fa8f319691c5fb2c16",
+      "bytes": 2512
+    },
+    {
+      "path": "src/classroom/data/demo/library/index.json",
+      "sha256": "dea4316f14e1889343c3d864264793fffe89b0ff71f33963746333fbee6f55b0",
+      "bytes": 316
+    },
+    {
+      "path": "src/classroom/learning_position.py",
+      "sha256": "ee434f37801e4c51abd6a1512d97c8dade234bff8236c0c8d505e617f176f33c",
+      "bytes": 3771
+    },
+    {
+      "path": "src/classroom/learning_record.py",
+      "sha256": "1b8fa59b255c12aa13f6aceb93361eb66f8b9d7721521e3a99edaf4cba065d91",
+      "bytes": 6831
+    },
+    {
+      "path": "src/classroom/qml/ClassroomWindow.qml",
+      "sha256": "1aa3de47c261ff863a7db7a0c89867262ee95b19a8c3a1d43134f8edb7cfb1b1",
+      "bytes": 41745
+    },
+    {
+      "path": "src/classroom/qml/CourseArea.qml",
+      "sha256": "eb016addafec8a8293e0f5e1fdbc64a9a91c0e41a9abb3e7e97110900a806c46",
+      "bytes": 19811
+    },
+    {
+      "path": "src/classroom/qml/ImportPanel.qml",
+      "sha256": "71ae55095f5151c2b5f178d8eb3b2637d4169628c236cdfa742e1f3e81ea1c0b",
+      "bytes": 16251
+    },
+    {
+      "path": "src/classroom/qml/InteractionPanel.qml",
+      "sha256": "875257f28b0615d51bf8c1c2bf6348a0d06f737956f2976a02405654880eb8e1",
+      "bytes": 10194
+    },
+    {
+      "path": "src/classroom/qml/LibraryPanel.qml",
+      "sha256": "5804ff18e6f9afeaebfd3cd86f2210290a9383564c22b97d2b026d16feb28bcb",
+      "bytes": 12504
+    },
+    {
+      "path": "src/classroom/qml/NavBar.qml",
+      "sha256": "18685d3354194182da1e6ce5c2b61e253ccee8de24873753e683624d8f50408a",
+      "bytes": 2934
+    },
+    {
+      "path": "src/classroom/qml/ProofreadPanel.qml",
+      "sha256": "288a4f6711e3ae803f5e7c720535ae74936f5768c45264a6bc6718d4cd280be8",
+      "bytes": 15305
+    },
+    {
+      "path": "src/classroom/qml/PublishPanel.qml",
+      "sha256": "95fbf3949a1267e51153e506d0fc7b08a9a08d140e1a23532fcd508c6f03325f",
+      "bytes": 8099
+    },
+    {
+      "path": "src/classroom/qml/TeacherAvatar.qml",
+      "sha256": "721b150d66e6951847852496c7d097e93c69cc86d92e650fe82987475fd7ad14",
+      "bytes": 1434
+    },
+    {
+      "path": "src/classroom/qml/TeacherPanel.qml",
+      "sha256": "613f871b092b0ddf9921699654531471241b9ba98113275d03fd79634032c62c",
+      "bytes": 3048
+    },
+    {
+      "path": "src/classroom/qml/theme/ClassroomTheme.qml",
+      "sha256": "e9054621736110a9349e3dcc720e9ccbc599dc67a61146c87222c2feb9076b33",
+      "bytes": 1408
+    },
+    {
+      "path": "src/classroom/qml/theme/qmldir",
+      "sha256": "46d99d4ae11f64704e98dc6a9ba6b823d4c0250653f9eaa54a9c029f3044852d",
+      "bytes": 48
+    },
+    {
+      "path": "src/classroom/runtime_log.py",
+      "sha256": "2c4d165f2cd4fa10fa50fe8e4cc0fa6276c685d37cf57b964c56440971b9bfd2",
+      "bytes": 4489
+    },
+    {
+      "path": "src/classroom/voice_mock.py",
+      "sha256": "12b7370aeb93b1a3c67b541da29b34dc1fec843569d659568f4e362bdf3492ad",
+      "bytes": 6817
+    }
+  ]
+}

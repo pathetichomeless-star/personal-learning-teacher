@@ -1,0 +1,117 @@
+{
+ "mode": "corrupt",
+ "data_dir": "/tmp/xz-qa-cv1/corrupt-dir",
+ "checks": [
+  {
+   "name": "window_visible",
+   "ok": true,
+   "detail": "True"
+  },
+  {
+   "name": "corrupt_no_network_at_all",
+   "ok": true,
+   "detail": "{'list': 0, 'ws': 0, 'unexpected': 0}"
+  },
+  {
+   "name": "corrupt_state_message",
+   "ok": true,
+   "detail": "未配置服务地址（请在隔离配置中设置网关地址）"
+  },
+  {
+   "name": "corrupt_config_backed_up",
+   "ok": true,
+   "detail": "['/tmp/xz-qa-cv1/corrupt-dir/config/config.json.corrupt-20261012T052125Z']"
+  },
+  {
+   "name": "corrupt_app_starts",
+   "ok": true,
+   "detail": "['小智 AI 学生课堂', '演示模式 · 本地演示', '老师：未选择老师    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    讲解', '全屏']"
+  }
+ ],
+ "texts": {
+  "corrupt": [
+   "小智 AI 学生课堂",
+   "演示模式 · 本地演示",
+   "老师：未选择老师    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    讲解",
+   "全屏",
+   "全屏",
+   "全屏",
+   "高级设置",
+   "高级设置",
+   "高级设置",
+   "退出课堂",
+   "退出课堂",
+   "退出课堂",
+   "AI 老师",
+   "未",
+   "数字人未启用 · 静态占位形象",
+   "未选择老师",
+   "学科 — · 音色 默认",
+   "状态：讲解",
+   "更换老师",
+   "更换老师",
+   "更换老师",
+   "酒店英语 · Hotel English",
+   "第 1 课 · 办理入住 Check-in",
+   "第 2 / 5 页",
+   "reservation  /ˌrezəˈveɪʃn/",
+   "释义：预订",
+   "I have a reservation under the name Li.",
+   "我有一个以李为名的预订。",
+   "教学步骤 2 / 5",
+   "上一页",
+   "上一页",
+   "上一页",
+   "重复讲解",
+   "重复讲解",
+   "重复讲解",
+   "下一页",
+   "下一页",
+   "下一页",
+   "选择课程",
+   "选择课程",
+   "选择课程",
+   "开始学习",
+   "开始学习",
+   "开始学习",
+   "输入你的答案或英文句子，回车提交",
+   "提交",
+   "提交",
+   "提交",
+   "语音对话（不可用）",
+   "语音对话（不可用）",
+   "语音对话（不可用）",
+   "展开字幕",
+   "展开字幕",
+   "展开字幕",
+   "重复讲解",
+   "重复讲解",
+   "重复讲解",
+   "下一页",
+   "下一页",
+   "下一页",
+   "结束学习",
+   "结束学习",
+   "结束学习"
+  ]
+ },
+ "rects": {},
+ "mock": {
+  "after_bootstrap": {
+   "list": 0,
+   "ws": 0,
+   "unexpected": 0
+  }
+ },
+ "shots": [
+  "/tmp/xz-qa-cv1/shots/corrupt_after_boot.png"
+ ],
+ "walk": null,
+ "screen": {
+  "avail": [
+   1470,
+   838
+  ],
+  "dpr": 2.0
+ }
+}

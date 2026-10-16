@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-10-12T22:42:53+0800",
+  "items": [
+    {
+      "course_id": "crs_offline_demo_basics",
+      "bundle": "crs_offline_demo_basics.course.json",
+      "manifest": "crs_offline_demo_basics.manifest.json",
+      "title": "离线演示：基础问候",
+      "source": "user-textbook"
+    }
+  ]
+}

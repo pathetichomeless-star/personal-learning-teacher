@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "xiaozhi:classroom.course.v1",
+  "title": "CLASSROOM V2 Course Bundle v1",
+  "description": "冻结的课程数据契约 v1。本文件是课程数据的唯一机器可读事实源；客户端持有一份逐字节一致的冻结镜像。任何字段语义变更都必须 version 递增。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "courses"],
+  "properties": {
+    "schema": {
+      "const": "classroom.course.bundle",
+      "description": "文档类型常量。缺失或取值不符 = 校验失败。"
+    },
+    "version": {
+      "const": 1,
+      "description": "schema 版本。只在文档级出现，course 内不得重复（消除双 version 歧义）。"
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "可选。产生该 bundle 的时间（ISO-8601）。仅用于展示，不参与校验结论。"
+    },
+    "label": {
+      "type": "string",
+      "description": "可选。文档级人读标签（如「本地演示课程」）。不是课程来源。"
+    },
+    "notice": {
+      "type": "string",
+      "description": "可选。文档级免责/来源说明。不是课程来源。"
+    },
+    "courses": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/course" },
+      "description": "课程列表。来源（source）与来源绑定均下沉到每个 course，文档级不得出现 source。"
+    }
+  },
+  "definitions": {
+    "course": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "course_id",
+        "revision",
+        "title",
+        "source",
+        "source_doc_id",
+        "source_doc_hash",
+        "source_file_sha256",
+        "lessons"
+      ],
+      "properties": {
+        "course_id": {
+          "type": "string",
+          "pattern": "^crs_[A-Za-z0-9_-]{4,64}$",
+          "description": "课程唯一标识。取代历史字段 id；v1 不接受 id。"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "课程版本号，单调递增。发布幂等键 = course_id + revision。"
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "subject": { "type": "string", "description": "可选。学科，如 english。" },
+        "level": { "type": "string", "description": "可选。难度。仅展示。" },
+        "description": { "type": "string", "description": "可选。简介。" },
+        "source": {
+          "enum": ["local-demo", "admin-knowledge", "user-textbook"],
+          "description": "课程来源类别。决定来源绑定字段是否必须为 null。"
+        },
+        "source_doc_id": {
+          "type": ["string", "null"],
+          "description": "知识库文档 id。user-textbook / admin-knowledge 必填且为真值；local-demo 必须为 null。"
+        },
+        "source_doc_hash": {
+          "type": ["string", "null"],
+          "description": "知识库 content_hash（对【抽取文本】的 SHA-256）。既有 KnowledgeStore 实际输出【裸 64 位小写 hex】（无 sha256: 前缀），故正则同时接受「裸 hex」与「sha256: 前缀 hex」两种形式（见 CONTRACT_FIX_01A 一.4 实测）。user-textbook / admin-knowledge 必填；local-demo 必须为 null。"
+        },
+        "source_file_sha256": {
+          "type": ["string", "null"],
+          "description": "上传【原文件字节】的 SHA-256。与 content_hash 语义不同，不可互相推导。接受「裸 64 位 hex」或「sha256: 前缀 hex」。无真实值时必须为 null（UI 显示「原文件哈希待确认」），严禁用 content_hash 冒充。"
+        },
+        "lessons": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/lesson" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "source": { "const": "local-demo" } },
+            "required": ["source"]
+          },
+          "then": {
+            "properties": {
+              "source_doc_id": { "type": "null" },
+              "source_doc_hash": { "type": "null" },
+              "source_file_sha256": { "type": "null" }
+            },
+            "description": "结构性禁止「本地演示」伪造知识库来源：三个绑定字段必须为 null。"
+          }
+        },
+        {
+          "if": {
+            "properties": { "source": { "enum": ["user-textbook", "admin-knowledge"] } },
+            "required": ["source"]
+          },
+          "then": {
+            "properties": {
+              "source_doc_id": {
+                "type": "string",
+                "pattern": "^doc_[A-Za-z0-9]{4,64}$"
+              },
+              "source_doc_hash": {
+                "type": "string",
+                "pattern": "^(?:sha256:)?[0-9a-f]{64}$"
+              },
+              "source_file_sha256": {
+                "type": ["string", "null"],
+                "pattern": "^(?:sha256:)?[0-9a-f]{64}$"
+              }
+            },
+            "required": ["source_doc_id", "source_doc_hash"],
+            "description": "正式用户教材/知识库课程必须有真实来源绑定。"
+          }
+        }
+      ]
+    },
+    "lesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lesson_id", "title", "slides"],
+      "properties": {
+        "lesson_id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "slides": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/slide" }
+        }
+      }
+    },
+    "slide": {
+      "oneOf": [
+        { "$ref": "#/definitions/slideCover" },
+        { "$ref": "#/definitions/slideVocab" },
+        { "$ref": "#/definitions/slideSentence" },
+        { "$ref": "#/definitions/slidePractice" },
+        { "$ref": "#/definitions/slideSummary" }
+      ]
+    },
+    "slideBase": {
+      "type": "object",
+      "properties": {
+        "note": { "type": "string" }
+      }
+    },
+    "slideCover": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "title"],
+      "properties": {
+        "type": { "const": "cover" },
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "points": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "slideVocab": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "word", "meaning", "en", "cn"],
+      "properties": {
+        "type": { "const": "vocab" },
+        "word": { "type": "string", "minLength": 1 },
+        "phonetic": {
+          "type": "string",
+          "description": "可选。缺失时直接省略该字段，禁止写 null 哨兵。"
+        },
+        "meaning": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 },
+        "cn": { "type": "string", "minLength": 1 }
+      }
+    },
+    "slideSentence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "en", "cn"],
+      "properties": {
+        "type": { "const": "sentence" },
+        "en": { "type": "string", "minLength": 1 },
+        "cn": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    },
+    "slidePractice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "question", "options", "answer"],
+      "properties": {
+        "type": { "const": "practice" },
+        "question": { "type": "string", "minLength": 1 },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "answer": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "正确选项下标；null = 答案待人工确认。draft-07 无法表达 answer < len(options)，由两侧手写校验补足。"
+        },
+        "explain": { "type": "string" }
+      }
+    },
+    "slideSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "title", "points"],
+      "properties": {
+        "type": { "const": "summary" },
+        "title": { "type": "string", "minLength": 1 },
+        "points": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    }
+  }
+}

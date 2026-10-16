@@ -1,0 +1,14 @@
+# P1-1 修复前失败证据（结构对照，不依赖 git 回退）
+# 生成时间: 2026-10-13T03:10:25.270676
+
+真人复现链路（答错B→⌘Q→重启→笔记空/回1页）在修复前的机制：
+  1) learning_record.py 零接入（grep 证据：仅 tests/ 引用）——无任何落盘点
+  2) classroom_main.py 启动即 selectCourse(0)+selectLesson(0) 强制回第1页
+  3) _notes/_practice/_slide_i 全内存态，endLearning() 主动清空
+
+修复后同链路实测（test_learning_restore_fix01.py 16/16 PASS）：
+  错题落盘=True（learning_records.json 含 1 条记录，含 wrong）
+  位置文件存在=True
+
+结论：修复前断言 D1（位置恢复）/E1（错题跨重启）结构上必然 FAIL；
+修复后 16/16 PASS。

@@ -1,0 +1,1 @@
+"""External adapters (read-only): workbench, later admin/xiaozhi clients."""

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小智 AI 学生课堂 V2 — 画布设计稿 (Canvas Design Spec)</title>
+<style>
+/* ============================================================
+   设计令牌 (Design Tokens) —— 与 CLASSROOM_V2_UI_DESIGN.md 一一对应
+   浅色为默认主题；[data-theme="dark"] 为深色对照
+   ============================================================ */
+:root{
+  --bg:#F2F5FC; --surface:#FFFFFF; --surface-alt:#EEF2FB;
+  --border:#DCE3F2; --border-strong:#C4CFE6;
+  --text:#16203A; --text-2:#5A6B8C; --text-3:#93A1BD;
+  --primary:#2F6BFF; --primary-deep:#1E3FBF; --glow:#4EA8FF;
+  --accent:#6D5EF8; --success:#17A673; --warn:#D98317; --danger:#E5484D; --info:#3D7EFF;
+  --grad:linear-gradient(135deg,#2F6BFF,#6D5EF8);
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:22px;
+  --e1:0 1px 2px rgba(16,24,64,.05),0 1px 1px rgba(16,24,64,.04);
+  --e2:0 4px 12px rgba(16,24,64,.08);
+  --e3:0 12px 32px rgba(16,24,64,.16);
+  --font:-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+  --mono:"SF Mono",ui-monospace,monospace;
+}
+[data-theme="dark"]{
+  --bg:#0B1020; --surface:#121A2E; --surface-alt:#18223A;
+  --border:#26314E; --border-strong:#35446A;
+  --text:#EAF0FF; --text-2:#A8B6D6; --text-3:#6C7BA0;
+  --primary:#5B8CFF; --primary-deep:#3E6FE0; --glow:#6FB4FF; --accent:#8B7BFF;
+  --e1:none; --e2:none; --e3:0 12px 32px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E7ECF7;color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;padding:28px}
+h1{font-size:24px;font-weight:700;letter-spacing:-.02em}
+h2{font-size:16px;font-weight:600;margin:30px 0 12px}
+.sub{color:#5A6B8C;font-size:13px;margin-top:6px}
+.wrap{max-width:1500px;margin:0 auto}
+
+/* 色板 */
+.tokens{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border:1px solid #D5DDEE;border-radius:10px;overflow:hidden;background:#fff}
+.sw .chip{height:46px}
+.sw .lbl{padding:7px 9px;font-size:11px;color:#3C4A66;font-family:var(--mono)}
+
+/* 画板 */
+.boards{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.board{background:#fff;border:1px solid #D5DDEE;border-radius:14px;box-shadow:0 6px 24px rgba(16,24,64,.10);overflow:hidden}
+.board>.cap{background:#F7F9FE;border-bottom:1px solid #E3E9F5;padding:9px 14px;font-size:12px;font-weight:600;color:#2B3A5C;display:flex;justify-content:space-between}
+.board>.cap span{color:#7E8CA8;font-weight:400;font-family:var(--mono)}
+.screen{width:1360px;height:850px;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.screen.small{width:620px;height:620px}
+.screen.mid{width:1000px;height:740px}
+
+/* 顶栏 */
+.topbar{height:62px;flex:0 0 62px;display:flex;align-items:center;gap:14px;padding:0 18px;
+  background:linear-gradient(135deg,#EEF3FF,#F6F3FF);border-bottom:1px solid var(--border)}
+.brand{font-weight:700;font-size:16px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+.logo{width:26px;height:26px;border-radius:8px;background:var(--grad);box-shadow:0 2px 8px rgba(47,107,255,.35)}
+.pill{height:24px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:999px;font-size:12px;
+  background:rgba(23,166,115,.12);color:#0F7A54;border:1px solid rgba(23,166,115,.25)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--success)}
+.seg{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:3px;gap:2px}
+.seg b{font-weight:500;font-size:12.5px;padding:5px 13px;border-radius:6px;color:var(--text-2);cursor:pointer}
+.seg b.on{background:#E6EEFF;color:var(--primary);font-weight:600}
+.spacer{flex:1}
+.iconbtn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;color:var(--text-2);font-size:14px}
+
+/* 主体三栏 */
+.body{flex:1;display:flex;gap:12px;padding:12px;min-height:0}
+.col{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--e1);display:flex;flex-direction:column;overflow:hidden}
+.colhead{padding:12px 14px;border-bottom:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--text-2);
+  display:flex;align-items:center;justify-content:space-between}
+.colbody{padding:14px;overflow:hidden;flex:1}
+.teacher{width:260px;flex:0 0 260px}
+.course{flex:1;min-width:320px}
+.panel{width:340px;flex:0 0 340px}
+
+/* 老师卡片 */
+.tavatar{height:150px;border-radius:var(--r-lg);background:linear-gradient(160deg,#1B2450,#2A1B54);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.tavatar .glow{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(78,168,255,.55),transparent 70%)}
+.tavatar .face{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#4EA8FF,#8B7BFF);
+  display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;z-index:1;box-shadow:0 0 0 6px rgba(78,168,255,.18)}
+.tname{margin-top:11px;font-weight:600;font-size:14.5px}
+.tmeta{font-size:12px;color:var(--text-2);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 8px;border-radius:999px;margin-top:8px}
+.badge.speak{background:rgba(47,107,255,.12);color:#2450C8}
+
+/* 按钮 */
+.btn{height:36px;border-radius:var(--r-md);border:1px solid transparent;font-size:13px;font-weight:600;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
+.btn.pri{background:var(--grad);color:#fff;box-shadow:0 3px 12px rgba(47,107,255,.32)}
+.btn.sec{background:var(--surface);border-color:var(--border-strong);color:var(--text)}
+.btn.ghost{background:transparent;color:var(--text-2)}
+.btn.dis{opacity:.4;cursor:not-allowed}
+.btnrow{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.btnrow .btn{flex:1;min-width:0}
+
+/* 课件 */
+.slide{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--r-md);padding:20px}
+.kicker{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);font-weight:700}
+.word{font-size:40px;font-weight:700;letter-spacing:-.02em;margin-top:8px}
+.ipa{font-family:var(--mono);font-size:19px;color:var(--accent);margin-top:4px}
+.mean{font-size:15px;color:var(--text-2);margin-top:6px}
+.ex{margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-strong)}
+.ex .en{font-size:16px;font-weight:500}
+.ex .cn{font-size:13.5px;color:var(--text-2);margin-top:4px}
+.opts{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.opt{padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);
+  display:flex;align-items:center;gap:10px;font-size:13.5px}
+.opt.ok{border-color:var(--success);background:rgba(23,166,115,.08)}
+.opt.ok .mk{color:var(--success);font-weight:700}
+.opt.no{border-color:var(--danger);background:rgba(229,72,77,.07)}
+.opt.no .mk{color:var(--danger);font-weight:700}
+.opt .mk{width:16px}
+
+/* 字幕/词表/笔记 */
+.tabs{display:flex;gap:4px;padding:8px 10px 0}
+.tabs b{font-size:12.5px;font-weight:500;color:var(--text-2);padding:6px 11px;border-radius:8px;cursor:pointer}
+.tabs b.on{background:#E6EEFF;color:var(--primary);font-weight:600}
+.line{padding:9px 0;border-bottom:1px dashed var(--border);font-size:13px}
+.line .who{font-size:11px;font-weight:700;letter-spacing:.04em}
+.line.t .who{color:var(--primary)} .line.s .who{color:var(--accent)}
+.bar{height:3px;border-radius:2px;background:var(--grad);margin:10px 14px 0}
+.vocabrow{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--border)}
+.vocabrow .w{font-weight:600} .vocabrow .p{font-family:var(--mono);font-size:12px;color:var(--accent)}
+
+/* 底栏 */
+.bottom{flex:0 0 76px;display:flex;align-items:center;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:var(--surface)}
+.mic{width:52px;height:52px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:20px;box-shadow:0 4px 14px rgba(47,107,255,.4)}
+.input{flex:1;height:40px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);
+  display:flex;align-items:center;padding:0 13px;color:var(--text-3);font-size:13px}
+
+/* 书库 */
+.toolbar{display:flex;gap:10px;align-items:center;padding:12px;border-bottom:1px solid var(--border)}
+.search{width:280px;height:36px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);
+  display:flex;align-items:center;padding:0 12px;color:var(--text-3);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding:16px;overflow:hidden}
+.book{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);box-shadow:var(--e1)}
+.cover{aspect-ratio:3/4;background:linear-gradient(150deg,#CFE0FF,#EBE7FF);display:flex;align-items:center;justify-content:center;font-size:30px}
+.book .t{padding:9px 10px;font-size:12.5px;font-weight:600;line-height:1.35}
+.book .m{padding:0 10px 10px;font-size:11px;color:var(--text-3)}
+.st{font-size:10px;padding:2px 7px;border-radius:999px;margin:0 10px 10px;display:inline-block}
+.st.done{background:rgba(23,166,115,.12);color:#0F7A54}
+.st.run{background:rgba(47,107,255,.12);color:#2450C8}
+.st.wait{background:rgba(217,131,23,.14);color:#9A5A0C}
+
+/* 时间线 */
+.tl{padding:20px}
+.step{display:flex;gap:14px;padding:11px 0}
+.node{width:24px;height:24px;border-radius:50%;flex:0 0 24px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.node.ok{background:var(--success);color:#fff}
+.node.cur{background:var(--primary);color:#fff;box-shadow:0 0 0 5px rgba(47,107,255,.18)}
+.node.todo{border:2px solid var(--border-strong);color:var(--text-3)}
+.step .tx{font-size:13px} .step .tx small{display:block;color:var(--text-3);font-size:11.5px}
+
+/* 校对双栏 */
+.split{display:flex;gap:0;height:100%}
+.page{flex:1;padding:18px;border-right:1px solid var(--border);background:var(--surface-alt);overflow:hidden}
+.edit{width:420px;flex:0 0 420px;padding:18px;overflow:hidden}
+.diff{padding:7px 10px;border-radius:8px;font-size:12.5px;margin-bottom:7px;display:flex;gap:7px;align-items:flex-start}
+.diff.add{background:rgba(23,166,115,.10);border-left:3px solid var(--success)}
+.diff.mod{background:rgba(61,126,255,.10);border-left:3px solid var(--info)}
+.diff.miss{background:rgba(229,72,77,.09);border-left:3px solid var(--danger)}
+
+/* 向导 */
+.wiz{display:flex;gap:10px;padding:16px;border-bottom:1px solid var(--border)}
+.wstep{flex:1;height:4px;border-radius:2px;background:var(--border)}
+.wstep.on{background:var(--grad)}
+.form{padding:20px;display:flex;flex-direction:column;gap:14px}
+.field label{font-size:12px;font-weight:600;color:var(--text-2);display:block;margin-bottom:6px}
+.field input{width:100%;height:38px;border:1px solid var(--border-strong);border-radius:10px;background:var(--surface-alt);padding:0 12px;color:var(--text);font-size:13px}
+
+/* 六态 */
+.states{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:16px}
+.card{border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);box-shadow:var(--e1);padding:16px;min-height:150px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+.card .ic{font-size:30px}
+.card .ti{font-size:14px;font-weight:600}
+.card .de{font-size:12px;color:var(--text-2);max-width:230px}
+.skel{width:100%;height:12px;border-radius:6px;background:linear-gradient(90deg,#E8EDF8 25%,#F3F6FD 37%,#E8EDF8 63%);background-size:400% 100%;animation:sh 1.4s ease infinite}
+@keyframes sh{0%{background-position:100% 0}100%{background-position:0 0}}
+
+/* 窄屏 */
+.narrowbody{flex:1;display:flex;flex-direction:column;gap:10px;padding:10px;min-height:0}
+.strip{display:flex;gap:8px;overflow:hidden}
+.tchip{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:12px}
+
+/* 深色画板 */
+[data-theme="dark"] .board{background:var(--bg);border-color:#26314E}
+[data-theme="dark"] .board>.cap{background:#0F1730;border-color:#26314E;color:#A8B6D6}
+[data-theme="dark"] .screen{background:var(--bg)}
+[data-theme="dark"] .topbar{background:linear-gradient(135deg,#0B1020,#141033);border-color:var(--border)}
+[data-theme="dark"] .seg,[data-theme="dark"] .iconbtn,[data-theme="dark"] .col,[data-theme="dark"] .slide,
+[data-theme="dark"] .opt,[data-theme="dark"] .book,[data-theme="dark"] .card,[data-theme="dark"] .tchip,
+[data-theme="dark"] .bottom,[data-theme="dark"] .input,[data-theme="dark"] .search,[data-theme="dark"] .field input{
+  background:var(--surface);border-color:var(--border);color:var(--text)}
+[data-theme="dark"] .slide,[data-theme="dark"] .input,[data-theme="dark"] .search,[data-theme="dark"] .field input{background:var(--surface-alt)}
+[data-theme="dark"] .seg b.on,[data-theme="dark"] .tabs b.on{background:rgba(91,140,255,.18);color:var(--primary)}
+[data-theme="dark"] .pill{background:rgba(53,196,139,.14);color:#35C48B;border-color:rgba(53,196,139,.3)}
+.legend{font-size:12px;color:#5A6B8C;margin:8px 0 0}
+.note{background:#FFFBEF;border:1px solid #F0E0B0;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#6B5A26;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>小智 AI 学生课堂 V2 · 画布设计稿</h1>
+  <p class="sub">Phase 1 视觉设计成果 · 浅色为默认主题 · 全部尺寸/色值可直接映射到 PySide6/QML 令牌 · 对应规范：<code>CLASSROOM_V2_UI_DESIGN.md</code></p>
+
+  <div class="note">
+    <b>本画布为设计稿（mockup），非生产代码。</b> 目的：在设计阶段即锁定视觉系统、布局与状态，供产品负责人审定。
+    最终落地为 <code>client/src/classroom/qml/**</code> 的真实 QML 组件。演示课程按「本地演示样本」标注，用户自有教材为第一优先级。
+  </div>
+
+  <h2>1 · 设计系统令牌（Design Tokens）</h2>
+  <div class="tokens">
+    <div class="sw"><div class="chip" style="background:#F2F5FC"></div><div class="lbl">bg #F2F5FC</div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF"></div><div class="lbl">surface #FFFFFF</div></div>
+    <div class="sw"><div class="chip" style="background:#16203A"></div><div class="lbl">text #16203A</div></div>
+    <div class="sw"><div class="chip" style="background:#2F6BFF"></div><div class="lbl">primary #2F6BFF</div></div>
+    <div class="sw"><div class="chip" style="background:#6D5EF8"></div><div class="lbl">accent #6D5EF8</div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#2F6BFF,#6D5EF8)"></div><div class="lbl">brand gradient</div></div>
+    <div class="sw"><div class="chip" style="background:#17A673"></div><div class="lbl">success #17A673</div></div>
+    <div class="sw"><div class="chip" style="background:#D98317"></div><div class="lbl">warn #D98317</div></div>
+    <div class="sw"><div class="chip" style="background:#E5484D"></div><div class="lbl">danger #E5484D</div></div>
+    <div class="sw"><div class="chip" style="background:#0B1020"></div><div class="lbl">dark bg #0B1020</div></div>
+    <div class="sw"><div class="chip" style="background:#121A2E"></div><div class="lbl">dark surface #121A2E</div></div>
+    <div class="sw"><div class="chip" style="background:#5B8CFF"></div><div class="lbl">dark primary #5B8CFF</div></div>
+  </div>
+  <p class="legend">字号 Caption 12 / BodySm 13 / Body 15 / Title 19 / Headline 26 / Display 32 / Hero 40 ｜ 间距 8 网格：4·8·12·16·24·32·48 ｜ 圆角 6·10·16·22·999 ｜ 动效 100/150/220/320ms ｜ 深色用 tonal elevation（边框+内高光），不用阴影堆叠。</p>
+
+  <h2>2 · 画板 A：学生课堂主界面（1360×850，浅色）</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">课堂主界面 · wide 1360×850 <span>三栏：AI 老师 / 课件 / 字幕·词汇·笔记</span></div>
+      <div class="screen" data-theme="light">
+        <div class="topbar">
+          <div class="brand"><span class="logo"></span>小智 AI 学生课堂</div>
+          <span class="pill"><span class="dot"></span>老师在线</span>
+          <div class="seg"><b class="on">课堂</b><b>我的书库</b><b>学习记录</b></div>
+          <div class="spacer"></div>
+          <div class="iconbtn">☾</div><div class="iconbtn">⛶</div><div class="iconbtn">⋯</div>
+        </div>
+        <div class="body">
+          <!-- 左：AI 老师 -->
+          <div class="col teacher">
+            <div class="colhead">AI 老师 <span style="font-weight:400;color:#7E8CA8;font-size:11px">Lily</span></div>
+            <div class="colbody">
+              <div class="tavatar"><div class="glow"></div><div class="face">👩‍🏫</div></div>
+              <div class="tname">Lily · 英语老师</div>
+              <div class="tmeta">教学语言 English · 音色 Cherry</div>
+              <span class="badge speak"><span class="dot" style="background:#2F6BFF"></span>正在讲解</span>
+              <div class="btnrow"><div class="btn sec">更换老师</div></div>
+              <div class="btnrow"><div class="btn ghost" style="font-size:12px">隐藏数字人 ⤢</div></div>
+            </div>
+          </div>
+          <!-- 中：课件 -->
+          <div class="col course">
+            <div class="colhead">课件 · 第 1 课 办理入住 <span style="font-weight:400;color:#7E8CA8;font-size:11px">2 / 5</span></div>
+            <div class="colbody">
+              <div class="slide">
+                <div class="kicker">Vocabulary</div>
+                <div class="word">reservation</div>
+                <div class="ipa">/ˌrezəˈveɪʃn/</div>
+                <div class="mean">n. 预订</div>
+                <div class="ex"><div class="en">I have a reservation under the name Li.</div><div class="cn">我有一个以李为名的预订。</div></div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊 朗读</div><div class="btn sec">跟读</div><div class="btn pri">下一页 →</div></div>
+            </div>
+          </div>
+          <!-- 右：字幕/词汇/笔记 -->
+          <div class="col panel">
+            <div class="tabs"><b class="on">实时字幕</b><b>重点词汇</b><b>课堂笔记</b></div>
+            <div class="bar"></div>
+            <div class="colbody">
+              <div class="line t"><div class="who">老师</div>我们一起看这个词：reservation，表示"预订"。</div>
+              <div class="line s"><div class="who">学生</div>reservation… 是 re-ser-va-tion 吗？</div>
+              <div class="line t"><div class="who">老师</div>对！重音在第三个音节，/ˌrezəˈveɪʃn/。</div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="mic">🎤</div>
+          <div class="input">按住说话，或直接输入文字…</div>
+          <div class="btn sec">结束学习</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 画板 G：老师选择 + 语音状态 -->
+    <div class="board">
+      <div class="cap">AI 老师选择 / 语音状态 <span>学生不接触 Token / URL / JSON</span></div>
+      <div class="screen mid" data-theme="light">
+        <div class="topbar"><div class="brand"><span class="logo"></span>选择 AI 老师</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="col"><div class="colhead">Lily · 英语</div><div class="colbody">
+            <div class="tavatar" style="height:120px"><div class="face">👩‍🏫</div></div>
+            <div class="tmeta">音色 Cherry · en-GB</div>
+            <div class="btnrow"><div class="btn pri">✓ 已选择</div></div></div></div>
+          <div class="col"><div class="colhead">Max · 英语</div><div class="colbody">
+            <div class="tavatar" style="height:120px;background:linear-gradient(160deg,#123A33,#1B4A54)"><div class="face" style="background:linear-gradient(135deg,#35C48B,#4EA8FF)">👨‍🏫</div></div>
+            <div class="tmeta">音色 Ethan · en-US</div>
+            <div class="btnrow"><div class="btn sec">选择</div></div></div></div>
+          <div class="col" style="grid-column:1/-1"><div class="colhead">语音状态</div><div class="colbody" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <span class="pill"><span class="dot"></span>麦克风已授权</span>
+            <span class="badge speak">🎙 正在聆听</span>
+            <span class="badge" style="background:rgba(217,131,23,.14);color:#9A5A0C">本地模拟（Mock）</span>
+            <span class="badge" style="background:rgba(229,72,77,.10);color:#B32B2F">真实在线：未授权</span>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>3 · 画板 B/C：我的书库 / 导入教材</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">我的书库 · 空状态 <span>USER_TEXTBOOK_FIRST · 不自动指定内置课程</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>我的书库</div><div class="spacer"></div><div class="iconbtn">⋯</div></div>
+        <div class="toolbar"><div class="search">🔍 搜索书名 / 章节…</div><div class="spacer"></div><div class="btn pri" style="padding:0 16px">＋ 导入教材</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+          <div style="font-size:48px">📚</div>
+          <div style="font-size:15px;font-weight:600">书架还空着</div>
+          <div style="font-size:12.5px;color:#5A6B8C">导入你的第一本教材，AI 老师将围绕它开展教学</div>
+          <div class="btn pri" style="padding:0 18px;margin-top:6px">导入教材（PDF / DOCX / PPTX / EPUB / 图片）</div>
+          <div style="font-size:11.5px;color:#93A1BD;margin-top:4px">演示样本「酒店英语」仅用于本地功能测试，不代表正式教材</div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">我的书库 · 有内容 <span>状态徽章：未解析/解析中/已校对/已发布</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>我的书库</div><div class="spacer"></div><div class="iconbtn">⋯</div></div>
+        <div class="toolbar"><div class="search">🔍 搜索书名 / 章节…</div><div class="spacer"></div><div class="btn pri" style="padding:0 16px">＋ 导入教材</div></div>
+        <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="book"><div class="cover">📘</div><div class="t">新概念英语 第一册</div><div class="m">120 页 · 36 章</div><span class="st done">已发布</span></div>
+          <div class="book"><div class="cover">📗</div><div class="t">Side by Side Book 1</div><div class="m">解析中 3/12 章</div><span class="st run">解析中</span></div>
+          <div class="book"><div class="cover">📙</div><div class="t">初中英语语法精讲</div><div class="m">待人工确认 4 项</div><span class="st wait">待校对</span></div>
+          <div class="book"><div class="cover">📕</div><div class="t">剑桥少儿英语</div><div class="m">未开始解析</div><span class="st wait">未解析</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">导入教材 <span>本地优先 · 上云须授权</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>导入教材</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="wiz"><span class="wstep on"></span><span class="wstep"></span><span class="wstep"></span></div>
+        <div class="body" style="display:block;padding:16px">
+          <div style="height:180px;border:2px dashed var(--border-strong);border-radius:var(--r-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--surface-alt)">
+            <div style="font-size:34px">⬆️</div>
+            <div style="font-weight:600;font-size:14px">把教材拖到这里，或点击选择文件</div>
+            <div style="font-size:12px;color:#5A6B8C">支持 PDF · DOCX · PPTX · TXT · MD · EPUB · 书页图片</div>
+          </div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface)">
+              <span>📄</span><span style="flex:1;font-size:13px">new-concept-1.pdf</span>
+              <span style="font-size:11.5px;color:#5A6B8C">12.4 MB</span><span style="font-size:11px;color:#0F7A54">本机解析</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface)">
+              <span>🖼️</span><span style="flex:1;font-size:13px">scan-chapter2.png（扫描页）</span>
+              <span style="font-size:11.5px;color:#9A5A0C">需本机 OCR</span>
+            </div>
+          </div>
+          <div class="btnrow"><div class="btn sec">取消</div><div class="btn pri">开始解析 →</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>4 · 画板 D/E/F：解析进度 / 教材校对 / 发布课程</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">解析进度 · 步骤时间线 <span>原文提取与 AI 生成分离</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>解析进度 · new-concept-1.pdf</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="bar" style="margin:14px 18px 0"></div>
+        <div class="tl">
+          <div class="step"><div class="node ok">✓</div><div class="tx">上传文件<small>12.4 MB · 完成</small></div></div>
+          <div class="step"><div class="node ok">✓</div><div class="tx">文本抽取<small>本机解析 · pdfminer · 118 页</small></div></div>
+          <div class="step"><div class="node cur">3</div><div class="tx">章节识别<small>进行中 · 已识别 8 / 36 章</small></div></div>
+          <div class="step"><div class="node todo">4</div><div class="tx">音标与词汇抽取<small>待开始</small></div></div>
+          <div class="step"><div class="node todo">5</div><div class="tx">生成课程草稿<small>本地规则草稿（非 AI 生成）</small></div></div>
+          <div class="step"><div class="node todo">6</div><div class="tx">就绪 · 待人工校对<small>待开始</small></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">教材校对 · 原页对照 <span>「需人工确认」标记 · 不编造</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>校对教材 · 第 3 章</div><div class="spacer"></div><span class="pill" style="background:rgba(217,131,23,.14);color:#9A5A0C;border-color:rgba(217,131,23,.3)"><span class="dot" style="background:#D98317"></span>4 项待确认</span></div>
+        <div class="split" style="height:calc(100% - 62px)">
+          <div class="page">
+            <div style="font-size:11px;color:#93A1BD;margin-bottom:10px">原书第 28 页</div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;font-size:13px;line-height:1.9">
+              <b>Unit 3 · At the Restaurant</b><br>
+              — Good evening. A table for two, please.<br>
+              — Certainly. This way, please.<br>
+              <span style="background:rgba(47,107,255,.12)">reservation /ˌrezəˈveɪʃn/</span>
+            </div>
+          </div>
+          <div class="edit">
+            <div class="diff add"><b>＋</b><div>新增词汇：<b>certainly</b> /ˈsɜːtnli/ 当然</div></div>
+            <div class="diff mod"><b>~</b><div>修正音标：<b>reservation</b> /ˌrezəˈveɪʃn/（UK）</div></div>
+            <div class="diff miss"><b>!</b><div>第 29 页练习 <b>答案缺失</b> → 标记「需人工确认」</div></div>
+            <div class="diff miss"><b>!</b><div>扫描页第 31 页 OCR 置信度低 → 待人工核对</div></div>
+            <div class="btnrow"><div class="btn sec">重新解析</div><div class="btn pri">确认并发布</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">发布课程 <span>4 步向导 · 覆盖既有课程需二次确认</span></div>
+      <div class="screen mid" data-theme="light" style="height:560px">
+        <div class="topbar"><div class="brand"><span class="logo"></span>发布课程</div><div class="spacer"></div><div class="iconbtn">✕</div></div>
+        <div class="wiz"><span class="wstep on"></span><span class="wstep on"></span><span class="wstep on"></span><span class="wstep on"></span></div>
+        <div class="form">
+          <div class="field"><label>课程名称</label><input value="新概念英语 第一册"></div>
+          <div class="field"><label>学科</label><input value="英语 English"></div>
+          <div class="field"><label>来源</label><input value="用户教材 · new-concept-1.pdf（第 1–36 章）" readonly></div>
+          <div style="display:flex;gap:12px;align-items:center;background:var(--surface-alt);border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="width:56px;height:74px;border-radius:8px;background:linear-gradient(150deg,#CFE0FF,#EBE7FF);display:flex;align-items:center;justify-content:center;font-size:22px">📘</div>
+            <div style="font-size:12.5px;color:#5A6B8C">封面 · 已自动生成 · 可替换</div>
+          </div>
+          <div class="btnrow"><div class="btn sec">上一步</div><div class="btn pri">发布并开始学习</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>5 · 画板 I：窄屏布局（620×620）+ 深色对照</h2>
+  <div class="boards">
+    <div class="board">
+      <div class="cap">课堂 · narrow 620×620 <span>老师条 96px · 右栏折叠为抽屉 · 课件区优先</span></div>
+      <div class="screen small" data-theme="light">
+        <div class="topbar" style="height:56px;flex-basis:56px;padding:0 12px">
+          <div class="brand" style="font-size:14px"><span class="logo" style="width:22px;height:22px"></span>小智课堂</div>
+          <div class="spacer"></div><div class="iconbtn">☰</div><div class="iconbtn">⋯</div>
+        </div>
+        <div class="narrowbody">
+          <div class="strip">
+            <div class="tchip"><span style="font-size:16px">👩‍🏫</span>Lily · 讲解中</div>
+            <div class="tchip">💬 字幕</div>
+            <div class="tchip">📖 词汇</div>
+            <div class="tchip">📝 笔记</div>
+          </div>
+          <div class="col" style="flex:1">
+            <div class="colhead">第 1 课 · 办理入住 <span style="font-weight:400;font-size:11px;color:#7E8CA8">2/5</span></div>
+            <div class="colbody">
+              <div class="slide" style="padding:16px">
+                <div class="kicker">Vocabulary</div>
+                <div class="word" style="font-size:30px;word-break:break-word">internationalization</div>
+                <div class="ipa" style="font-size:15px;word-break:break-all">/ˌɪntəˌnæʃnəlaɪˈzeɪʃn/</div>
+                <div class="mean">n. 国际化</div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊</div><div class="btn sec">跟读</div><div class="btn pri">下一页</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom" style="flex-basis:64px">
+          <div class="mic" style="width:44px;height:44px;font-size:17px">🎤</div>
+          <div class="input">输入文字…</div>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cap">深色模式对照 · 同一课堂 <span>tonal elevation · 文字对比度 ≥4.5:1</span></div>
+      <div class="screen mid" data-theme="dark" style="height:560px">
+        <div class="topbar">
+          <div class="brand"><span class="logo"></span>小智 AI 学生课堂</div>
+          <span class="pill"><span class="dot"></span>老师在线</span>
+          <div class="spacer"></div><div class="iconbtn">☀</div><div class="iconbtn">⛶</div>
+        </div>
+        <div class="body">
+          <div class="col teacher" style="width:200px;flex-basis:200px">
+            <div class="colhead">AI 老师</div>
+            <div class="colbody">
+              <div class="tavatar" style="height:110px"><div class="face">👩‍🏫</div></div>
+              <div class="tname">Lily · 英语老师</div>
+              <span class="badge speak">正在讲解</span>
+            </div>
+          </div>
+          <div class="col course">
+            <div class="colhead">课件 · 第 1 课</div>
+            <div class="colbody">
+              <div class="slide">
+                <div class="kicker">Vocabulary</div>
+                <div class="word">reservation</div>
+                <div class="ipa">/ˌrezəˈveɪʃn/</div>
+                <div class="mean">n. 预订</div>
+              </div>
+              <div class="btnrow"><div class="btn sec">🔊 朗读</div><div class="btn pri">下一页 →</div></div>
+            </div>
+          </div>
+          <div class="col panel" style="width:240px;flex-basis:240px">
+            <div class="tabs"><b class="on">实时字幕</b><b>词汇</b></div>
+            <div class="bar"></div>
+            <div class="colbody"><div class="line t"><div class="who">老师</div>reservation 表示"预订"。</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>6 · 画板 K：六类界面状态</h2>
+  <div class="board" style="width:100%">
+    <div class="cap">六类状态 · 正常 / 加载 / 空数据 / 离线 / 错误 / 禁用 <span>状态不靠颜色单独传达</span></div>
+    <div class="states" data-theme="light">
+      <div class="card"><div class="ic">✅</div><div class="ti">正常</div><div class="de">标准令牌；内容与操作完整可用</div></div>
+      <div class="card"><div class="skel"></div><div class="skel" style="width:70%"></div><div class="skel" style="width:85%"></div><div class="ti" style="margin-top:6px">加载</div><div class="de">骨架屏（≤300ms 不显示）；长任务用顶部渐变进度条</div></div>
+      <div class="card"><div class="ic">📚</div><div class="ti">空数据</div><div class="de">图标 + 说明 + 单个主操作（「导入第一本教材」）</div></div>
+      <div class="card"><div class="ic" style="color:#D98317">☁️</div><div class="ti">离线</div><div class="de">顶部横幅「离线，可继续阅读本地教材」；网络操作禁用并说明原因</div></div>
+      <div class="card"><div class="ic" style="color:#E5484D">⚠️</div><div class="ti">错误</div><div class="de">内联错误卡（不整页崩）+ 原因 + 「重试」；图标 + 文字，不只靠色</div></div>
+      <div class="card"><div class="btn pri dis" style="width:70%">下一页</div><div class="ti">禁用</div><div class="de">opacity .4 + 必须提示原因（如「未开始学习」）</div></div>
+    </div>
+  </div>
+
+  <p class="legend" style="margin-top:24px">画布位置：<code>docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas.html</code> ｜ 落地规范：<code>docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_UI_DESIGN.md</code></p>
+</div>
+</body>
+</html>

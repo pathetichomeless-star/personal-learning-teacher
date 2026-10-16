@@ -1,0 +1,8 @@
+## avatar-vision-v06-mac-native
+ M client/probe_avatar_qml_offscreen.py
+ M client/src/avatar/runtime/avatar_page.js
+ M client/src/ui/gui/manager.py
+ M client/src/ui/gui/qml/components/AvatarLive2D.qml
+ M docs/engineering/product-v1/avatar-vision-v0/V1_MAC_GUI_ACCEPTANCE.md
+?? client/src/avatar/runtime_server.py
+?? docs/engineering/product-v1/admin-auth-p0/

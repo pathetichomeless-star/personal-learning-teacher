@@ -1,0 +1,144 @@
+{
+  "schema": "classroom.course.bundle",
+  "version": 1,
+  "courses": [
+    {
+      "course_id": "crs_offline_demo_basics",
+      "revision": 1,
+      "title": "离线演示：基础问候",
+      "source": "user-textbook",
+      "source_doc_id": "doc_8ab3dff32a53",
+      "source_doc_hash": "0ed82af7b00872e2c465753450980fa35e7e01f0aaea96f67eecfd40808e0991",
+      "source_file_sha256": "32f3029c4162ce7f43052c7e5a5dd37a0905a8d27c52f87e0fa00b702718a90c",
+      "lessons": [
+        {
+          "lesson_id": "lesson_1_1",
+          "title": "第1课 见面问好",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "第1课 见面问好"
+            },
+            {
+              "type": "vocab",
+              "word": "hello",
+              "meaning": "你好",
+              "en": "Hello, Anna!",
+              "cn": "你好，安娜！"
+            },
+            {
+              "type": "vocab",
+              "word": "morning",
+              "meaning": "早晨",
+              "en": "Good morning, everyone.",
+              "cn": "大家早上好。",
+              "phonetic": "ˈmɔːnɪŋ"
+            },
+            {
+              "type": "vocab",
+              "word": "fine",
+              "meaning": "好的",
+              "en": "I am fine, thank you.",
+              "cn": "我很好，谢谢。"
+            },
+            {
+              "type": "sentence",
+              "en": "Good morning!",
+              "cn": "早上好！"
+            },
+            {
+              "type": "sentence",
+              "en": "How are you?",
+              "cn": "你好吗？"
+            },
+            {
+              "type": "practice",
+              "question": "听到「Good morning」通常是在什么时候问好？",
+              "options": [
+                "早晨",
+                "中午",
+                "傍晚"
+              ],
+              "answer": 0,
+              "explain": "Good morning 用于早晨见面时。"
+            },
+            {
+              "type": "summary",
+              "title": "第1课 见面问好 · 小结",
+              "points": [
+                "掌握 hello / morning / fine 三个词，以及两句最常用的问候语。"
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_id": "lesson_2_2",
+          "title": "第2课 告别与感谢",
+          "slides": [
+            {
+              "type": "cover",
+              "title": "第2课 告别与感谢"
+            },
+            {
+              "type": "vocab",
+              "word": "goodbye",
+              "meaning": "再见",
+              "en": "Goodbye, see you tomorrow.",
+              "cn": "再见，明天见。"
+            },
+            {
+              "type": "vocab",
+              "word": "thanks",
+              "meaning": "谢谢",
+              "en": "Thanks a lot!",
+              "cn": "多谢！",
+              "phonetic": "θæŋk"
+            },
+            {
+              "type": "vocab",
+              "word": "please",
+              "meaning": "请",
+              "en": "Please sit down.",
+              "cn": "请坐。",
+              "phonetic": "pliːz"
+            },
+            {
+              "type": "sentence",
+              "en": "See you tomorrow.",
+              "cn": "明天见。"
+            },
+            {
+              "type": "sentence",
+              "en": "Thank you very much.",
+              "cn": "非常感谢你。"
+            },
+            {
+              "type": "practice",
+              "question": "想表达「谢谢」时，下面哪个词最合适？",
+              "options": [
+                "goodbye",
+                "thanks",
+                "morning"
+              ],
+              "answer": 1,
+              "explain": "thanks 意为「谢谢」。"
+            },
+            {
+              "type": "summary",
+              "title": "第2课 告别与感谢 · 小结",
+              "points": [
+                "掌握 goodbye / thanks / please 三个词；能用 See you tomorrow 告别。"
+              ]
+            }
+          ]
+        }
+      ],
+      "subject": "英语",
+      "level": "入门",
+      "description": "由离线流水线从教材《sample_textbook》生成（演示）。"
+    }
+  ],
+  "label": "离线演示课程（来源：演示知识库快照，非正式用户教材）",
+  "notice": "本课程由 tools/classroom_offline_pipeline.py 离线生成；source_doc_id 指向随包演示知识库快照，**不是**正式用户知识库。",
+  "generated_at": "2026-10-12T22:42:53+0800"
+}

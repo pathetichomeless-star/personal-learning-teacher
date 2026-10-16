@@ -1,0 +1,96 @@
+{
+  "artifact": "classroom_offline_pipeline",
+  "generated_at": "2026-10-12T22:42:53+0800",
+  "textbook": {
+    "file": "sample_textbook.md",
+    "bytes": 1325,
+    "source_file_sha256": "32f3029c4162ce7f43052c7e5a5dd37a0905a8d27c52f87e0fa00b702718a90c",
+    "ext": ".md"
+  },
+  "parse": {
+    "extractor": "builtin-text",
+    "extracted_chars": 803,
+    "page_anchor_basis": "page",
+    "anchor_hint": null
+  },
+  "knowledge": {
+    "snapshot": "kb_snapshot/knowledge.json",
+    "dataset_id": "ds_a6102af1f962",
+    "doc_id": "doc_8ab3dff32a53",
+    "content_hash": "0ed82af7b00872e2c465753450980fa35e7e01f0aaea96f67eecfd40808e0991",
+    "content_hash_note": "裸 64hex（无 sha256: 前缀）——见 SCHEMA_V1_ERRATA"
+  },
+  "course": {
+    "course_id": "crs_offline_demo_basics",
+    "revision": 1,
+    "lessons": 2,
+    "slides": 16,
+    "source": "user-textbook"
+  },
+  "needs_review": [
+    {
+      "where": "unit[0].item[0]",
+      "reason": "phonetic_unknown",
+      "word": "hello"
+    },
+    {
+      "where": "unit[0].item[2]",
+      "reason": "phonetic_unknown",
+      "word": "fine"
+    },
+    {
+      "where": "unit[1].item[0]",
+      "reason": "phonetic_unknown",
+      "word": "goodbye"
+    }
+  ],
+  "binding_check": {
+    "doc_readback_ok": true,
+    "hash_matches": true
+  },
+  "stages": [
+    {
+      "stage": "read_bytes",
+      "detail": "sample_textbook.md（1325 字节，sha256=32f3029c4162…）",
+      "ok": true,
+      "elapsed_ms": 0
+    },
+    {
+      "stage": "parse",
+      "detail": "解析器=builtin-text，抽取 803 字符",
+      "ok": true,
+      "elapsed_ms": 0
+    },
+    {
+      "stage": "kb_commit",
+      "detail": "隔离库 knowledge.json；doc_id=doc_8ab3dff32a53；content_hash=0ed82af7b008…（裸 hex）",
+      "ok": true,
+      "elapsed_ms": 1
+    },
+    {
+      "stage": "structure",
+      "detail": "识别 2 个课次 / 12 个条目",
+      "ok": true,
+      "elapsed_ms": 1
+    },
+    {
+      "stage": "build_course",
+      "detail": "course_id=crs_offline_demo_basics，课次 2，待人工确认 3 项",
+      "ok": true,
+      "elapsed_ms": 1
+    },
+    {
+      "stage": "validate",
+      "detail": "通过冻结契约 v1（JSON schema + 手写校验）",
+      "ok": true,
+      "elapsed_ms": 1
+    },
+    {
+      "stage": "binding_check",
+      "detail": "回读 store：doc 存在=True；content_hash 与课程 source_doc_hash 一致=True",
+      "ok": true,
+      "elapsed_ms": 1
+    }
+  ],
+  "bundle_file": "crs_offline_demo_basics.course.json"
+}

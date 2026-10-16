@@ -1,0 +1,417 @@
+{
+  "artifact": "ui_pages_probe",
+  "scope": "CLASSROOM V2 · DELIVERY GATE 02 · 页面探针（Agent B 开发自验）",
+  "pages": {
+    "library_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 10,
+      "outside": []
+    },
+    "import_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 5,
+      "outside": []
+    },
+    "proofread_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 15,
+      "outside": []
+    },
+    "publish_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 4,
+      "outside": []
+    },
+    "course_dialog_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 17,
+      "outside": []
+    },
+    "teacher_dialog_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 19,
+      "outside": []
+    },
+    "advanced_dialog_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 17,
+      "outside": []
+    },
+    "voice_mock_dialog_1360": {
+      "window": [
+        1360,
+        815
+      ],
+      "controls": 20,
+      "outside": []
+    },
+    "narrow_classroom": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 11,
+      "outside": []
+    },
+    "narrow_library": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 9,
+      "outside": []
+    },
+    "narrow_import": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 4,
+      "outside": []
+    },
+    "narrow_proofread": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 8,
+      "outside": []
+    },
+    "narrow_publish": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 3,
+      "outside": []
+    },
+    "course_dialog_620": {
+      "window": [
+        620,
+        620
+      ],
+      "controls": 12,
+      "outside": []
+    }
+  },
+  "checks": [
+    {
+      "name": "P01a 导航条含 5 个栏目",
+      "ok": true,
+      "detail": "['课堂', '书库', '导入', '校对', '发布', '书库']"
+    },
+    {
+      "name": "P01b 起始在「我的书库」页（FIX01-P2-1：不再自动打开演示课）",
+      "ok": true,
+      "detail": "library"
+    },
+    {
+      "name": "P02a 书库页标题在位",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P02b 书库列出离线演示课程",
+      "ok": true,
+      "detail": "['小智 AI 学生课堂', '演示模式 · 本地演示', '老师：未选择老师    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    待开始', '全屏', '全屏', '全屏', '高级设置', '高级设置']"
+    },
+    {
+      "name": "P02c 书库列出随包本地演示课程",
+      "ok": true,
+      "detail": "['老师：未选择老师    ｜    课程：酒店英语 · Hotel English    ｜    第 1 课 · 办理入住 Check-in    ｜    待开始', '酒店英语 · Hotel English']"
+    },
+    {
+      "name": "P02d **错误态**：损坏课程如实显示不可用原因",
+      "ok": true,
+      "detail": "['不可用：不符合契约 v1：$.courses[0].source_doc_id: user-textbook 必须提供真实知识库 doc_id，得到 None']"
+    },
+    {
+      "name": "P02e 书库宽屏无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P02e2 书库如实显示离线演示的待确认项数",
+      "ok": true,
+      "detail": "['⚠ 待人工确认 3 项']"
+    },
+    {
+      "name": "P02f 打开离线演示课程 → 进入课堂且课程已切换",
+      "ok": true,
+      "detail": "(True, '离线演示：基础问候')"
+    },
+    {
+      "name": "P02g 打开后页签自动回到「课堂」",
+      "ok": true,
+      "detail": "classroom"
+    },
+    {
+      "name": "P03a 硬门禁横幅显示「本机解析服务：未开放」",
+      "ok": true,
+      "detail": "['本机解析服务：未开放', '本机解析服务尚未开放：等待独立安全复核通过。届时将经 /cls/knowledge/* 白名单提供服务。']"
+    },
+    {
+      "name": "P03b 横幅含真实原因（等待独立安全复核）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P03c 能力表列出各格式",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P03d OCR 如实标注暂不支持",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P03e 导入页无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P04a 点击后加载离线流水线真实阶段记录",
+      "ok": true,
+      "detail": "('done', 7)"
+    },
+    {
+      "name": "P04b 阶段名可见（read_bytes / parse / kb_commit / validate）",
+      "ok": true,
+      "detail": "['read_bytes', 'parse', 'kb_commit', 'validate']"
+    },
+    {
+      "name": "P04c 进度文案声明未发起网络请求（P2-11：界面为业务化文案）",
+      "ok": true,
+      "detail": "['本地预检（不读取内容、不发网络）', '离线演示教材解析完成：7 个阶段全部成功。这是随包演示课程的生成记录，演练期间没有发起任何网络请求。']"
+    },
+    {
+      "name": "P05a 校对页显示待确认项（真实 needs_review）",
+      "ok": true,
+      "detail": "(3, ['校对', '教材校对'])"
+    },
+    {
+      "name": "P05b 音标未知项按事实说明（未编造音标）",
+      "ok": true,
+      "detail": "['位置 unit[0].item[0] · 音标未知 —— 未编造音标，已省略该字段（诚实降级）', '音标']"
+    },
+    {
+      "name": "P05c 补音标并「应用音标」→ 未处理计数减少（FIX01-P1-2：可编辑修正）",
+      "ok": true,
+      "detail": "(3, 2, True)"
+    },
+    {
+      "name": "P05d 校对页无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P06a 发布页显示 Mock 横幅（不发网络 / 未实现真实路由）",
+      "ok": true,
+      "detail": "['本页为「发布流程演练（Mock）」：不发任何网络请求、不写入任何发布存储。真实发布服务端路由本轮「未实现」，且在独立安全复核通过前不开放。']"
+    },
+    {
+      "name": "P06b 门禁演练产出门禁清单",
+      "ok": true,
+      "detail": "{'课程符合冻结契约 v1': True, '来源绑定有效（知识库来源）': True, '待人工确认项已清零': False, '关键问题已解决（关键项不可接受缺失）': True}"
+    },
+    {
+      "name": "P06c 来源绑定门禁**真实通过**（doc_id 存在且 content_hash 一致）",
+      "ok": true,
+      "detail": "{'课程符合冻结契约 v1': True, '来源绑定有效（知识库来源）': True, '待人工确认项已清零': False, '关键问题已解决（关键项不可接受缺失）': True}"
+    },
+    {
+      "name": "P06d 待确认项门禁如实为未通过（尚有未确认项）",
+      "ok": true,
+      "detail": "{'课程符合冻结契约 v1': True, '来源绑定有效（知识库来源）': True, '待人工确认项已清零': False, '关键问题已解决（关键项不可接受缺失）': True}"
+    },
+    {
+      "name": "P06e 发布状态文案声明「未执行真实发布」",
+      "ok": true,
+      "detail": "Mock 演练：3 / 4 项业务门禁通过；「未执行」真实发布"
+    },
+    {
+      "name": "P06f 发布页无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P07pre 关键问题清零（关键项必须修正，不可接受缺失）",
+      "ok": true,
+      "detail": "(0, 0)"
+    },
+    {
+      "name": "P07a 全部处理后 4/4 业务门禁通过（门禁随真实状态变化）",
+      "ok": true,
+      "detail": "[('课程符合冻结契约 v1', True), ('来源绑定有效（知识库来源）', True), ('待人工确认项已清零', True), ('关键问题已解决（关键项不可接受缺失）', True)]"
+    },
+    {
+      "name": "P08a 课程弹窗已打开",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P08b 课程弹窗无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P08c 「进入课堂」按钮全部落在窗口内（可达）",
+      "ok": true,
+      "detail": "进入课堂"
+    },
+    {
+      "name": "P08d 老师弹窗已打开（老师选择）",
+      "ok": true,
+      "detail": "(True, True, ['老师：未选择老师    ｜    课程：离线演示：基础问候    ｜    第1课 见面问好    ｜    待开始', 'AI 老师', '未选择老师', '更换老师'])"
+    },
+    {
+      "name": "P08e 老师弹窗无控件越界（弹窗确已打开）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P08f 高级设置弹窗无控件越界",
+      "ok": true,
+      "detail": "(True, [])"
+    },
+    {
+      "name": "P09a 课堂页底栏可见（开始学习可达）",
+      "ok": true,
+      "detail": "开始学习"
+    },
+    {
+      "name": "P09b 开始学习后进入讲解态",
+      "ok": true,
+      "detail": "(True, '讲解')"
+    },
+    {
+      "name": "P09c 文字输入可用",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "P12a 底栏含独立的「语音演练（Mock）」入口",
+      "ok": true,
+      "detail": "['语音演练（Mock）']"
+    },
+    {
+      "name": "P12b 真实语音入口仍为不可用（不与 Mock 混淆）",
+      "ok": true,
+      "detail": "(True, False)"
+    },
+    {
+      "name": "P12c 演练弹窗已打开且横幅声明不联网/本地预设",
+      "ok": true,
+      "detail": "(True, ['语音演练（Mock）', '语音演练（Mock）'])"
+    },
+    {
+      "name": "P12d 演练弹窗无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P12e 默认未启用（不自动冒充真实语音）",
+      "ok": true,
+      "detail": "False"
+    },
+    {
+      "name": "P12f 显式启用成功且模式=本地模拟(Mock)",
+      "ok": true,
+      "detail": "(True, True, '本地模拟(Mock)')"
+    },
+    {
+      "name": "P12g 音频未采集（诚实标注 text-only）",
+      "ok": true,
+      "detail": "True"
+    },
+    {
+      "name": "P12h GUI 发送触发一轮 Mock 双向事件（final_transcript→teacher_speaking→teacher_done）",
+      "ok": true,
+      "detail": "(True, ['final_transcript', 'teacher_speaking', 'teacher_done'], [('输入音标，如 /həˈləʊ/（可留空）', False, True), ('接受缺失的原因（必填），如：低龄教材无需音标', False, True), ('输入音标，如 /həˈləʊ/（可留空）', False, True), ('接受缺失的原因（必填），如：低龄教材无需音标', False, True), ('输入音标，如 /həˈləʊ/（可留空）', False, True), ('接受缺失的原因（必填），如：低龄教材无需音标', False, T"
+    },
+    {
+      "name": "P12i 事件日志条数递增且含真实文本",
+      "ok": true,
+      "detail": "(0, 3)"
+    },
+    {
+      "name": "P12j GUI 显示老师回复（本地预设/回显，含 Mock 声明）",
+      "ok": true,
+      "detail": "（Mock 回显）我听到你说：“hello”。请继续练习。"
+    },
+    {
+      "name": "P12k 会话状态回到 idle（一轮结束）",
+      "ok": true,
+      "detail": "idle"
+    },
+    {
+      "name": "P10.classroom 620px 下无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P10.library 620px 下无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P10.import 620px 下无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P10.proofread 620px 下无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P10.publish 620px 下无控件越界",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "P10.dlg 620px 课程弹窗无控件越界",
+      "ok": true,
+      "detail": "(True, [])"
+    },
+    {
+      "name": "P11a 未配置老师列表 → 诚实中文原因（不虚构在线老师）",
+      "ok": true,
+      "detail": "老师列表未启用（演示模式默认不联网）。如需连接本机 Mock 网关，请在隔离配置中显式开启。"
+    },
+    {
+      "name": "P11b 老师列表为空（不硬编码假老师）",
+      "ok": true,
+      "detail": "0"
+    }
+  ],
+  "summary": {
+    "total": 58,
+    "passed": 58,
+    "failed": 0,
+    "failed_ids": []
+  },
+  "note": "开发自验工具，**不构成**独立 QA（见 DELIVERY GATE 02 四）"
+}

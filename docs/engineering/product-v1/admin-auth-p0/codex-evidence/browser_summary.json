@@ -1,0 +1,262 @@
+{
+  "browser": "155.0.8059.39",
+  "server_runtime": "Python 3.12.13 / aiohttp 3.14.3; loopback only",
+  "results": [
+    {
+      "name": "unmodified shared.js serves 200",
+      "pass": false,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "unmodified click performs real health request",
+      "pass": true,
+      "detail": {
+        "requests": [
+          "/admin/health",
+          "/admin/health",
+          "/admin/version",
+          "/admin/policy/active",
+          "/admin/memory/diagnostics",
+          "/admin/knowledge/diagnostics",
+          "/admin/workbench/status"
+        ]
+      }
+    },
+    {
+      "name": "unmodified successful connection badge remains connected",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "页面渲染失败（ERROR）：XZ is not defined",
+        "ascii": true
+      }
+    },
+    {
+      "name": "unmodified authenticated dashboard renders",
+      "pass": false,
+      "detail": {
+        "view": "页面渲染失败（ERROR）：XZ is not defined"
+      }
+    },
+    {
+      "name": "assisted successful connection badge remains connected",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "assisted dashboard renders",
+      "pass": true,
+      "detail": {
+        "error": false
+      }
+    },
+    {
+      "name": "empty input preserves stored token",
+      "pass": true,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "empty connect with stored token verifies health",
+      "pass": false,
+      "detail": {
+        "newRequests": []
+      }
+    },
+    {
+      "name": "real 401 clears token and Chinese badge",
+      "pass": true,
+      "detail": {
+        "badge": "令牌无效（AUTH_FAILED）",
+        "cls": "badge bad",
+        "stored": false,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "injected 403 Chinese badge",
+      "pass": true,
+      "detail": {
+        "badge": "无权限（403）",
+        "cls": "badge warn",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "injected 500 Chinese badge",
+      "pass": true,
+      "detail": {
+        "badge": "服务异常（500）",
+        "cls": "badge bad",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "network failure actionable unavailable badge",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true,
+        "errors": [
+          "Failed to fetch"
+        ]
+      }
+    },
+    {
+      "name": "nonASCII connect prevents fetch with Chinese prompt",
+      "pass": true,
+      "detail": {
+        "badge": "令牌含非 ASCII 字符（可能复制了全角空格/中文）——请重新复制纯文本令牌",
+        "cls": "badge bad",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）3.07运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": false
+      }
+    },
+    {
+      "name": "stored nonASCII navigation retains actionable prompt",
+      "pass": false,
+      "detail": {
+        "badge": "令牌含非 ASCII 字符（可能复制了全角空格/中文）——请重新复制纯文本令牌",
+        "cls": "badge bad",
+        "stored": true,
+        "view": "页面渲染失败（ERROR）：Failed to execute 'fetch' on 'Window': Failed to read the 'headers' property from 'RequestInit': String contains non ISO-8859-1 code point.",
+        "ascii": false
+      }
+    },
+    {
+      "name": "stored nonASCII refresh retains actionable prompt",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "页面渲染失败（ERROR）：Failed to execute 'fetch' on 'Window': Failed to read the 'headers' property from 'RequestInit': String contains non ISO-8859-1 code point.",
+        "ascii": false
+      }
+    },
+    {
+      "name": "fullwidth surrounding space trimmed; valid token accepted",
+      "pass": true,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）5.121运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\":...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "valid token refresh shows verified state",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）5.34运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\": ...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "repeated connect keeps verified state",
+      "pass": false,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）5.839运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\":...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "independent new tab has no token",
+      "pass": true,
+      "detail": {
+        "badge": "AUTH_REQUIRED",
+        "cls": "badge",
+        "stored": false,
+        "view": "需要管理员令牌（AUTH_REQUIRED）请在右上角输入令牌并点击“连接”。令牌仅保存在当前标签页的 sessionStorage。",
+        "ascii": true
+      }
+    },
+    {
+      "name": "tab switch preserves token",
+      "pass": true,
+      "detail": {
+        "badge": "待验证（TOKEN_SET）",
+        "cls": "badge",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）5.839运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\":...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "internal control character rejected before fetch",
+      "pass": true,
+      "detail": {
+        "badge": "令牌含非 ASCII 字符（可能复制了全角空格/中文）——请重新复制纯文本令牌",
+        "cls": "badge bad",
+        "stored": true,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）5.839运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\":...",
+        "ascii": false
+      }
+    },
+    {
+      "name": "clear during in-flight success cannot show connected",
+      "pass": false,
+      "detail": {
+        "badge": "已连接",
+        "cls": "badge ok",
+        "stored": false,
+        "view": "需要管理员令牌（AUTH_REQUIRED）请在右上角输入令牌并点击“连接”。令牌仅保存在当前标签页的 sessionStorage。",
+        "ascii": true
+      }
+    },
+    {
+      "name": "late 401 cannot clear newly accepted token",
+      "pass": false,
+      "detail": {
+        "badge": "令牌无效（AUTH_FAILED）",
+        "cls": "badge bad",
+        "stored": false,
+        "view": "网关健康状态HEALTHY网关版本r1f-rev9+admin1当前连接0Qwen 连接0Qwen 会话（累计）0Qwen 模式mockQwen 就绪是模型（只读）—音色（只读）—运行时长（秒）7.319运行配置（只读）模型—音色—Qwen 工作模式mock策略版本v1角色与教学策略版本1更新时间—记忆条目总数0越界键0知识库数据集0文档0分块0课程进度（只读）可用否数据时间—降级警告降级提示：Workbench 不可用：workbench_not_configured原始 JSON（调试）{\n \"health\":...",
+        "ascii": true
+      }
+    },
+    {
+      "name": "baseline falsely claims healthy without health request",
+      "pass": true,
+      "detail": {
+        "badge": "HEALTHY",
+        "cls": "badge ok",
+        "stored": true,
+        "view": "需要管理员令牌（AUTH_REQUIRED）请在右上角输入令牌并点击“连接”。令牌仅保存在当前标签页的 sessionStorage。",
+        "ascii": true,
+        "requests": []
+      }
+    }
+  ]
+}

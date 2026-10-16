@@ -1,0 +1,202 @@
+{
+ "summary": {
+  "generated": "2026-10-12T23:44:40.242826",
+  "app": "client/dist/小智 AI 学生课堂.app v2.0.0 build 2",
+  "checked": 38,
+  "match": 38,
+  "mismatch": 0,
+  "missing_source": 0
+ },
+ "rows": [
+  {
+   "result": "MATCH",
+   "detail": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+   "rel": "classroom/course_schema.v1.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f569a5c13fd6027ec000d66a3fbfa442ea475b23b56df7c8ec829974b298b6ea",
+   "rel": "classroom/qml/LibraryPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "b19ac3ea5f9af78364189de699f53d0211b4595de24b62a431dc15293037e735",
+   "rel": "classroom/qml/InteractionPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "613f871b092b0ddf9921699654531471241b9ba98113275d03fd79634032c62c",
+   "rel": "classroom/qml/TeacherPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "18685d3354194182da1e6ce5c2b61e253ccee8de24873753e683624d8f50408a",
+   "rel": "classroom/qml/NavBar.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "cd75d69479bff30122004bc9af762ed99c0adf0934840fc44b83c6ed6c9a59c6",
+   "rel": "classroom/qml/PublishPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "8301f73659f9cdc91fb9b1c473e7c06447c8125d8686451a4ee1508246ec2c94",
+   "rel": "classroom/qml/ClassroomWindow.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "40907ed18b5219579879e86320eef3231a09ae144d2cee676cc966ff9a09674f",
+   "rel": "classroom/qml/ImportPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "317e37ff8a5336cc0688b62a98657830870bcc9cbb01f197044949381b781f81",
+   "rel": "classroom/qml/CourseArea.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f6d8f434ddd4161cbdcfa575114da1277cfab72d0482dbf29ab0c1b6fce3c726",
+   "rel": "classroom/qml/ProofreadPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "721b150d66e6951847852496c7d097e93c69cc86d92e650fe82987475fd7ad14",
+   "rel": "classroom/qml/TeacherAvatar.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "46d99d4ae11f64704e98dc6a9ba6b823d4c0250653f9eaa54a9c029f3044852d",
+   "rel": "classroom/qml/theme/qmldir"
+  },
+  {
+   "result": "MATCH",
+   "detail": "e9054621736110a9349e3dcc720e9ccbc599dc67a61146c87222c2feb9076b33",
+   "rel": "classroom/qml/theme/ClassroomTheme.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "e48f80f65fe614ec5ca684c0d4d4751cc8e7c00698a79a56886e4c1d120cb5ec",
+   "rel": "classroom/data/courses.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "85dbe7b74caeb30b301a3b57159f7c3a9f9f6609ded5ea02e47838d9134e72a5",
+   "rel": "classroom/data/demo/library/crs_offline_demo_basics.course.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "6cacf9e3907f1f8903d0c3576283e4a77ed76901efe9e3fa8f319691c5fb2c16",
+   "rel": "classroom/data/demo/library/crs_offline_demo_basics.manifest.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "dea4316f14e1889343c3d864264793fffe89b0ff71f33963746333fbee6f55b0",
+   "rel": "classroom/data/demo/library/index.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "a1f91f9c02a92ec29fe4398aede1f54283602872c2f2b6611e004b3765a6bd0e",
+   "rel": "classroom/data/demo/kb_snapshot/knowledge.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+   "rel": "classroom/course_schema.v1.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f569a5c13fd6027ec000d66a3fbfa442ea475b23b56df7c8ec829974b298b6ea",
+   "rel": "classroom/qml/LibraryPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "b19ac3ea5f9af78364189de699f53d0211b4595de24b62a431dc15293037e735",
+   "rel": "classroom/qml/InteractionPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "613f871b092b0ddf9921699654531471241b9ba98113275d03fd79634032c62c",
+   "rel": "classroom/qml/TeacherPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "18685d3354194182da1e6ce5c2b61e253ccee8de24873753e683624d8f50408a",
+   "rel": "classroom/qml/NavBar.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "cd75d69479bff30122004bc9af762ed99c0adf0934840fc44b83c6ed6c9a59c6",
+   "rel": "classroom/qml/PublishPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "8301f73659f9cdc91fb9b1c473e7c06447c8125d8686451a4ee1508246ec2c94",
+   "rel": "classroom/qml/ClassroomWindow.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "40907ed18b5219579879e86320eef3231a09ae144d2cee676cc966ff9a09674f",
+   "rel": "classroom/qml/ImportPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "317e37ff8a5336cc0688b62a98657830870bcc9cbb01f197044949381b781f81",
+   "rel": "classroom/qml/CourseArea.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f6d8f434ddd4161cbdcfa575114da1277cfab72d0482dbf29ab0c1b6fce3c726",
+   "rel": "classroom/qml/ProofreadPanel.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "721b150d66e6951847852496c7d097e93c69cc86d92e650fe82987475fd7ad14",
+   "rel": "classroom/qml/TeacherAvatar.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "46d99d4ae11f64704e98dc6a9ba6b823d4c0250653f9eaa54a9c029f3044852d",
+   "rel": "classroom/qml/theme/qmldir"
+  },
+  {
+   "result": "MATCH",
+   "detail": "e9054621736110a9349e3dcc720e9ccbc599dc67a61146c87222c2feb9076b33",
+   "rel": "classroom/qml/theme/ClassroomTheme.qml"
+  },
+  {
+   "result": "MATCH",
+   "detail": "e48f80f65fe614ec5ca684c0d4d4751cc8e7c00698a79a56886e4c1d120cb5ec",
+   "rel": "classroom/data/courses.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "85dbe7b74caeb30b301a3b57159f7c3a9f9f6609ded5ea02e47838d9134e72a5",
+   "rel": "classroom/data/demo/library/crs_offline_demo_basics.course.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "6cacf9e3907f1f8903d0c3576283e4a77ed76901efe9e3fa8f319691c5fb2c16",
+   "rel": "classroom/data/demo/library/crs_offline_demo_basics.manifest.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "dea4316f14e1889343c3d864264793fffe89b0ff71f33963746333fbee6f55b0",
+   "rel": "classroom/data/demo/library/index.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "a1f91f9c02a92ec29fe4398aede1f54283602872c2f2b6611e004b3765a6bd0e",
+   "rel": "classroom/data/demo/kb_snapshot/knowledge.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f5bc1cb288538167",
+   "rel": "Contents/Resources/src/classroom/course_schema.v1.json"
+  },
+  {
+   "result": "MATCH",
+   "detail": "f5bc1cb288538167",
+   "rel": "Contents/Frameworks/src/classroom/course_schema.v1.json"
+  }
+ ]
+}

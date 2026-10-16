@@ -1,0 +1,347 @@
+{
+  "probe": "spike_session_update",
+  "phase": 3,
+  "region": "cn-beijing",
+  "model": "qwen3.8-omni-flash-realtime",
+  "voice": "Tina",
+  "alt_voice": "Cindy",
+  "endpoint_host": "ws-ssah2h0ynz8omjzz.cn-beijing.maas.aliyuncs.com",
+  "steps": {
+    "connect": {
+      "ok": true,
+      "elapsed_s": 0.1
+    },
+    "update1_accepted": true,
+    "update2_mid_session": {
+      "ack": "session.updated",
+      "elapsed_ms": 65,
+      "echo_voice": "Tina",
+      "echo_instructions_head": "You are a protocol probe. When the user asks you to say the word, output exactly",
+      "error": null
+    },
+    "response_create_1": {
+      "done": true,
+      "elapsed_ms": 573,
+      "transcript": "BRAVOBRAVO",
+      "audio_delta_events": 4,
+      "error": null
+    },
+    "item_create_system": {
+      "error": null
+    },
+    "voice_hot_apply": {
+      "ack": "session.updated",
+      "echo_voice": "Cindy",
+      "response_done": true,
+      "elapsed_ms": 1816,
+      "error": null
+    }
+  },
+  "verdicts": {
+    "SESSION_UPDATE_MID_SESSION": "SUPPORTED",
+    "ITEM_CREATE_USER_TEXT": "SUPPORTED",
+    "INSTRUCTION_HOT_APPLY": "IMMEDIATE_AT_SAFE_BOUNDARY",
+    "LANGUAGE_POLICY_HOT_APPLY": "IMMEDIATE_AT_SAFE_BOUNDARY",
+    "ITEM_CREATE_SYSTEM_ROLE": "SUPPORTED",
+    "VOICE_HOT_APPLY": "SUPPORTED_MECHANICAL"
+  },
+  "sessions_used": 1,
+  "total_s": 9.0,
+  "event_log": [
+    {
+      "t": 478555.961,
+      "kind": "event",
+      "type": "session.created"
+    },
+    {
+      "t": 478555.961,
+      "kind": "session.created",
+      "model": "qwen3.8-omni-flash-realtime",
+      "voice": "Tina",
+      "turn_detection": "{\"interrupt_response\": true, \"type\": \"server_vad\", \"silence_duration_ms\": 800, \"threshold\": 0.5, \"create_response\": true, \"prefix_padding_ms\": 300}"
+    },
+    {
+      "t": 478555.962,
+      "kind": "sent",
+      "type": "session.update"
+    },
+    {
+      "t": 478556.055,
+      "kind": "session.updated",
+      "echo_keys": [
+        "id",
+        "input_audio_format",
+        "input_audio_transcription",
+        "instructions",
+        "modalities",
+        "model",
+        "object",
+        "output_audio_format",
+        "turn_detection",
+        "voice"
+      ],
+      "voice": "Tina",
+      "instructions_head": "You are a protocol probe. When the user asks you to say the word, outp"
+    },
+    {
+      "t": 478557.257,
+      "kind": "sent",
+      "type": "session.update"
+    },
+    {
+      "t": 478557.322,
+      "kind": "session.updated",
+      "echo_keys": [
+        "id",
+        "input_audio_format",
+        "input_audio_transcription",
+        "instructions",
+        "modalities",
+        "model",
+        "object",
+        "output_audio_format",
+        "turn_detection",
+        "voice"
+      ],
+      "voice": "Tina",
+      "instructions_head": "You are a protocol probe. When the user asks you to say the word, outp"
+    },
+    {
+      "t": 478558.524,
+      "kind": "sent",
+      "type": "conversation.item.create"
+    },
+    {
+      "t": 478558.524,
+      "kind": "sent",
+      "type": "response.create"
+    },
+    {
+      "t": 478558.824,
+      "kind": "response.created",
+      "id": "resp_OPetrMZN4WTrkARqrfAMw"
+    },
+    {
+      "t": 478558.824,
+      "kind": "event",
+      "type": "response.output_item.added"
+    },
+    {
+      "t": 478558.824,
+      "kind": "event",
+      "type": "response.content_part.added"
+    },
+    {
+      "t": 478559.097,
+      "kind": "event",
+      "type": "response.content_part.done"
+    },
+    {
+      "t": 478559.097,
+      "kind": "event",
+      "type": "response.output_item.done"
+    },
+    {
+      "t": 478559.097,
+      "kind": "response.done",
+      "status": "completed"
+    },
+    {
+      "t": 478560.3,
+      "kind": "sent",
+      "type": "conversation.item.create"
+    },
+    {
+      "t": 478563.006,
+      "kind": "sent",
+      "type": "session.update"
+    },
+    {
+      "t": 478563.068,
+      "kind": "session.updated",
+      "echo_keys": [
+        "id",
+        "input_audio_format",
+        "input_audio_transcription",
+        "instructions",
+        "modalities",
+        "model",
+        "object",
+        "output_audio_format",
+        "turn_detection",
+        "voice"
+      ],
+      "voice": "Cindy",
+      "instructions_head": "You are a protocol probe. When the user asks you to say the word, outp"
+    },
+    {
+      "t": 478564.27,
+      "kind": "sent",
+      "type": "conversation.item.create"
+    },
+    {
+      "t": 478564.27,
+      "kind": "sent",
+      "type": "response.create"
+    },
+    {
+      "t": 478564.547,
+      "kind": "response.created",
+      "id": "resp_Y6ZpQHA3y5QWXPZ6nOMdI"
+    },
+    {
+      "t": 478564.547,
+      "kind": "event",
+      "type": "response.output_item.added"
+    },
+    {
+      "t": 478564.547,
+      "kind": "event",
+      "type": "response.content_part.added"
+    },
+    {
+      "t": 478564.822,
+      "kind": "event",
+      "type": "response.content_part.done"
+    },
+    {
+      "t": 478564.822,
+      "kind": "event",
+      "type": "response.output_item.done"
+    },
+    {
+      "t": 478564.822,
+      "kind": "response.done",
+      "status": "completed"
+    }
+  ],
+  "event_log_truncated": 0,
+  "session_updated_payloads": [
+    {
+      "id": "sess_WX54XPYpwEDU4RY4JOLcg",
+      "object": "realtime.session",
+      "model": "qwen3.8-omni-flash-realtime",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "instructions": "You are a protocol probe. When the user asks you to say the word, output exactly the single word ALPHA and nothing else.",
+      "voice": "Tina",
+      "input_audio_format": "pcm16",
+      "output_audio_format": "pcm16",
+      "input_audio_transcription": {
+        "model": "qwen3-asr-flash-realtime"
+      },
+      "turn_detection": {
+        "type": "server_vad",
+        "threshold": 0.5,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 800,
+        "create_response": true,
+        "interrupt_response": true
+      }
+    },
+    {
+      "id": "sess_WX54XPYpwEDU4RY4JOLcg",
+      "object": "realtime.session",
+      "model": "qwen3.8-omni-flash-realtime",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "instructions": "You are a protocol probe. When the user asks you to say the word, output exactly the single word BRAVO and nothing else.",
+      "voice": "Tina",
+      "input_audio_format": "pcm16",
+      "output_audio_format": "pcm16",
+      "input_audio_transcription": {
+        "model": "qwen3-asr-flash-realtime"
+      },
+      "turn_detection": {
+        "type": "server_vad",
+        "threshold": 0.5,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 800,
+        "create_response": true,
+        "interrupt_response": true
+      }
+    },
+    {
+      "id": "sess_WX54XPYpwEDU4RY4JOLcg",
+      "object": "realtime.session",
+      "model": "qwen3.8-omni-flash-realtime",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "instructions": "You are a protocol probe. When the user asks you to say the word, output exactly the single word BRAVO and nothing else.",
+      "voice": "Cindy",
+      "input_audio_format": "pcm16",
+      "output_audio_format": "pcm16",
+      "input_audio_transcription": {
+        "model": "qwen3-asr-flash-realtime"
+      },
+      "turn_detection": {
+        "type": "server_vad",
+        "threshold": 0.5,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 800,
+        "create_response": true,
+        "interrupt_response": true
+      }
+    }
+  ],
+  "errors": [],
+  "response_events": [
+    {
+      "t": 478558.824,
+      "kind": "created",
+      "id": "resp_OPetrMZN4WTrkARqrfAMw",
+      "seq": 1
+    },
+    {
+      "t": 478559.097,
+      "kind": "done",
+      "id": "resp_OPetrMZN4WTrkARqrfAMw",
+      "status": "completed"
+    },
+    {
+      "t": 478564.547,
+      "kind": "created",
+      "id": "resp_Y6ZpQHA3y5QWXPZ6nOMdI",
+      "seq": 2
+    },
+    {
+      "t": 478564.822,
+      "kind": "done",
+      "id": "resp_Y6ZpQHA3y5QWXPZ6nOMdI",
+      "status": "completed"
+    }
+  ],
+  "audio_delta_bytes": 133120,
+  "transcripts_all": [
+    [
+      "delta",
+      "BRA"
+    ],
+    [
+      "delta",
+      "VO"
+    ],
+    [
+      "done",
+      "BRAVO"
+    ],
+    [
+      "delta",
+      "BRA"
+    ],
+    [
+      "delta",
+      "VO"
+    ],
+    [
+      "done",
+      "BRAVO"
+    ]
+  ]
+}

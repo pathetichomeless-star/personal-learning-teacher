@@ -1,0 +1,172 @@
+{
+  "artifact": "classroom_api_tests",
+  "scope": "CLASSROOM V2 PHASE2 · Agent I（环回网关 API 适配）",
+  "results": [
+    {
+      "case_id": "I01",
+      "name": "非环回 base_url 被拒绝（只能连 127.0.0.1）",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 126
+    },
+    {
+      "case_id": "I02",
+      "name": "health 请求成功 → 状态 online",
+      "passed": true,
+      "observed": "('online', {'ok': True, 'version': 'v2'})",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 130
+    },
+    {
+      "case_id": "I03a",
+      "name": "parsers 能力表解析正确（含 available=false 的诚实降级）",
+      "passed": true,
+      "observed": "{'.pdf': True, '.epub': True, '.png': False}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 135
+    },
+    {
+      "case_id": "I03b",
+      "name": "list_imports 正常解析",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 137
+    },
+    {
+      "case_id": "I04a",
+      "name": "客户端从不发送 Authorization 头（无 admin Bearer 路径）",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 142
+    },
+    {
+      "case_id": "I04b",
+      "name": "客户端发送 X-Classroom-Session 会话头",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 143
+    },
+    {
+      "case_id": "I07",
+      "name": "commit 请求体含 confirm=true（既有 API 硬语义）",
+      "passed": true,
+      "observed": "'{\"confirm\": true}'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 149
+    },
+    {
+      "case_id": "I05",
+      "name": "403 → 结构化 ClassroomApiError（code=forbidden_route）+ state=error",
+      "passed": true,
+      "observed": "(403, 'forbidden_route', 'error')",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 160
+    },
+    {
+      "case_id": "I06",
+      "name": "无法连接 → error 状态 + 中文原因（不崩溃）",
+      "passed": true,
+      "observed": "'无法连接本机网关（URLError）'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 171
+    },
+    {
+      "case_id": "I08",
+      "name": "302 → 外部主机被拒绝（redirect_blocked，不跟随）",
+      "passed": true,
+      "observed": "('redirect_blocked', '网关响应了重定向（HTTP 302），已拒绝跟随：拒绝跳转到非环回地址：http://evil.test')",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 184
+    },
+    {
+      "case_id": "I09",
+      "name": "302 → file:// 被拒绝（非 http/https ⇒ 非环回）",
+      "passed": true,
+      "observed": "'redirect_blocked'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 189
+    },
+    {
+      "case_id": "I10",
+      "name": "307 → 外部主机被拒绝（307 同样不跟随）",
+      "passed": true,
+      "observed": "'redirect_blocked'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 193
+    },
+    {
+      "case_id": "I11",
+      "name": "环回内部重定向被允许（不误伤正常网关）→ 拿到 health 结果",
+      "passed": true,
+      "observed": "'ok'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 197
+    },
+    {
+      "case_id": "I12",
+      "name": "旧字符串匹配可被 `?u=//127.0.0.1:8080` 绕过；新实现严格拒绝",
+      "passed": true,
+      "observed": "False",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 202
+    },
+    {
+      "case_id": "I12b",
+      "name": "正常环回地址仍被接受（127.0.0.1 / localhost / [::1]）",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 204
+    },
+    {
+      "case_id": "I13",
+      "name": "非 http/https 的 base_url 被构造器拒绝（file:// 与 ftp://）",
+      "passed": true,
+      "observed": "[]",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 216
+    },
+    {
+      "case_id": "I14a",
+      "name": "客户端只用契约白名单内的 /cls/ 路径（无越界路径）",
+      "passed": true,
+      "observed": "{'used': ['/cls/health', '/cls/knowledge/import', '/cls/knowledge/import/{job_id}', '/cls/knowledge/import/{job_id}/cancel', '/cls/knowledge/import/{job_id}/commit', '/cls/knowledge/import/{job_id}/retry', '/cls/knowledge/parsers'], 'stray': []}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 231
+    },
+    {
+      "case_id": "I14b",
+      "name": "客户端**代码字面量**中不存在 /admin/ 路径或 Authorization 头（管理面结构不可达）",
+      "passed": true,
+      "observed": "{'admin': [], 'auth': []}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 251
+    },
+    {
+      "case_id": "I14c",
+      "name": "start_import 走 POST /cls/knowledge/import 且为 multipart/form-data",
+      "passed": true,
+      "observed": "({'available': True, 'job_id': 'job_new', 'status': 'parsed', 'format': 'txt'}, ['multipart/form-data; boundary=----cls15c2d07c9fff4ea7835d7cd131d30f4f'])",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 261
+    },
+    {
+      "case_id": "I14d",
+      "name": "multipart 体含 dataset_id / file 部件与文件内容（stdib 组装正确）",
+      "passed": true,
+      "observed": "'------cls15c2d07c9fff4ea7835d7cd131d30f4f\\r\\nContent-Disposition: form-data; name=\"dataset_id\"\\r\\n\\r\\nds_demo\\r\\n------cls15c2d07c9fff4ea7835d7cd131d30f4f\\r\\nContent-Disp'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_classroom_api.py",
+      "asserted_line": 264
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "failed_ids": []
+  }
+}

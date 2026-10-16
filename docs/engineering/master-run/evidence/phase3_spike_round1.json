@@ -1,0 +1,3112 @@
+{
+  "probe": "spike_session_update",
+  "phase": 3,
+  "region": "cn-beijing",
+  "model": "qwen3.8-omni-flash-realtime",
+  "voice": "Tina",
+  "endpoint_host": "ws-ssah2h0ynz8omjzz.cn-beijing.maas.aliyuncs.com",
+  "steps": {
+    "connect": {
+      "ok": true,
+      "elapsed_s": 0.2
+    },
+    "update1_accepted": true,
+    "update2_mid_session": {
+      "ack": "session.updated",
+      "elapsed_ms": 57,
+      "echo_voice": "Cherry",
+      "echo_instructions_head": "You are a protocol probe. When the user asks you to say the word, output exactly",
+      "error": null
+    },
+    "item_create_user": {
+      "error": null
+    },
+    "response_create_1": {
+      "done": false,
+      "elapsed_ms": 63,
+      "transcript": "",
+      "audio_delta_events": 0,
+      "error": {
+        "t": 478405.205,
+        "code": "COMMON_ERROR",
+        "type": null,
+        "param": null,
+        "message": "<400> InternalError.Algo.InvalidParameter: Voice 'Cherry' is not supported."
+      }
+    }
+  },
+  "probe_error": "ClientConnectionResetError('Cannot write to closing transport')",
+  "verdicts": {
+    "SESSION_UPDATE_MID_SESSION": "SUPPORTED",
+    "VOICE_HOT_APPLY": "SUPPORTED",
+    "ITEM_CREATE_USER_TEXT": "SUPPORTED",
+    "INSTRUCTION_HOT_APPLY": "UNDETERMINED"
+  },
+  "sessions_used": 1,
+  "total_s": 5.3,
+  "event_log": [
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.191,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.192,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.193,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.194,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.195,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.196,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.197,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.198,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.199,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.2,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.201,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.202,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.203,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.204,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "ws_closed",
+      "code": "257"
+    },
+    {
+      "t": 478406.205,
+      "kind": "probe_error",
+      "error": "ClientConnectionResetError('Cannot write to closing transport')"
+    }
+  ],
+  "event_log_truncated": 39880,
+  "session_updated_payloads": [
+    {
+      "id": "sess_WRNk86Gmn7Yt9uWCQThnG",
+      "object": "realtime.session",
+      "model": "qwen3.8-omni-flash-realtime",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "instructions": "You are a protocol probe. When the user asks you to say the word, output exactly the single word ALPHA and nothing else.",
+      "voice": "Tina",
+      "input_audio_format": "pcm16",
+      "output_audio_format": "pcm16",
+      "input_audio_transcription": {
+        "model": "qwen3-asr-flash-realtime"
+      },
+      "turn_detection": {
+        "type": "server_vad",
+        "threshold": 0.5,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 800,
+        "create_response": true,
+        "interrupt_response": true
+      }
+    },
+    {
+      "id": "sess_WRNk86Gmn7Yt9uWCQThnG",
+      "object": "realtime.session",
+      "model": "qwen3.8-omni-flash-realtime",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "instructions": "You are a protocol probe. When the user asks you to say the word, output exactly the single word BRAVO and nothing else.",
+      "voice": "Cherry",
+      "input_audio_format": "pcm16",
+      "output_audio_format": "pcm16",
+      "input_audio_transcription": {
+        "model": "qwen3-asr-flash-realtime"
+      },
+      "turn_detection": {
+        "type": "server_vad",
+        "threshold": 0.5,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 800,
+        "create_response": true,
+        "interrupt_response": true
+      }
+    }
+  ],
+  "errors": [
+    {
+      "t": 478405.205,
+      "code": "COMMON_ERROR",
+      "type": null,
+      "param": null,
+      "message": "<400> InternalError.Algo.InvalidParameter: Voice 'Cherry' is not supported."
+    }
+  ],
+  "response_events": [],
+  "audio_delta_bytes": 0,
+  "transcripts_all": []
+}

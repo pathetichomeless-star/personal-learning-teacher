@@ -1,0 +1,64 @@
+{
+ "version": 1,
+ "datasets": {
+  "ds_a6102af1f962": {
+   "id": "ds_a6102af1f962",
+   "name": "离线演示教材",
+   "description": "",
+   "tags": [],
+   "status": "enabled",
+   "created_at": 1791816173.2534559,
+   "updated_at": 1791816173.2534559
+  }
+ },
+ "documents": {
+  "doc_8ab3dff32a53": {
+   "id": "doc_8ab3dff32a53",
+   "dataset_id": "ds_a6102af1f962",
+   "title": "sample_textbook",
+   "content_hash": "0ed82af7b00872e2c465753450980fa35e7e01f0aaea96f67eecfd40808e0991",
+   "chars": 803,
+   "text": "# 小智英语 · 基础问候（离线演示教材）\n\n> 本文件是**非敏感测试教材**，用于课堂 V2 的「离线解析 → 课程草稿 → 课堂展示」演示。\n> 内容为项目自编的基础英语教学内容，**不含任何受版权保护的第三方教材文本**。\n\n## 第1课 见面问好\n\n### 词汇\n\n- hello | 你好 | Hello, Anna! | 你好，安娜！\n- morning | 早晨 | Good morning, everyone. | 大家早上好。\n- fine | 好的 | I am fine, thank you. | 我很好，谢谢。\n\n### 句型\n\nGood morning! | 早上好！\nHow are you? | 你好吗？\n\n### 练习\n\n听到「Good morning」通常是在什么时候问好？ | 早晨;中午;傍晚 | 0 | Good morning 用于早晨见面时。\n\n### 小结\n\n掌握 hello / morning / fine 三个词，以及两句最常用的问候语。\n\n## 第2课 告别与感谢\n\n### 词汇\n\n- goodbye | 再见 | Goodbye, see you tomorrow. | 再见，明天见。\n- thanks | 谢谢 | Thanks a lot! | 多谢！\n- please | 请 | Please sit down. | 请坐。\n\n### 句型\n\nSee you tomorrow. | 明天见。\nThank you very much. | 非常感谢你。\n\n### 练习\n\n想表达「谢谢」时，下面哪个词最合适？ | goodbye;thanks;morning | 1 | thanks 意为「谢谢」。\n\n### 小结\n\n掌握 goodbye / thanks / please 三个词；能用 See you tomorrow 告别。",
+   "chunk_count": 3,
+   "status": "ready",
+   "source": {
+    "type": "markdown",
+    "uri": null,
+    "added_by": "operator",
+    "added_at": 1791816173.253953
+   },
+   "tags": [],
+   "created_at": 1791816173.253953,
+   "updated_at": 1791816173.253953
+  }
+ },
+ "chunks": {
+  "chk_2bcb23f06b7acda1": {
+   "id": "chk_2bcb23f06b7acda1",
+   "document_id": "doc_8ab3dff32a53",
+   "dataset_id": "ds_a6102af1f962",
+   "index": 0,
+   "text": "# 小智英语 · 基础问候（离线演示教材）\n\n> 本文件是**非敏感测试教材**，用于课堂 V2 的「离线解析 → 课程草稿 → 课堂展示」演示。\n> 内容为项目自编的基础英语教学内容，**不含任何受版权保护的第三方教材文本**。\n\n## 第1课 见面问好\n\n### 词汇\n\n- hello | 你好 | Hello, Anna! | 你好，安娜！\n- morning | 早晨 | Good morning, everyone. | 大家早上好。\n- fine | 好的 | I am fine, thank you. | 我很好，谢谢。\n\n### 句型\n\nGood morning! | 早上好！\nHow are you? | 你好吗？\n\n### 练习\n\n听到「Good morning」通常是在什么时候问好？ | 早晨;中午;傍晚 | 0 | Good morning 用于早晨见面时。",
+   "chars": 396,
+   "content_hash": "6948e5780d2531d3cb67f69a753dd47a9bd948dae5b3591a30af347c9a45d60e"
+  },
+  "chk_5fbd592a8de5c0ac": {
+   "id": "chk_5fbd592a8de5c0ac",
+   "document_id": "doc_8ab3dff32a53",
+   "dataset_id": "ds_a6102af1f962",
+   "index": 1,
+   "text": "### 小结\n\n掌握 hello / morning / fine 三个词，以及两句最常用的问候语。\n\n## 第2课 告别与感谢\n\n### 词汇\n\n- goodbye | 再见 | Goodbye, see you tomorrow. | 再见，明天见。\n- thanks | 谢谢 | Thanks a lot! | 多谢！\n- please | 请 | Please sit down. | 请坐。\n\n### 句型\n\nSee you tomorrow. | 明天见。\nThank you very much. | 非常感谢你。\n\n### 练习\n\n想表达「谢谢」时，下面哪个词最合适？ | goodbye;thanks;morning | 1 | thanks 意为「谢谢」。\n\n### 小结",
+   "chars": 347,
+   "content_hash": "7fc2c0d205b47785876e642d74aa82bf928a05f1025dc807f44e9937d74b5d9a"
+  },
+  "chk_b8d1f33aefe7d8d5": {
+   "id": "chk_b8d1f33aefe7d8d5",
+   "document_id": "doc_8ab3dff32a53",
+   "dataset_id": "ds_a6102af1f962",
+   "index": 2,
+   "text": "掌握 goodbye / thanks / please 三个词；能用 See you tomorrow 告别。",
+   "chars": 56,
+   "content_hash": "57ab0d0f056450c6452debff12d162d3e8513aefbb9927363a6dfd747e27e2bf"
+  }
+ }
+}

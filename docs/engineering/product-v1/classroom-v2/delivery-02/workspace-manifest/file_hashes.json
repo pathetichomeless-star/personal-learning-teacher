@@ -1,0 +1,986 @@
+[
+ {
+  "status": "??",
+  "path": "%E5%B0%8F%E6%99%BA%E4%B8%AD%E6%96%87%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5%E8%AE%BE%E8%AE%A1_V2.md",
+  "sha256": "60c03ee4eaea546443f9f653dcf90b45e7848df5120257c69837812df5d24b22",
+  "bytes": 6949
+ },
+ {
+  "status": "??",
+  "path": "%E5%B0%8F%E6%99%BA%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5_V2.zip",
+  "sha256": "eca38a71927cb5e35358423558fdb5d2cd2c437d486dbec7d8a7a55933e38eef",
+  "bytes": 702117
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V1_INDEPENDENT_QA_REPORT.md",
+  "sha256": "3c4b0ef8e356108d4e786c8a6e29fe2abbf794682062412e4a75bad920a86aef",
+  "bytes": 23057
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V1_RELEASE_FIX02_INDEPENDENT_QA.md",
+  "sha256": "5a116387f63b6f655aaff3f81dc49a9dc1d24e9d2c8c6d8929f0bb50fd39c7cd",
+  "bytes": 14713
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_DELIVERY_GATE_02_REPORT.md",
+  "sha256": "7a1fa765fd2c1e8acbbef8381915a6b13dfef5b612e06769dccd0b0853a8b9a7",
+  "bytes": 16332
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_MASTER_AUDIT.md",
+  "sha256": "4ce6f8d7a0b816499461812e9d461b03d614d359fd42ea2bda560191c82a71ab",
+  "bytes": 21474
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_PARSER_CAPABILITY_REPORT.md",
+  "sha256": "ea8cae38423108418cb54aec78d8d350a441e7845146f51fabd9474d084298c3",
+  "bytes": 31777
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_REV1A_DIFF.md",
+  "sha256": "4f9f218366f6a89beda5c73f9c7442549cb7a2653417ab4e9fa2f42868c0c614",
+  "bytes": 23805
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_REV1B_DIFF.md",
+  "sha256": "8c187d7628bb975e31193552ca290929d43e94aff5f5cb96eae80f036ccb8084",
+  "bytes": 16116
+ },
+ {
+  "status": "??",
+  "path": "CLASSROOM_V2_UI_DESIGN.md",
+  "sha256": "630996fdcb1f77819e63f7c81b46a2d9b4fc7a73fb59fca87443b0bffb384875",
+  "bytes": 38070
+ },
+ {
+  "status": "?? (dir)",
+  "path": "client/build_info/classroom_build_info.json",
+  "sha256": "6e3e0d4eab7b1cb7b63df50b3b58b825a08a417555ca405b73706cb616a9206b",
+  "bytes": 5455
+ },
+ {
+  "status": "M",
+  "path": "client/classroom_app.spec",
+  "sha256": "0c8f78ebcd98acd3f05624e21e53b7fcd3c3c54a171ee93fcfc7f8b5b0ce2ce9",
+  "bytes": 5831
+ },
+ {
+  "status": "M",
+  "path": "client/probe_avatar_qml_offscreen.py",
+  "sha256": "f3cb7ea33770e15eb964204925c71b12f943baac1767d137f7e555ffd4308ceb",
+  "bytes": 11594
+ },
+ {
+  "status": "M",
+  "path": "client/src/avatar/runtime/avatar_page.js",
+  "sha256": "1243b98d346d8bfa39575ff7824e6f8b45805dd1d8d9110b3b60c5dcc12e38e5",
+  "bytes": 14216
+ },
+ {
+  "status": "??",
+  "path": "client/src/avatar/runtime_server.py",
+  "sha256": "a64046baea038d247b0fad63d76c7d756f882379ea3e8a2510dca2274586d88b",
+  "bytes": 5800
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/avatar_adapter.py",
+  "sha256": "1bce5f3143e6f750a62d54e279d2bab5d61de10539014cb35cfbda15936eff42",
+  "bytes": 4716
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/classroom_api.py",
+  "sha256": "92bc03308e7e2dc726389e06982f2c68b50a2b660509c2342d6a4824958ff2f5",
+  "bytes": 11624
+ },
+ {
+  "status": "M",
+  "path": "client/src/classroom/classroom_model.py",
+  "sha256": "bf59ca9f39017c18731d5912b8dd03993ed947d40ac4e3593e35faab6da79a12",
+  "bytes": 51799
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/course_schema.py",
+  "sha256": "6917028611597f2bf5f3a577879a2a5ffcbdf861bf4f64a8bebbcc9f9602284a",
+  "bytes": 15586
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/course_schema.v1.json",
+  "sha256": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+  "bytes": 8445
+ },
+ {
+  "status": "M",
+  "path": "client/src/classroom/data/courses.json",
+  "sha256": "e48f80f65fe614ec5ca684c0d4d4751cc8e7c00698a79a56886e4c1d120cb5ec",
+  "bytes": 9657
+ },
+ {
+  "status": "?? (dir)",
+  "path": "client/src/classroom/data/demo/kb_snapshot/knowledge.json",
+  "sha256": "a1f91f9c02a92ec29fe4398aede1f54283602872c2f2b6611e004b3765a6bd0e",
+  "bytes": 4338
+ },
+ {
+  "status": "?? (dir)",
+  "path": "client/src/classroom/data/demo/library/crs_offline_demo_basics.course.json",
+  "sha256": "85dbe7b74caeb30b301a3b57159f7c3a9f9f6609ded5ea02e47838d9134e72a5",
+  "bytes": 4581
+ },
+ {
+  "status": "?? (dir)",
+  "path": "client/src/classroom/data/demo/library/crs_offline_demo_basics.manifest.json",
+  "sha256": "6cacf9e3907f1f8903d0c3576283e4a77ed76901efe9e3fa8f319691c5fb2c16",
+  "bytes": 2512
+ },
+ {
+  "status": "?? (dir)",
+  "path": "client/src/classroom/data/demo/library/index.json",
+  "sha256": "dea4316f14e1889343c3d864264793fffe89b0ff71f33963746333fbee6f55b0",
+  "bytes": 316
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/learning_record.py",
+  "sha256": "1b8fa59b255c12aa13f6aceb93361eb66f8b9d7721521e3a99edaf4cba065d91",
+  "bytes": 6831
+ },
+ {
+  "status": "M",
+  "path": "client/src/classroom/qml/ClassroomWindow.qml",
+  "sha256": "8301f73659f9cdc91fb9b1c473e7c06447c8125d8686451a4ee1508246ec2c94",
+  "bytes": 35454
+ },
+ {
+  "status": "M",
+  "path": "client/src/classroom/qml/CourseArea.qml",
+  "sha256": "317e37ff8a5336cc0688b62a98657830870bcc9cbb01f197044949381b781f81",
+  "bytes": 17760
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/qml/ImportPanel.qml",
+  "sha256": "40907ed18b5219579879e86320eef3231a09ae144d2cee676cc966ff9a09674f",
+  "bytes": 14437
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/qml/LibraryPanel.qml",
+  "sha256": "f569a5c13fd6027ec000d66a3fbfa442ea475b23b56df7c8ec829974b298b6ea",
+  "bytes": 10161
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/qml/NavBar.qml",
+  "sha256": "18685d3354194182da1e6ce5c2b61e253ccee8de24873753e683624d8f50408a",
+  "bytes": 2934
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/qml/ProofreadPanel.qml",
+  "sha256": "f6d8f434ddd4161cbdcfa575114da1277cfab72d0482dbf29ab0c1b6fce3c726",
+  "bytes": 8120
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/qml/PublishPanel.qml",
+  "sha256": "cd75d69479bff30122004bc9af762ed99c0adf0934840fc44b83c6ed6c9a59c6",
+  "bytes": 8244
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/test_avatar_adapter.py",
+  "sha256": "294666afe94d844ee2e3cc9b1bad8326586d33e9f345ca2152e146adb82c67da",
+  "bytes": 5333
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/test_classroom_api.py",
+  "sha256": "88511e9d30b2e1c2e7348f0dd01ec4a2aaeda4688cb27a6f46f95b63ed6c8bb2",
+  "bytes": 13512
+ },
+ {
+  "status": "M",
+  "path": "client/src/classroom/tests/test_classroom_app_bundle.py",
+  "sha256": "b6286da1feed0d989527eee399b238b5536a6b32e47d9d94fb3dafcac4268fd8",
+  "bytes": 10268
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/test_course_contract_v1.py",
+  "sha256": "c92c5aa949ce13c857607161761d8adf1353bd37c7192c446cc2a4a40c1c43f8",
+  "bytes": 11368
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/test_learning_record.py",
+  "sha256": "45f5c0c0350bb4e849fa622018d3b66d7c77d61d20d4d3fbc3769a2a42482c2e",
+  "bytes": 6303
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/test_voice_mock.py",
+  "sha256": "28b2452af217a11c1c55df13e817aead386dd32da7678ec3bfed9d89874bc288",
+  "bytes": 6167
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/tests/ui_pages_probe.py",
+  "sha256": "dbdd2a407bd756756639a334428bcd03c35b3cb607bfdcc6af24cbb7a046702e",
+  "bytes": 25963
+ },
+ {
+  "status": "??",
+  "path": "client/src/classroom/voice_mock.py",
+  "sha256": "12b7370aeb93b1a3c67b541da29b34dc1fec843569d659568f4e362bdf3492ad",
+  "bytes": 6817
+ },
+ {
+  "status": "M",
+  "path": "client/src/ui/gui/manager.py",
+  "sha256": "bd2de04b77ea9461ab2ca855b5543237a7c2c18bf6b312855a93f8a353d769c1",
+  "bytes": 7078
+ },
+ {
+  "status": "M",
+  "path": "client/src/ui/gui/qml/components/AvatarLive2D.qml",
+  "sha256": "32c1c16a8b1c5c906af91bd9ecc166632a4fcfabc079061ce7a90c8b7fcbd358",
+  "bytes": 5881
+ },
+ {
+  "status": "??",
+  "path": "docs/engineering/product-v1/P2B2_ACCEPTANCE_REPORT.md",
+  "sha256": "b12ba4dd84b00f6ba4bb5ee9a4d1099614c8339f7fd689480345500834af679d",
+  "bytes": 16650
+ },
+ {
+  "status": "??",
+  "path": "docs/engineering/product-v1/P2B2_REAL_VOICE_ACCEPTANCE_ENTRY.md",
+  "sha256": "f462172289319c15a79e045eaa7bf88b17b21ac77e4d1598a1f37c504468fc79",
+  "bytes": 8861
+ },
+ {
+  "status": "??",
+  "path": "docs/engineering/product-v1/R3_2C_INDEPENDENT_SIM_QA_REPORT.md",
+  "sha256": "cf91c58274c9f08666dbe5ba02e2f797bacd1bb9f43f6cdf8ba1dc583ac485f7",
+  "bytes": 23534
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/avatar-vision-v0/V1_MAC_GUI_ACCEPTANCE.md",
+  "sha256": "8ac51456840290c2432af203d2d753b903ca446964efee4c59ce6806a1dcc326",
+  "bytes": 20746
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/.DS_Store",
+  "sha256": "b55580905a913faea7cfcccbdf1bd1e9715c36cf6bd52f6b892e7a58a34c5bd0",
+  "bytes": 6148
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/command_direct.out",
+  "sha256": "0b225480506ef88ea659026eeac8677b8d05e52cfb0ab5454286485f49743ec5",
+  "bytes": 412
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_corrupt.json",
+  "sha256": "2c8bd92fb10c1261321158edb69346e92977b13021cefca0857fa3610863dabd",
+  "bytes": 2644
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_fresh.json",
+  "sha256": "919eebea14a6172db1f93b145a1933db90d2df1dd654d1078c59e86aef5700aa",
+  "bytes": 2725
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_full.json",
+  "sha256": "d75b11acb1d2364adcd2260572030cdf8478d44236a2750187b1955220aeac49",
+  "bytes": 53691
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/driver_full.out",
+  "sha256": "e416f440ea3b4b492f94952d5805f7bbefc82ecc8d4ef20e11ee667714f8f365",
+  "bytes": 18413
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_compact.json",
+  "sha256": "737fb2a9d1572e2ff31d89c36b75174f7f907fe0eca4bfe5203be547508fa9d6",
+  "bytes": 78
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_fullscreen.json",
+  "sha256": "67225bcf7f092835e86b5e7819a7f0048a46c97d5278aa17a5d9cc709527fbca",
+  "bytes": 74
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/geom_wide.json",
+  "sha256": "1d6293cc25eb3f7d3dd70543330005f0369cfe6e664690325d702924be14429e",
+  "bytes": 76
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/product2_fullscreen.out",
+  "sha256": "db07e83d0b9d4a5b5a6d20b17b599ef0b4bfa161bed7026f2f4bf89434c549f5",
+  "bytes": 444
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_compact.out",
+  "sha256": "06000de62a0a016724aefe046465a98261e4f715a12a8efb8aa691c9203cdb80",
+  "bytes": 555
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_fullscreen.out",
+  "sha256": "465f05b62c820a6d87e91b80659a9d8a1b423648ac6783f8c2a8bb77bdbe885f",
+  "bytes": 551
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/product_wide.out",
+  "sha256": "6e0ac3b9bb09e964f7faaee5834952acbc7d95c19134b3e199aaae784a41b4ec",
+  "bytes": 553
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/logs/qa_mock_requests.log",
+  "sha256": "4f45e27384bbef8d9aa596727d87ef148c23e629ff2cf4916fe765ce05bfcc68",
+  "bytes": 1393
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/scripts/driver.py",
+  "sha256": "7d96bd05e4b39b71b5d1fb1a5c15da74203c94d72c315c60961978600a82569f",
+  "bytes": 28055
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe.py",
+  "sha256": "48a8af64c25fdd17e75e6a96d9eccaa29b0ef65ee40315aae02ea5d35b3ddd62",
+  "bytes": 6048
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe2.py",
+  "sha256": "ebbe1babb97995483dbc13b02c3ca999de5b6d3ca5be7b37b4367192f8f6ed30",
+  "bytes": 4038
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/scripts/probe3.py",
+  "sha256": "e2df5b67cc6d9f2d3bcb01d292a80bd767559d8fa93809e84c52dbc36bde46fc",
+  "bytes": 5015
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/scripts/qa_mock.py",
+  "sha256": "b32abb35f97a07cf1124e29941718d0989aa4d8dae71239b83f038d587b20823",
+  "bytes": 2495
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/after_course_switch.png",
+  "sha256": "5db2758be6604a8831421b957263b34a1229c9754202d935fdae301465bca851",
+  "bytes": 285465
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/after_teacher_B.png",
+  "sha256": "dfbc52998ecca5a46ea2d4827c302307bcdf02e4aac6ab114853ea1a8abbbe19",
+  "bytes": 362576
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/corrupt_after_boot.png",
+  "sha256": "c1f489d054a80fb4dca16f1ea048dcd18a33ba97900633892af6ba1ba77cb0c1",
+  "bytes": 245930
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/course_cover.png",
+  "sha256": "da8bd67494ba4c1517117debc64699608dde20e6103db6a02a2c7e376b3d9e41",
+  "bytes": 282494
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/dblclick_t1.png",
+  "sha256": "d89ac23e395b9ba4fdfc8baff6015515b3cc3146d69dc76f52f5a693f19c4b95",
+  "bytes": 2076395
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/dblclick_t3.png",
+  "sha256": "5853c7681c3492cdb08ee48af56c6980637b2f6edfec9e7cb9cda0b05f43cbd2",
+  "bytes": 2076156
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/fresh_after_boot.png",
+  "sha256": "9fbec46fef7ab352025597aafc9424526f62718c6876ba766d5eeb9ece587005",
+  "bytes": 245934
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/fullscreen.png",
+  "sha256": "11408409f4185e1664098d7c9d54de028768e49acc4bd0ed73b36265816fed59",
+  "bytes": 368494
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/layout_compact.png",
+  "sha256": "e9e20e5684664839b4d00158eb0eef80934cabbe682ec676e024f7604cc236a8",
+  "bytes": 195099
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/layout_narrow.png",
+  "sha256": "0501b95efed40676e8b82459b4f8f87ac40f8b9f643aa09f61a13089de619248",
+  "bytes": 69722
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/practice_answered.png",
+  "sha256": "626b2e73f0d737f4b0b36f64ce388b2099a722a3dbfe14a91cef8416de470be8",
+  "bytes": 502672
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/probe2_dialog.png",
+  "sha256": "170ed50fdb17c67ccfb1692590ed2f9a8ce161dc67c284e6aa356b37920eabba",
+  "bytes": 276412
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/probe_teacher_dialog.png",
+  "sha256": "91bf5c237f7a568eee05eb471c55466f9a61f2dce1eb7f827cefa34796340f50",
+  "bytes": 344794
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/product2_compact_screen.png",
+  "sha256": "b659a054f0f71d8d801df7e30ab95f2432b888cb0df37bbc6175f36fca8ed2fc",
+  "bytes": 286033
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/product2_fullscreen_fullscreen.png",
+  "sha256": "25e4f358390b8a5681849fde20a971263a62b397e9af14fc8527cf4861ecb6df",
+  "bytes": 546360
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/product_fullscreen_screen.png",
+  "sha256": "3e3546935a7058e77194c1517a8264396846e5c1940ce113d9648015238c47fe",
+  "bytes": 537473
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/product_wide_screen.png",
+  "sha256": "7b5c212c186a2fe33095cfbd56e3882f61a32975f7ec6fb776137e2539e53662",
+  "bytes": 535064
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/restarted.png",
+  "sha256": "604691450e208eb9fd3c459fa783845a7c2cfbc4ba737f0d3f6a7b8d2e7958ed",
+  "bytes": 312545
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/wide_360.png",
+  "sha256": "c193e50dbdd7a8d5537ff3aa9c98b66d162b83695b471d7e40940f81e8c8007c",
+  "bytes": 362426
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v1/qa-independent/shots/wide_on_screen_screen.png",
+  "sha256": "4fd1ec4d90025c94ab59ebf9e9e62bb494b089f143aa99d3eb1a8394fda8de65",
+  "bytes": 523488
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_compact_860.png",
+  "sha256": "883836b17c5cb7319aa910c85d994d691cccda5d395375299ae9a6defd85c18c",
+  "bytes": 189218
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_fullscreen.png",
+  "sha256": "94f64a032facded116269194d943dafe98fbc6c004c75892905717537e42731e",
+  "bytes": 323657
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_medium_1000.png",
+  "sha256": "73c0b3a7e23240186c3477b69922cdf2e4083535c295d01019e83af5dc08ad93",
+  "bytes": 253774
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_narrow_620.png",
+  "sha256": "b74a5d224ba6d804de380eb012d839f1118231c62168af368106dc1dc6546a07",
+  "bytes": 185894
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_wide_1360.png",
+  "sha256": "84f1fccda4dd0a15ffbeb56229d0f50e587d136162c89a7065a9c3b3feb2ec9b",
+  "bytes": 318067
+ },
+ {
+  "status": "M",
+  "path": "docs/engineering/product-v1/classroom-v1/release-fix01/test-results/ui_geometry.json",
+  "sha256": "c18170a341c29db2b6784cd5e0c1be7db1a1253ac8085073a63263db8e913398",
+  "bytes": 6294
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/.DS_Store",
+  "sha256": "f181c7f8ea7364a68e223b8c47e9e249a1e4fd735def7c2aa59a402a86187d36",
+  "bytes": 8196
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_AGENT_PLAN.md",
+  "sha256": "151a8bfa802fd9da440fdcc80a7b3da563089ccf3ee3f019eec862e5ee320386",
+  "bytes": 42837
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_CONTRACT_FIX_01A.md",
+  "sha256": "8b9b245f965bc9f3a138cfbfdf4a414adfd9596f7287ba8642b6f7a2ab9ea1d7",
+  "bytes": 22740
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_PHASE2_CONTRACT_FIX_01.md",
+  "sha256": "c4257f0f9a6d745b6b2566bdc57e09411c092818278dd5730e5561d549500127",
+  "bytes": 18704
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_RESEARCH_SYNTHESIS.md",
+  "sha256": "9c217ed25ffa682a2ade37e0ee11774d26c49e33b77c6efe464db245aa4820d7",
+  "bytes": 20380
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/CLASSROOM_V2_SCHEMA_V1_ERRATA.md",
+  "sha256": "65b1c1d265751676271c23b72cdc7336e523fdfd00829c6be795c17b43bb9711",
+  "bytes": 6237
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/api/STUDENT_CLS_KNOWLEDGE_CONTRACT.md",
+  "sha256": "350db2d27896fb5e9db9e19eaf20a3e21f01f2c49ef9dc3c575fc90d8db560de",
+  "bytes": 7714
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/.DS_Store",
+  "sha256": "ebad6ad573a3c73f4229079bac81e2103adf68f4eb9b84f7e5f006a1b2adf64f",
+  "bytes": 6148
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_advanced_dialog_wide.png",
+  "sha256": "e5dfe4f5883302a31f27c636b1461f5bcd4293ade0803776560d087211faebb6",
+  "bytes": 341601
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_classroom_offline_demo_wide.png",
+  "sha256": "051663ae19934d9dbddffde9cebb2e1573aa35223659bc55216c3cbfa01ee0ea",
+  "bytes": 312941
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_course_dialog_narrow620.png",
+  "sha256": "a2f6cb1f2a5792cab0d284c07dbf420b19ee9f07f34787b6771df6aaa63d9f8b",
+  "bytes": 170538
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_course_dialog_wide.png",
+  "sha256": "45875952e5ef18b3c3ec410c36e75229c1b67a9fbb96a559b4e860c11710798d",
+  "bytes": 342408
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_finder_open.png",
+  "sha256": "c19a68217934a0e36ce334807a0968bcc0622838b91274705bf8c35a1573a77b",
+  "bytes": 858127
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_narrow620.png",
+  "sha256": "35470688772c69d5d6788e74dd131036d423bac2fded002590d18f191d36bf2c",
+  "bytes": 315263
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_progress_wide.png",
+  "sha256": "a5529ca304aba88be920a268b392322452b3b978665b740128255b44aa5891f9",
+  "bytes": 524997
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_import_wide.png",
+  "sha256": "db6974192c5476a11d4d955c93b30216fd3213ab78b5447d9b23d597fc384461",
+  "bytes": 425515
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_library_narrow620.png",
+  "sha256": "5871a9b37a619a13e45a2f6fdbed2d99559d6412bf2f0af211fc22f78c209487",
+  "bytes": 211502
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_library_wide.png",
+  "sha256": "400293286af5b6a1efd28472824df2b005309385360e5f0aa0029126a190ec50",
+  "bytes": 268741
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_proofread_narrow620.png",
+  "sha256": "b659fb793d738c2c400acac9ff64d95b12111b29b561042cb23e20a250d9622b",
+  "bytes": 197985
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_proofread_wide.png",
+  "sha256": "d138e33d9dc44150dae76a79fc35133400c273e1e05c9dfb5545b8a0bbb077ad",
+  "bytes": 233291
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_after_wide.png",
+  "sha256": "cf8b323b82a7b38e35b097b5d0a8acad40c4de75d248d9d067c4760042886195",
+  "bytes": 360059
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_before_wide.png",
+  "sha256": "80bd469bc5ce314a13054d7b6b8380e0cb430f076c836be2a6ddda5c74a9ea85",
+  "bytes": 254580
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_publish_narrow620.png",
+  "sha256": "ec5e1dd4526b48824551f4352bf91fd0758f4f6b2e10206deb99bcfb5d63604e",
+  "bytes": 284920
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_teacher_dialog_wide.png",
+  "sha256": "13c765b9151805b0d3337f653aff404fb8c6388e217d181766dfbcda7e4ffda9",
+  "bytes": 314165
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_voice_mock_after_wide.png",
+  "sha256": "bb77673d5cec52248fbf2cb27a308ea6bc8d27cb4068307c7a3f1fa7690d7c2a",
+  "bytes": 448875
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/screenshots/v2_voice_mock_before_wide.png",
+  "sha256": "9b13a62a7965af757545fa3057c0958e07d0d13936707d96bed8728a56edd895",
+  "bytes": 409402
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/test-results/boundary_check.json",
+  "sha256": "f3b5bfde6924068da1fa08aba6f148291c440115a20efca3989aec56d487f948",
+  "bytes": 2314
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/test-results/offline_pipeline_replay.txt",
+  "sha256": "95e58713994997cec5e9c3e327ce58eed3134054e53ceb14d13448a128c2af72",
+  "bytes": 1283
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/test-results/ui_pages.json",
+  "sha256": "dab095b971ef454becb03c3e2b9b692c496f76ff6c26c7f1e056a84ca32263f1",
+  "bytes": 11666
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/test-results/voice_mock_event_log.json",
+  "sha256": "9a175be9f48f74a26e1072c4ca9d9911cf90f6ce476f01639018dfd0c8c965b3",
+  "bytes": 1024
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/delivery-02/workspace-manifest/git_status_porcelain.txt",
+  "sha256": "91f4dbabf8d1fe84297f2469c53897b68d625e921ae07dad19d62bfc934a89de",
+  "bytes": 3418
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/demo/sample_textbook.md",
+  "sha256": "32f3029c4162ce7f43052c7e5a5dd37a0905a8d27c52f87e0fa00b702718a90c",
+  "bytes": 1325
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/deploy/D1_LOCAL_SERVICE_LIFECYCLE.md",
+  "sha256": "08ccb0e1d828df21bac198e08f553cfa2ec364af096424c88f2ba89c5a6ac73a",
+  "bytes": 21838
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/deploy/STUDENT_APP_PACKAGING_MINIMAL.md",
+  "sha256": "437f25d4d01a8d24f81a89987c2166ebdba07df614fb40068153e135ba698c2d",
+  "bytes": 9288
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/design/.DS_Store",
+  "sha256": "9abe390500e623ed7730891df17eb25ed7cc5c7d6ce38bbe7147fef92009716a",
+  "bytes": 6148
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas.html",
+  "sha256": "73d2a5de19de09f61982663c2700a24d4bca73f7e2f19940dc771edad1a70323",
+  "bytes": 70858
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/design/canvas/classroom_v2_design_canvas_REV1.html",
+  "sha256": "dc9c57fe3a9d87bdda030c5d74a695cd5e44d679b93c573ccb8c99043da4a38b",
+  "bytes": 36404
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/avatar_adapter_tests.json",
+  "sha256": "1c1b254945a3153761ec8230afe762d52463f9ab4c6d97767ebd79affd94fb61",
+  "bytes": 4448
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/classroom_api_tests.json",
+  "sha256": "5ef166f80b215ef5b8e169c958bb84b853d5b45ad3120bd3994f3345005ebd2c",
+  "bytes": 7064
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/course_contract_v1_client_tests.json",
+  "sha256": "63d11cf851c877aa5a0235b2803f5943ffde06b0e187de100ea24c549706e33b",
+  "bytes": 8160
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/course_schema_consistency_tests.json",
+  "sha256": "df266da5a1194ee561e0d33171bb2c2745b913fa53cf90ec50b287c91567d0fe",
+  "bytes": 9787
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/curriculum_builder_tests.json",
+  "sha256": "c2ca87841c8332fd4eee252c20f8c351c163951853e129d0763b2621a37e9882",
+  "bytes": 6308
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/epub_parser_security_tests.json",
+  "sha256": "4349e52c67a9be7b2dc00507a5d45aceb65a27c6ba5570e41ca79cb511740016",
+  "bytes": 16910
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/knowledge_hash_format_tests.json",
+  "sha256": "1865df4a4d73f5998fcc390703a52cea952616f16a58ca3d1d5b75d370dbfd45",
+  "bytes": 8783
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/learning_record_tests.json",
+  "sha256": "87d63df088d7580546f22a15423e3d707d6633879bc30acd109e5f17b51e607a",
+  "bytes": 3980
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.err",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "bytes": 0
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.json",
+  "sha256": "c926f8bc7e08f1f769cd2e35e029b6c54a12e5703cb8ad058c4139934bb53eb8",
+  "bytes": 7182
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/parser_capability_probe.py",
+  "sha256": "8bff6590d4ec7e39338d0efb58e54981b706e09a926e70b062a955e398fcda85",
+  "bytes": 16619
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/schema_v1_errata_tests.json",
+  "sha256": "cb2f9be4bb23a36f1c6dbc787d548aaad2536d0e2c48a4d3837cab453f417aa6",
+  "bytes": 7549
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/evidence/voice_mock_tests.json",
+  "sha256": "a078401696762cdaff3d010e923ac027643ed871d9707393611b819f48d433b9",
+  "bytes": 5085
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/ownership/QML_OWNERSHIP_EXCEPTION_01.md",
+  "sha256": "8411ed59f307f0244c3825282e21e406db32ad3379cfe8fd88656266e13311a8",
+  "bytes": 3468
+ },
+ {
+  "status": "?? (dir)",
+  "path": "docs/engineering/product-v1/classroom-v2/security/D1_MINIMAL_PRIVILEGE_IMPORT_ACCESS.md",
+  "sha256": "a3cc3c0052de687056b604c7126cfae5bbf5f85f265a8987ccae8e694b4cfcf7",
+  "bytes": 42555
+ },
+ {
+  "status": "M",
+  "path": "gateway/app/admin/api_import.py",
+  "sha256": "f2fd471fd11dfac00b0beed12af2d405f363602efb3910df3fe65f66e5626fc8",
+  "bytes": 12917
+ },
+ {
+  "status": "M",
+  "path": "gateway/tests/admin_v4_api_tests.py",
+  "sha256": "57bd016746a555140fd0b752a2ff5374b933527811c14ca7fd0f349ff100b6a5",
+  "bytes": 38414
+ },
+ {
+  "status": "??",
+  "path": "gateway/tests/course_schema_consistency_tests.py",
+  "sha256": "397d418af496da1e6dd8e025fd44dae70854567997bc7153366b6697188968aa",
+  "bytes": 13308
+ },
+ {
+  "status": "??",
+  "path": "gateway/tests/curriculum_builder_tests.py",
+  "sha256": "bb9b3a76d40c7ccd75756dd1d3eb5dd686610c2273a685dc8158ac933a136fa6",
+  "bytes": 9088
+ },
+ {
+  "status": "M",
+  "path": "gateway/tests/import_v4_tests.py",
+  "sha256": "f555de9e106fa160ad3fafe4ed7d970ebbc7a3ab5356aa9836cce3f3d9f9fdb4",
+  "bytes": 10454
+ },
+ {
+  "status": "??",
+  "path": "gateway/tests/knowledge_epub_tests.py",
+  "sha256": "f07ae9f30888a911bf91f597ec1f4d04ce65b47e6dcc5778d2a45fd3c9ecb0fb",
+  "bytes": 28410
+ },
+ {
+  "status": "??",
+  "path": "gateway/tests/knowledge_hash_format_tests.py",
+  "sha256": "43c93dc8d03c85fedae058c4be3e1802dac07412a9c49f26efb07b0bb17a3cf6",
+  "bytes": 12725
+ },
+ {
+  "status": "??",
+  "path": "gateway/tests/schema_v1_errata_tests.py",
+  "sha256": "4a6bdfa029d0af39f0518a715da640aff54175691e7625599f4b2474c2597480",
+  "bytes": 13235
+ },
+ {
+  "status": "?? (dir)",
+  "path": "modules/curriculum/__init__.py",
+  "sha256": "a59dc6ffeafe41ab02bbd3e5e31137c90c74fbd782b63be45ec388a6ca6ad7e5",
+  "bytes": 524
+ },
+ {
+  "status": "?? (dir)",
+  "path": "modules/curriculum/builder.py",
+  "sha256": "eb245cb9598a6125c1bafa7e826afe15011d24793465d3f497cf32d805842e1a",
+  "bytes": 8531
+ },
+ {
+  "status": "?? (dir)",
+  "path": "modules/curriculum/course_schema.py",
+  "sha256": "23f3bd92688aedf0c0026dabf53c92087e9d04ad75a0496577ff17710ed09148",
+  "bytes": 15849
+ },
+ {
+  "status": "?? (dir)",
+  "path": "modules/curriculum/course_schema.v1.json",
+  "sha256": "f5bc1cb28853816726c90b6c9b61ad4731b6183a8e69156ab8d6dc57b9eb7bba",
+  "bytes": 8445
+ },
+ {
+  "status": "?? (dir)",
+  "path": "modules/curriculum/phonetics.py",
+  "sha256": "52aa28a00bbeba5b54cd3c4e910dd542f1aeca1776670401720fbff0b006145a",
+  "bytes": 3757
+ },
+ {
+  "status": "M",
+  "path": "modules/knowledge/parsers.py",
+  "sha256": "0190395f98915b120570de00651641e5523fc9e20107a8ae924d35b7a77a3bd9",
+  "bytes": 19540
+ },
+ {
+  "status": "M",
+  "path": "tools/build_classroom_app.sh",
+  "sha256": "8aa854f0c9e9a98a23d0a088bd6add69c803565e99b7af2d4a73686728795415",
+  "bytes": 1379
+ },
+ {
+  "status": "??",
+  "path": "tools/classroom_build_info.py",
+  "sha256": "ca60f36709f0dc016a191c027a383a773e58e976119af8526292ef3a29f4fb80",
+  "bytes": 5348
+ },
+ {
+  "status": "??",
+  "path": "tools/classroom_delivery_boundary_check.py",
+  "sha256": "93792042ff802d1b4c0fed49685f450bc41096acbdc249a2146265bba2ede8e1",
+  "bytes": 12808
+ },
+ {
+  "status": "??",
+  "path": "tools/classroom_finder_open_check.sh",
+  "sha256": "4e0b5d642faa3d26227e03a96d5bab7b021c01e7f40ac3388eba3bad2320cae7",
+  "bytes": 3716
+ },
+ {
+  "status": "??",
+  "path": "tools/classroom_offline_pipeline.py",
+  "sha256": "6fb10363494b8a5457c8ffe1b0f87a11e687eb436fdffce630a71351abf3e14c",
+  "bytes": 13715
+ },
+ {
+  "status": "??",
+  "path": "tools/migrate_course_bundle_v1.py",
+  "sha256": "5e25b87d442bccad24764b0bf74ae80831fced267f86a467d90594bd2cff5126",
+  "bytes": 5999
+ }
+]

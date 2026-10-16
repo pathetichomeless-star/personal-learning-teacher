@@ -1,0 +1,30 @@
+{
+  "artifact": "voice_mock_dialogue_event_log",
+  "source": "ui_pages_probe.py P12（真实 GUI 输入 → 发送）",
+  "honesty": "Mock 演练：不联网、不调用模型、不采集音频；回复为本地预设/回显",
+  "banner": "演练模式（Mock）：不联网、不调用任何真实模型、不采集麦克风音频；老师回复为「本地预设/回显」，不代表 AI 理解能力，也不产生真实语音。",
+  "mode": "本地模拟(Mock)",
+  "state_after": "idle",
+  "reply": "（Mock 回显）我听到你说：“hello”。请继续练习。",
+  "text_only": true,
+  "event_count": 3,
+  "events": [
+    {
+      "at": "03:28:49",
+      "type": "final_transcript",
+      "text": "hello",
+      "state": "thinking"
+    },
+    {
+      "at": "03:28:49",
+      "type": "teacher_speaking",
+      "text": "（Mock 回显）我听到你说：“hello”。请继续练习。",
+      "state": "speaking"
+    },
+    {
+      "at": "03:28:49",
+      "type": "teacher_done",
+      "state": "idle"
+    }
+  ]
+}

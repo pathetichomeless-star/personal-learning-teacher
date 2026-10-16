@@ -1,0 +1,500 @@
+{
+  "results": [
+    {
+      "name": "baseline HTTP valid",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "expected": 200
+      }
+    },
+    {
+      "name": "baseline no test token in body valid",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP missing",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "baseline uniform body missing",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline no test token in body missing",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP empty",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "baseline uniform body empty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline no test token in body empty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP ascii_wrong",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "baseline uniform body ascii_wrong",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline no test token in body ascii_wrong",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP nonascii",
+      "pass": true,
+      "detail": {
+        "status": 500,
+        "expected": 500
+      }
+    },
+    {
+      "name": "baseline no test token in body nonascii",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP bom",
+      "pass": true,
+      "detail": {
+        "status": 500,
+        "expected": 500
+      }
+    },
+    {
+      "name": "baseline no test token in body bom",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP latin1",
+      "pass": true,
+      "detail": {
+        "status": 500,
+        "expected": 500
+      }
+    },
+    {
+      "name": "baseline no test token in body latin1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP whitespace_tail",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "expected": 200
+      }
+    },
+    {
+      "name": "baseline no test token in body whitespace_tail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP wrong_scheme",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "baseline uniform body wrong_scheme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline no test token in body wrong_scheme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline HTTP length_8000",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "baseline uniform body length_8000",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline no test token in body length_8000",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline /shared.js available",
+      "pass": false,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "baseline matches none",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "baseline matches empty",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "baseline matches bytes",
+      "pass": true,
+      "detail": {
+        "return": null,
+        "exception": "TypeError"
+      }
+    },
+    {
+      "name": "baseline matches int",
+      "pass": true,
+      "detail": {
+        "return": null,
+        "exception": "TypeError"
+      }
+    },
+    {
+      "name": "baseline matches bool",
+      "pass": true,
+      "detail": {
+        "return": null,
+        "exception": "TypeError"
+      }
+    },
+    {
+      "name": "baseline matches surrogate",
+      "pass": true,
+      "detail": {
+        "return": null,
+        "exception": "TypeError"
+      }
+    },
+    {
+      "name": "baseline matches unicode",
+      "pass": true,
+      "detail": {
+        "return": null,
+        "exception": "TypeError"
+      }
+    },
+    {
+      "name": "baseline matches long",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final HTTP valid",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "expected": 200
+      }
+    },
+    {
+      "name": "final no test token in body valid",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP missing",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body missing",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body missing",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP empty",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body empty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body empty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP ascii_wrong",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body ascii_wrong",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body ascii_wrong",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP nonascii",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body nonascii",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body nonascii",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP bom",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body bom",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body bom",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP latin1",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body latin1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body latin1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP whitespace_tail",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "expected": 200
+      }
+    },
+    {
+      "name": "final no test token in body whitespace_tail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP wrong_scheme",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body wrong_scheme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body wrong_scheme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final HTTP length_8000",
+      "pass": true,
+      "detail": {
+        "status": 401,
+        "expected": 401
+      }
+    },
+    {
+      "name": "final uniform body length_8000",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final no test token in body length_8000",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "final /shared.js available",
+      "pass": false,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "final matches none",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches empty",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches bytes",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches int",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches bool",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches surrogate",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches unicode",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "final matches long",
+      "pass": true,
+      "detail": {
+        "return": false,
+        "exception": null
+      }
+    },
+    {
+      "name": "before/after Unicode HTTP 500→401",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "before": {
+    "valid": 200,
+    "missing": 401,
+    "empty": 401,
+    "ascii_wrong": 401,
+    "nonascii": 500,
+    "bom": 500,
+    "latin1": 500,
+    "whitespace_tail": 200,
+    "wrong_scheme": 401,
+    "length_8000": 401
+  },
+  "after": {
+    "valid": 200,
+    "missing": 401,
+    "empty": 401,
+    "ascii_wrong": 401,
+    "nonascii": 401,
+    "bom": 401,
+    "latin1": 401,
+    "whitespace_tail": 200,
+    "wrong_scheme": 401,
+    "length_8000": 401
+  }
+}

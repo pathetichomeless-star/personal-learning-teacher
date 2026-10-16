@@ -1,0 +1,31 @@
+VOCAB ACCURACY AUDIT — FINAL REGRESSION BATTERY (2026-10-07T15:59:57Z)
+
+== VOCAB_ACCURACY_TESTS ==
+======================================================================
+VOCAB_ACCURACY_TESTS: 79 checks, 79 PASS, 0 FAIL
+
+== BEHAVIOR1_TESTS ==
+======================================================================
+BEHAVIOR1_TESTS: 111 checks, 111 PASS, 0 FAIL
+
+== MVP_INTEGRATION ==
+======================================================================
+MVP_INTEGRATION_TESTS: 28 checks, 28 PASS, 0 FAIL
+
+== CLIENT_UI_INTEGRATION ==
+
+CLIENT_UI1_INTEGRATION: 19/19 PASS
+
+== R1F_REGRESSION ==
+======================================================================
+R1F_BRIDGE_TESTS: 180 checks, 179 PASS, 1 FAIL, 0.4s
+FAILED CHECKS:
+  - B test_sentinel_harness EXCEPTION OpusError()
+
+== CLIENT_UI_TESTS ==
+
+CLIENT_UI1_TESTS: 48/48 PASS
+
+== GUI_TRANSCRIPT_LIVE_TESTS ==
+======================================================================
+GUI_TRANSCRIPT_LIVE_TESTS: 25 checks, 25 PASS, 0 FAIL

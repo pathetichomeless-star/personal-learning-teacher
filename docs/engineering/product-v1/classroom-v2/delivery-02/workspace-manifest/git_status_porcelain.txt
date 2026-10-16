@@ -1,0 +1,68 @@
+ M client/classroom_app.spec
+ M client/probe_avatar_qml_offscreen.py
+ M client/src/avatar/runtime/avatar_page.js
+ M client/src/classroom/classroom_model.py
+ M client/src/classroom/data/courses.json
+ M client/src/classroom/qml/ClassroomWindow.qml
+ M client/src/classroom/qml/CourseArea.qml
+ M client/src/classroom/tests/test_classroom_app_bundle.py
+ M client/src/ui/gui/manager.py
+ M client/src/ui/gui/qml/components/AvatarLive2D.qml
+ M docs/engineering/product-v1/avatar-vision-v0/V1_MAC_GUI_ACCEPTANCE.md
+ M docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_compact_860.png
+ M docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_fullscreen.png
+ M docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_medium_1000.png
+ M docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_narrow_620.png
+ M docs/engineering/product-v1/classroom-v1/release-fix01/screenshots/after_wide_1360.png
+ M docs/engineering/product-v1/classroom-v1/release-fix01/test-results/ui_geometry.json
+ M gateway/app/admin/api_import.py
+ M gateway/tests/admin_v4_api_tests.py
+ M gateway/tests/import_v4_tests.py
+ M modules/knowledge/parsers.py
+ M tools/build_classroom_app.sh
+?? %E5%B0%8F%E6%99%BA%E4%B8%AD%E6%96%87%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5%E8%AE%BE%E8%AE%A1_V2.md
+?? %E5%B0%8F%E6%99%BA%E5%90%8E%E5%8F%B0_%E5%8F%8C%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5_V2.zip
+?? CLASSROOM_V1_INDEPENDENT_QA_REPORT.md
+?? CLASSROOM_V1_RELEASE_FIX02_INDEPENDENT_QA.md
+?? CLASSROOM_V2_DELIVERY_GATE_02_REPORT.md
+?? CLASSROOM_V2_MASTER_AUDIT.md
+?? CLASSROOM_V2_PARSER_CAPABILITY_REPORT.md
+?? CLASSROOM_V2_REV1A_DIFF.md
+?? CLASSROOM_V2_REV1B_DIFF.md
+?? CLASSROOM_V2_UI_DESIGN.md
+?? client/build_info/
+?? client/src/avatar/runtime_server.py
+?? client/src/classroom/avatar_adapter.py
+?? client/src/classroom/classroom_api.py
+?? client/src/classroom/course_schema.py
+?? client/src/classroom/course_schema.v1.json
+?? client/src/classroom/data/demo/
+?? client/src/classroom/learning_record.py
+?? client/src/classroom/qml/ImportPanel.qml
+?? client/src/classroom/qml/LibraryPanel.qml
+?? client/src/classroom/qml/NavBar.qml
+?? client/src/classroom/qml/ProofreadPanel.qml
+?? client/src/classroom/qml/PublishPanel.qml
+?? client/src/classroom/tests/test_avatar_adapter.py
+?? client/src/classroom/tests/test_classroom_api.py
+?? client/src/classroom/tests/test_course_contract_v1.py
+?? client/src/classroom/tests/test_learning_record.py
+?? client/src/classroom/tests/test_voice_mock.py
+?? client/src/classroom/tests/ui_pages_probe.py
+?? client/src/classroom/voice_mock.py
+?? docs/engineering/product-v1/P2B2_ACCEPTANCE_REPORT.md
+?? docs/engineering/product-v1/P2B2_REAL_VOICE_ACCEPTANCE_ENTRY.md
+?? docs/engineering/product-v1/R3_2C_INDEPENDENT_SIM_QA_REPORT.md
+?? docs/engineering/product-v1/classroom-v1/qa-independent/
+?? docs/engineering/product-v1/classroom-v2/
+?? gateway/tests/course_schema_consistency_tests.py
+?? gateway/tests/curriculum_builder_tests.py
+?? gateway/tests/knowledge_epub_tests.py
+?? gateway/tests/knowledge_hash_format_tests.py
+?? gateway/tests/schema_v1_errata_tests.py
+?? modules/curriculum/
+?? tools/classroom_build_info.py
+?? tools/classroom_delivery_boundary_check.py
+?? tools/classroom_finder_open_check.sh
+?? tools/classroom_offline_pipeline.py
+?? tools/migrate_course_bundle_v1.py

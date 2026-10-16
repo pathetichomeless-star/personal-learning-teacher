@@ -1,0 +1,132 @@
+{
+  "artifact": "voice_mock_tests",
+  "scope": "CLASSROOM V2 PHASE2 · Agent C（文字/Mock 语音 + 事件 + 打断）",
+  "results": [
+    {
+      "case_id": "C01",
+      "name": "事件序列 user_speech→partial→final→teacher_speaking→teacher_done",
+      "passed": true,
+      "observed": "['user_speech', 'partial_transcript', 'final_transcript', 'teacher_speaking', 'teacher_done']",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 50
+    },
+    {
+      "case_id": "C01b",
+      "name": "结束后状态回到 idle",
+      "passed": true,
+      "observed": "'idle'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 53
+    },
+    {
+      "case_id": "C02",
+      "name": "teacher_speaking 时 barge_in → 打断回 listening",
+      "passed": true,
+      "observed": "('speaking', 'listening')",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 60
+    },
+    {
+      "case_id": "C03a",
+      "name": "1006 → 中文原因（非裸数字）",
+      "passed": true,
+      "observed": "'连接被意外中断（网络或服务端关闭）'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 64
+    },
+    {
+      "case_id": "C03b",
+      "name": "401/409 各有中文原因",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 66
+    },
+    {
+      "case_id": "C03c",
+      "name": "未知码 → 诚实兜底（含码，不臆造）",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 68
+    },
+    {
+      "case_id": "C03d",
+      "name": "error() 记录中文原因并回 idle",
+      "passed": true,
+      "observed": "'连接被意外中断（网络或服务端关闭）'",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 72
+    },
+    {
+      "case_id": "C04a",
+      "name": "三种模式均可构造并显式标注",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 76
+    },
+    {
+      "case_id": "C04b",
+      "name": "真实在线模式：未注入授权适配器 → real_connected=False",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 79
+    },
+    {
+      "case_id": "C04c",
+      "name": "真实在线未授权 → 拒绝（不发起真实请求）",
+      "passed": true,
+      "observed": "{'ok': False, 'reason': '真实在线模式未授权（未注入已授权的语音适配器）', 'mode': '真实在线'}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 82
+    },
+    {
+      "case_id": "C05",
+      "name": "Mock 往返确定（同输入同输出）且回复来自 canned 表",
+      "passed": true,
+      "observed": "{'ok': True, 'reply': '很好，继续！', 'mode': '本地模拟(Mock)', 'events': ['final_transcript', 'teacher_speaking', 'teacher_done']}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 90
+    },
+    {
+      "case_id": "C06a",
+      "name": "未授权麦克风 → text_only=True 且明示",
+      "passed": true,
+      "observed": "None",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 95
+    },
+    {
+      "case_id": "C06b",
+      "name": "文字模式 start_listening 不报错，发 no_mic 说明",
+      "passed": true,
+      "observed": "{'type': 'error', 'code': 'no_mic', 'reason': '未授予麦克风权限，可改用文字学习'}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 97
+    },
+    {
+      "case_id": "C06c",
+      "name": "文字模式仍可完成往返（只用文字）",
+      "passed": true,
+      "observed": "{'ok': True, 'reply': '你好', 'mode': '本地模拟(Mock)', 'events': ['final_transcript', 'teacher_speaking', 'teacher_done']}",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 100
+    },
+    {
+      "case_id": "C07",
+      "name": "Mock 往返零 socket 连接（不触网）",
+      "passed": true,
+      "observed": "[]",
+      "asserted_file": "<project-root>/client/src/classroom/tests/test_voice_mock.py",
+      "asserted_line": 110
+    }
+  ],
+  "summary": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "failed_ids": []
+  }
+}
